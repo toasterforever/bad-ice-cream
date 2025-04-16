@@ -332,21 +332,6 @@ void App::Update() {
                 m_Fruit[14]->SetPosition(7, 10);
                 m_Fruit[15]->SetVisible(true);
                 m_Fruit[15]->SetPosition(8, 10);
-                Map={
-                         "############",//0
-                         "#..........#",//1
-                         "#..........#",//2
-                         "#..........#",//3
-                         "#..........#",//4
-                         "#..........#",//5
-                         "#..........#",//6
-                         "#..........#",//8
-                         "#..........#",//8
-                         "#..........#",//9
-                         "#..........#",//10
-                         "############"//11
-                         // "012345678901"
-                     };
             }
             break;
         }
@@ -363,31 +348,6 @@ void App::Update() {
                 m_Ice[a]->SetVisible(false);
             }
 
-            m_Ice[10*3+3]->SetVisible(true);
-            m_Ice[10*3+4]->SetVisible(true);
-            m_Ice[10*3+5]->SetVisible(true);
-            m_Ice[10*3+6]->SetVisible(true);
-
-            m_Ice[10*4+3]->SetVisible(true);
-            m_Ice[10*5+3]->SetVisible(true);
-            m_Ice[10*6+3]->SetVisible(true);
-
-            m_Ice[10*4+6]->SetVisible(true);
-            m_Ice[10*5+6]->SetVisible(true);
-            m_Ice[10*6+6]->SetVisible(true);
-
-            m_Ice[10*6+4]->SetVisible(true);
-            m_Ice[10*6+5]->SetVisible(true);
-
-            m_Ice[10*1+2]->SetVisible(true);
-            m_Ice[10*2+1]->SetVisible(true);
-            m_Ice[10*1+7]->SetVisible(true);
-            m_Ice[10*2+8]->SetVisible(true);
-
-            m_Ice[10*7+1]->SetVisible(true);
-            m_Ice[10*8+2]->SetVisible(true);
-            m_Ice[10*7+8]->SetVisible(true);
-            m_Ice[10*8+7]->SetVisible(true);
 
             m_Fruit[0]->SetVisible(true);
             m_Fruit[1]->SetVisible(true);
@@ -416,27 +376,83 @@ void App::Update() {
             m_Enemies_1[1]->SetVisible(true);
             m_Enemies_1[2]->SetVisible(true);
             m_Enemies_1[3]->SetVisible(true);
-            m_Enemies_1[0]->SetPosition(1,1);
-            m_Enemies_1[1]->SetPosition(10,1);
-            m_Enemies_1[2]->SetPosition(1,10);
-            m_Enemies_1[3]->SetPosition(10,10);
-            Map={
-                "############",//0
-                "#..........#",//1
-                "#..........#",//2
-                "#..........#",//3
-                "#..........#",//4
-                "#..........#",//5
-                "#..........#",//6
-                "#..........#",//8
-                "#..........#",//8
-                "#..........#",//9
-                "#..........#",//10
-                "############"//11
-                // "012345678901"
-            };
+            m_Enemies_1[0]->SetPosition(1,4);
+            m_Enemies_1[1]->SetPosition(1,7);
+            m_Enemies_1[2]->SetPosition(10,4);
+            m_Enemies_1[3]->SetPosition(10,7);
+
+            m_Enemies_1[4]->SetVisible(true);
+            m_Enemies_1[5]->SetVisible(true);
+            m_Enemies_1[6]->SetVisible(true);
+            m_Enemies_1[7]->SetVisible(true);
+            m_Enemies_1[4]->SetPosition(4,1);
+            m_Enemies_1[5]->SetPosition(7,1);
+            m_Enemies_1[6]->SetPosition(4,10);
+            m_Enemies_1[7]->SetPosition(7,10);
+
         }
         break;}
+    case Phase::LV03:{
+        if (LV_Change == 0){
+            m_Button[4]->SetVisible(true);
+            m_Button[5]->SetVisible(true);
+            m_Button[6]->SetVisible(true);
+            LV_Change = 1;
+            for (int a = 0; a < 100; a++)
+            {
+                m_Floor[a]->SetVisible(true);
+                m_Ice[a]->SetVisible(false);
+            }
+            m_Ice[10*3+3]->SetVisible(true);
+            m_Ice[10*3+4]->SetVisible(true);
+            m_Ice[10*3+5]->SetVisible(true);
+            m_Ice[10*3+6]->SetVisible(true);
+
+            m_Ice[10*4+3]->SetVisible(true);
+            m_Ice[10*5+3]->SetVisible(true);
+            m_Ice[10*6+3]->SetVisible(true);
+
+            m_Ice[10*4+6]->SetVisible(true);
+            m_Ice[10*5+6]->SetVisible(true);
+            m_Ice[10*6+6]->SetVisible(true);
+
+            m_Ice[10*6+4]->SetVisible(true);
+            m_Ice[10*6+5]->SetVisible(true);
+
+            m_Ice[10*1+2]->SetVisible(true);
+            m_Ice[10*2+1]->SetVisible(true);
+            m_Ice[10*1+7]->SetVisible(true);
+            m_Ice[10*2+8]->SetVisible(true);
+
+            m_Ice[10*7+1]->SetVisible(true);
+            m_Ice[10*8+2]->SetVisible(true);
+            m_Ice[10*7+8]->SetVisible(true);
+            m_Ice[10*8+7]->SetVisible(true);
+
+            m_Enemies_1[8]->SetVisible(true);
+            m_Enemies_1[9]->SetVisible(true);
+            m_Enemies_1[10]->SetVisible(true);
+            m_Enemies_1[11]->SetVisible(true);
+            m_Enemies_1[8]->SetPosition(1,1);
+            m_Enemies_1[9]->SetPosition(10,1);
+            m_Enemies_1[10]->SetPosition(1,10);
+            m_Enemies_1[11]->SetPosition(10,10);
+
+            m_IceCream->SetVisible(true);
+            m_IceCream->SetPosition(5,5);
+
+            m_Fruit[0]->SetVisible(true);
+            m_Fruit[1]->SetVisible(true);
+            m_Fruit[2]->SetVisible(true);
+            m_Fruit[3]->SetVisible(true);
+            m_Fruit[0]->SetPosition(1, 10);
+            m_Fruit[1]->SetPosition(1, 1);
+            m_Fruit[2]->SetPosition(10, 1);
+            m_Fruit[3]->SetPosition(10, 10);
+            Fruit_Counter=4;
+
+        }
+    }
     default:
         break;
     }//LV初始化

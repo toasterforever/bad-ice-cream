@@ -3,7 +3,7 @@
 //
 #include "Enemies.hpp"
 
-Enemies::Enemies(const std::string& ImagePath): Character(ImagePath)
+Enemies::Enemies(const std::string& ImagePath,Model::Move ModelMove): Character(ImagePath),ModelMove(ModelMove)
 {
 
 }
@@ -77,7 +77,11 @@ Model::Direction Enemies::GetRandomDirection()
     }
     if (ModelMove==Model::Move::Auto_Move)
     {
-
+        return Model::Direction::None;
+    }
+    if (ModelMove==Model::Move::Dont_Move)
+    {
+        return Model::Direction::None;
     }
 }
 

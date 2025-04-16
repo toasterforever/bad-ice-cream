@@ -86,7 +86,7 @@ private:
 
     glm::vec2 targetPosition = glm::vec2(-330 + cellSize * NextI, 330 - cellSize * NextJ);
 
-    Model::Direction currentDirection = Model::Direction::Down;
+    Model::Direction currentDirection = Model::Direction::None;
 
 
 
