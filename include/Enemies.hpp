@@ -14,7 +14,7 @@
 class Enemies : public Character
 {
 public:
-    explicit Enemies(const std::string& ImagePath);
+    explicit Enemies(const std::string& ImagePath, Model::Move ModelMove);
 
     void MoveTowards();
     Model::Direction GetRandomDirection();
@@ -25,7 +25,7 @@ public:
 
     void UpdatePosition() override;
 private:
-    Model::Move ModelMove = Model::Move::Row_Move;
+    Model::Move ModelMove;
 
 };
 

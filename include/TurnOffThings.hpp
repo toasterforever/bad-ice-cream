@@ -23,6 +23,21 @@ void App::TurnOffLevel()
     for (const auto& Fruit : m_Fruit) {
         Fruit->SetVisible(false);
     }
+    Map={
+        "############",//0
+        "#..........#",//1
+        "#..........#",//2
+        "#..........#",//3
+        "#..........#",//4
+        "#..........#",//5
+        "#..........#",//6
+        "#..........#",//8
+        "#..........#",//8
+        "#..........#",//9
+        "#..........#",//10
+        "############"//11
+        // "012345678901"
+    };
 }
 
 void App::TurnOffButton()
@@ -39,6 +54,7 @@ void App::TurnOffLevelButton()
     {
         LevelButton->SetVisible(false);
     }
+
 }
 
 #endif //TURNOFFTHINGS_HPP

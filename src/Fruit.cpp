@@ -4,7 +4,7 @@
 
 #include "Fruit.hpp"
 
-Fruit::Fruit(const std::string& ImagePath):Enemies(ImagePath)
+Fruit::Fruit(const std::string& ImagePath):Enemies(ImagePath,Model::Move::Dont_Move)
 {
 
 }

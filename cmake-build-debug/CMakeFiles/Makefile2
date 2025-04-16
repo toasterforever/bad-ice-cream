@@ -333,10 +333,10 @@ _deps/spdlog-build/clean: _deps/spdlog-build/CMakeFiles/spdlog.dir/clean
 # Target rules for target CMakeFiles/bad_ice_cream.dir
 
 # All Build rule for target.
-CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
-CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
+CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
@@ -394,8 +394,8 @@ _deps/ptsd-build/CMakeFiles/ImGui.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/PTSD.dir
 
 # All Build rule for target.
-_deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
+_deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
@@ -427,10 +427,10 @@ _deps/ptsd-build/CMakeFiles/PTSD.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/Example.dir
 
 # All Build rule for target.
-_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
-_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
+_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
@@ -462,17 +462,17 @@ _deps/ptsd-build/CMakeFiles/Example.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/Tests.dir
 
 # All Build rule for target.
+_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
-_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
-_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\Tests.dir\build.make _deps/ptsd-build/CMakeFiles/Tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\Tests.dir\build.make _deps/ptsd-build/CMakeFiles/Tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=62,63,64,65,66 "Built target Tests"
@@ -498,17 +498,17 @@ _deps/ptsd-build/CMakeFiles/Tests.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/AudioTest.dir
 
 # All Build rule for target.
+_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
-_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
-_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\AudioTest.dir\build.make _deps/ptsd-build/CMakeFiles/AudioTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\AudioTest.dir\build.make _deps/ptsd-build/CMakeFiles/AudioTest.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target AudioTest"

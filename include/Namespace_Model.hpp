@@ -42,7 +42,8 @@ namespace Model {
         Up,
         Down,
         Left,
-        Right
+        Right,
+        None
     };
 }
 #endif //NAMESPACE_MODEL_HPP
