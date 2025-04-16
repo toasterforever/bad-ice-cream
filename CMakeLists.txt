@@ -25,7 +25,24 @@ FetchContent_MakeAvailable(ptsd)
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 file(GLOB_RECURSE HEADER_FILES include/*.hpp)
 
-add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES})
+add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
+        include/MainCharacter.hpp
+        include/Enemies.hpp
+        include/Wall.hpp
+        include/Ice.hpp
+        src/MainCharacter.cpp
+        src/Ice.cpp
+        src/Enemies.cpp
+        include/Floor.hpp
+        src/Floor.cpp
+        include/BackGround.hPP
+        src/BackGround.cpp
+        include/Button.hpp
+        src/Button.cpp
+        include/Fruit.hpp
+        include/Namespace_Model.hpp
+        src/Fruit.cpp
+        include/TurnOffThings.hpp)
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4)

@@ -6,8 +6,8 @@ std::shared_ptr<Mix_Music> LoadMusic(const std::string &filepath) {
                                             Mix_FreeMusic);
 
     if (music == nullptr) {
-        LOG_DEBUG("Failed to load BGM: '{}'", filepath);
-        LOG_DEBUG("{}", Mix_GetError());
+        //LOG_DEBUG("Failed to load BGM: '{}'", filepath);
+        //LOG_DEBUG("{}", Mix_GetError());
     }
 
     return music;

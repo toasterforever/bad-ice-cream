@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/CMakeFiles/glm-populate"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/CMakeFiles/glm-populate.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/CMakeFiles/glm-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-build.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-download.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-install.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-test.rule"
+		},
+		{
+			"file" : "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/glm-subbuild/glm-populate-prefix/src/glm-populate-stamp/glm-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glm-populate"
+		],
+		"name" : "glm-populate"
+	}
+}

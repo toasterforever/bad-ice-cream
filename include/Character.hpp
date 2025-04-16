@@ -5,26 +5,17 @@
 
 #include "Util/GameObject.hpp"
 #include "Util/Input.hpp"
+#include "Namespace_Model.hpp"
+#include <iostream>
 
-namespace Util {
-    enum class Direction {
-        Up,
-        Down,
-        Left,
-        Right
-    };
-    enum class Model {
-        Row_Move,
-        Column_Move,
-        Around_Move,
-        Auto_Move
-    };
-}
-
-
+inline int cellSize=60;
 class Character : public Util::GameObject {
 public:
-    explicit Character(const std::string& ImagePath, Util::Model Model=Util::Model::Row_Move):currentModel(Model){};
+
+
+    explicit Character(const std::string& ImagePath);
+
+    int i=0 , j=0 ;int NextI=0,NextJ=0;
 
     Character(const Character&) = delete;
 
@@ -40,121 +31,65 @@ public:
 
     [[nodiscard]] bool GetVisibility() const { return m_Visible; }
 
+    [[nodiscard]] const glm::vec2 GetIJ() const { return {i,j}; }
+
+    [[nodiscard]] int GetI() const{return i;}
+
+    [[nodiscard]] int GetJ() const{return j;}
+
+    [[nodiscard]] const glm::vec2 GetNextIJ() const { return {NextI,NextJ}; }
+
+    [[nodiscard]] int GetNextI() const{return NextI;}
+
+    [[nodiscard]] int GetNextJ() const{return NextJ;}
+
     void SetImage(const std::string& ImagePath);
 
-    void SetPosition(const glm::vec2& Position) { m_Transform.translation = Position; }
+    void SetPosition(int newI, int newJ)
+    {
+        i = newI;NextI=newI;NextJ=newJ;
+        j = newJ;
 
-    // TODO: Implement the collision detection
-    [[nodiscard]] bool IfCollides(const std::shared_ptr<Character>& other) const {
+        m_Transform.translation = glm::vec2(-330+(cellSize*i),330-(cellSize*j));
+    }
+
+    [[nodiscard]] bool IfCollides(const std::shared_ptr<Character>& other, glm::vec2 Position) const {
         (void) other;
-        if ( abs(other->GetPosition().x - this->GetPosition().x )<=35 && abs(other->GetPosition().y - this->GetPosition().y )<=70 )
+        if ( abs(other->GetPosition().x - Position.x )<cellSize-20 && abs(other->GetPosition().y - Position.y )<cellSize-20 )
         {
             return true;
         }
         return false;
     }
 
-    void MoveLeft(){
-        SetPosition( GetPosition() + glm::vec2{-5,0} );
-        this->SetDirection(Util::Direction::Left);
-    }
-    void MoveRight(){
-        SetPosition( GetPosition() + glm::vec2{5,0} );
-        this->SetDirection(Util::Direction::Right);
-    }
-    void MoveUp(){
-        SetPosition( GetPosition() + glm::vec2{0,5} );
-        this->SetDirection(Util::Direction::Up);
-    }
-    void MoveDown(){
-        SetPosition( GetPosition() + glm::vec2{0,-5} );
-        this->SetDirection(Util::Direction::Down);
-    }
-    // TODO: Add and implement more methods and properties as needed to finish Giraffe Adventure.
+    void MoveLeft();
+    void MoveRight();
+    void MoveUp();
+    void MoveDown();
 
-    void Character::OnKeyPress(Util::Keycode key) {
-        if (std::find(keyOrder.begin(), keyOrder.end(), key) == keyOrder.end()) {
-            keyOrder.push_back(key);
-        }
-    }
-    void Character::OnKeyRelease(Util::Keycode key) {
-        keyOrder.erase(std::remove(keyOrder.begin(), keyOrder.end(), key), keyOrder.end());
-    }
+    [[nodiscard]] Model::Direction GetDirection() const {return currentDirection;}
 
-    void Character::UpdateMovement() {
-        if (keyOrder.empty()) return;  // 沒有按鍵時不移動
+    void SetDirection(Model::Direction direction){currentDirection = direction;}
 
-        switch (keyOrder.front()) {
-            case Util::Keycode::W:
-            case Util::Keycode::UP:
-                this->MoveUp();
-                break;
-            case Util::Keycode::S:
-            case Util::Keycode::DOWN:
-                this->MoveDown();
-                break;
+    virtual bool TowardHasThings(int NewI, int NewJ);
 
-            case Util::Keycode::A:
-            case Util::Keycode::LEFT:
-                this->MoveLeft();
-                break;
-            case Util::Keycode::D:
-            case Util::Keycode::RIGHT:
-                this->MoveRight();
-                break;
-        }
-    }
+    virtual bool TowardHasThings(Model::Direction NewDirection);
 
-    Util::Direction GetDirection() const {
-        return currentDirection;
-    }
+    virtual void UpdatePosition();
 
-    void SetDirection(Util::Direction direction)
-    {
-        currentDirection = direction;
-    }
+    bool IsMoving() const;
 
-    void MoveTowards()
-    {
-        Util::Direction direction = GetDirection();
-        if(direction == Util::Direction::Up){
-            MoveUp();
-        }
-        else if(direction == Util::Direction::Down){
-            MoveDown();
-        }
-        else if(direction == Util::Direction::Left){
-            MoveLeft();
-        }
-        else if(direction == Util::Direction::Right){
-            MoveRight();
-        }
-        if(TowardHasIce()){
-            switch(direction){
-                case Util::Direction::Up:
-                    SetDirection(Util::Direction::Down);
-                    break;
 
-                case Util::Direction::Down:
-                    SetDirection(Util::Direction::Up);
-                    break;
-                case Util::Direction::Left:
-                    SetDirection(Util::Direction::Right);
-                    break;
-                case Util::Direction::Right:
-                    SetDirection(Util::Direction::Left);
-                    break;
-            }
-        }
-    }
 private:
-    void ResetPosition() { m_Transform.translation = {0, 0}; }
-    Util::Model currentModel = Util::Model::Row_Move;
+
     std::string m_ImagePath;
 
-    std::vector<Util::Keycode> keyOrder;
+    glm::vec2 targetPosition = glm::vec2(-330 + cellSize * NextI, 330 - cellSize * NextJ);
 
-    Util::Direction currentDirection = Util::Direction::Down;
+    Model::Direction currentDirection = Model::Direction::Down;
+
+
+
 };
 
 

@@ -6,8 +6,8 @@ std::shared_ptr<Mix_Chunk> LoadChunk(const std::string &filepath) {
                                             Mix_FreeChunk);
 
     if (chunk == nullptr) {
-        LOG_DEBUG("Failed to load SFX: '{}'", filepath);
-        LOG_DEBUG("{}", Mix_GetError());
+        //LOG_DEBUG("Failed to load SFX: '{}'", filepath);
+        //LOG_DEBUG("{}", Mix_GetError());
     }
 
     return chunk;

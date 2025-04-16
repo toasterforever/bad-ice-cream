@@ -1,52 +1,220 @@
 #include "App.hpp"
-
+#include <iostream>
 #include "Util/Logger.hpp"
+#include <random>
+#include <cstring>
 
-void App::Start() {
+void App::Start()
+{
     LOG_TRACE("Start");
+    static std::random_device rd3;   // 產生隨機種子
+    static std::mt19937 gen3(rd3());  // 使用 Mersenne Twister 隨機數引擎
+    static std::uniform_int_distribution<int> dist3(0, 19);  // 產生 0~19 的整數
+    {
+        m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_Background.png"));
+        m_BackGround[0]->ResetPosition();
+        m_BackGround[0]->SetZIndex(1);
+        m_BackGround[0]->SetVisible(true);
+        m_Root.AddChild(m_BackGround[0]);
 
-    m_IceCream = std::make_shared<Character>(GA_RESOURCE_DIR"/Image/Character/giraffe.png");
-    m_IceCream->SetPosition({-112.5f, -140.5f});
-    m_IceCream->SetZIndex(50);
-    m_Root.AddChild(m_IceCream);
+        m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Title_BadIceCream.png"));
+        m_BackGround[1]->SetPosition({0,200});
+        m_BackGround[1]->SetZIndex(100);
+        m_BackGround[1]->SetVisible(true);
+        m_Root.AddChild(m_BackGround[1]);
 
+        m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_Help.png"));
+        m_BackGround[2]->ResetPosition();
+        m_BackGround[2]->SetZIndex(50);
+        m_BackGround[2]->SetVisible(false);
+        m_Root.AddChild(m_BackGround[2]);
 
-    // m_Chest = std::make_shared<Character>(GA_RESOURCE_DIR"/Image/Character/chest.png");
-    // m_Chest->SetZIndex(5);
-    // m_Chest->SetPosition({197.5f, -3.5f});
-    // m_Chest->SetVisible(false);
-    // m_Root.AddChild(m_Chest);
+        m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_None.png"));
+        m_BackGround[3]->ResetPosition();
+        m_BackGround[3]->SetZIndex(50);
+        m_BackGround[3]->SetVisible(false);
+        m_Root.AddChild(m_BackGround[3]);
 
-    // std::vector<std::string> beeImages;
-    // beeImages.reserve(2);
-    // for (int i = 0; i < 2; ++i) {
-    //     beeImages.emplace_back(GA_RESOURCE_DIR"/Image/Character/bee_" + std::to_string(i + 1) + ".png");
-    // }
-    //
-    // m_Bee = std::make_shared<AnimatedCharacter>(beeImages);
-    // m_Bee->SetZIndex(5);
-    // m_Bee->SetVisible(false);
-    // m_Root.AddChild(m_Bee);
-    //
-    // for (int i = 0; i < 3; ++i) {
-    //     m_Door.push_back(std::make_shared<Character>(GA_RESOURCE_DIR"/Image/Character/door_close.png"));
-    //     m_Door[i]->SetZIndex(5);
-    //     m_Door[i]->SetPosition({205.5f - 80.f * i, -3.5f});
-    //     m_Door[i]->SetVisible(false);
-    //     m_Root.AddChild(m_Door[i]);
-    // }
-    //
-    // std::vector<std::string> ballImages;
-    // ballImages.reserve(4);
-    // for (int i = 0; i < 3; ++i) {
-    //     ballImages.emplace_back(GA_RESOURCE_DIR"/Image/Character/ball-" + std::to_string( i+1 ) + ".png");
-    // }
-    // ballImages.emplace_back(GA_RESOURCE_DIR"/Image/Character/ball-ok.png");
-    // m_Ball = std::make_shared<AnimatedCharacter>(ballImages);
-    // m_Ball->SetZIndex(5);
-    // m_Ball->SetVisible(false);
-    // m_Root.AddChild(m_Ball);
-    // TODO: The counting down ball for phase 6
+        m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_WIN.png"));
+        m_BackGround[4]->ResetPosition();
+        m_BackGround[4]->SetZIndex(50);
+        m_BackGround[4]->SetVisible(false);
+        m_Root.AddChild(m_BackGround[4]);
+        m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_LOSE.png"));
+        m_BackGround[5]->ResetPosition();
+        m_BackGround[5]->SetZIndex(50);
+        m_BackGround[5]->SetVisible(false);
+        m_Root.AddChild(m_BackGround[5]);
+    }//background
+
+    {
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_PLAY.png",Model::ButtonStyle::W200H100));
+        m_Button[0]->BackGround::SetPosition({0,-50});
+        m_Button[0]->SetZIndex(100);
+        m_Button[0]->SetVisible(true);
+        m_Root.AddChild(m_Button[0]);
+
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_HELP.png",Model::ButtonStyle::W200H100));
+        m_Button[1]->BackGround::SetPosition({0,-200});
+        m_Button[1]->SetZIndex(100);
+        m_Button[1]->SetVisible(true);
+        m_Root.AddChild(m_Button[1]);
+
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_BACK.png",Model::ButtonStyle::W200H100));
+        m_Button[2]->BackGround::SetPosition({0,-230});
+        m_Button[2]->SetZIndex(100);
+        m_Button[2]->SetVisible(false);
+        m_Root.AddChild(m_Button[2]);
+
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_MANU.png",Model::ButtonStyle::W200H100));
+        m_Button[3]->BackGround::SetPosition({330,330});
+        m_Button[3]->SetZIndex(100);
+        m_Button[3]->SetVisible(false);
+        m_Root.AddChild(m_Button[3]);
+
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Circle_REPLAY.png",Model::ButtonStyle::Circle60));
+        m_Button[4]->BackGround::SetPosition({210,330});
+        m_Button[4]->SetZIndex(100);
+        m_Button[4]->SetVisible(false);
+        m_Root.AddChild(m_Button[4]);
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Circle_HELP.png",Model::ButtonStyle::Circle60));
+        m_Button[5]->BackGround::SetPosition({270,330});
+        m_Button[5]->SetZIndex(100);
+        m_Button[5]->SetVisible(false);
+        m_Root.AddChild(m_Button[5]);
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Circle_MANU.png",Model::ButtonStyle::Circle60));
+        m_Button[6]->BackGround::SetPosition({330,330});
+        m_Button[6]->SetZIndex(100);
+        m_Button[6]->SetVisible(false);
+        m_Root.AddChild(m_Button[6]);
+
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_MANU.png",Model::ButtonStyle::Circle60));
+        m_Button[7]->BackGround::SetPosition({0,100});
+        m_Button[7]->SetZIndex(100);
+        m_Button[7]->SetVisible(false);
+        m_Root.AddChild(m_Button[7]);
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_REPLAY.png",Model::ButtonStyle::Circle60));
+        m_Button[8]->BackGround::SetPosition({0,-50});
+        m_Button[8]->SetZIndex(100);
+        m_Button[8]->SetVisible(false);
+        m_Root.AddChild(m_Button[8]);
+        m_Button.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Button/Button_NEXT.png",Model::ButtonStyle::Circle60));
+        m_Button[9]->BackGround::SetPosition({0,-200});
+        m_Button[9]->SetZIndex(100);
+        m_Button[9]->SetVisible(false);
+        m_Root.AddChild(m_Button[9]);
+
+    }//button
+
+    {
+        for (int a = 0; a < 25; ++a) {
+            m_Level.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Level/NEW/LV"+(a + 1 < 10 ? "0" + std::to_string(a + 1) : std::to_string(a + 1))+".png",Model::ButtonStyle::W80H80));
+            m_Level[a]->SetZIndex(60);
+            m_Level[a]->SetPosition(a%5, a/5);//a=(X-1)+(Y-1)*10
+            m_Level[a]->SetVisible(false);
+            m_Root.AddChild(m_Level[a]);
+        }
+    }//LV
+
+    {
+        m_IceCream = std::make_shared<MainCharacter>(GA_RESOURCE_DIR"/Image/Character/IceCream.png");
+        m_IceCream->SetPosition(1,1);
+        m_IceCream->SetZIndex(49);
+        m_IceCream->SetVisible(false);
+        m_Root.AddChild(m_IceCream);
+    }//IceCream
+    {
+        for (int a = 0; a < 4; ++a) {
+            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/Toaster1.png"));
+            m_Enemies_1[a]->SetZIndex(8);
+            m_Enemies_1[a]->SetPosition(a+1, 1);
+            m_Enemies_1[a]->SetVisible(false);
+            m_Root.AddChild(m_Enemies_1[a]);
+        }
+
+        // for (int a = 0; a < 10; ++a) {
+        //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png"));
+        //     m_Enemies_1[a+10]->SetZIndex(8);
+        //     m_Enemies_1[a+10]->SetPosition(1, a+1);
+        //     m_Enemies_1[a+10]->SetVisible(false);
+        //     m_Root.AddChild(m_Enemies_1[a+10]);
+        // }
+        // for (int a = 0; a < 10; ++a) {
+        //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/微波爐.png"));
+        //     m_Enemies_1[a+20]->SetZIndex(8);
+        //     m_Enemies_1[a+20]->SetPosition(a+1, a+1);
+        //     m_Enemies_1[a+20]->SetVisible(false);
+        //     m_Root.AddChild(m_Enemies_1[a+20]);
+        // }
+    }//Enemies
+    {
+        for (int a = 0; a < 16; ++a) {
+            m_Fruit.push_back(std::make_shared<Fruit>(GA_RESOURCE_DIR"/Image/Character/Fruit/Lemon.png"));
+            m_Fruit[a]->SetZIndex(5);
+            m_Fruit[a]->SetPosition(a+1, 1);
+            m_Fruit[a]->SetVisible(false);
+            m_Root.AddChild(m_Fruit[a]);
+        }
+    }
+    {
+        for (int a = 0; a < 100; ++a) {
+            m_Ice.push_back(std::make_shared<Ice>(GA_RESOURCE_DIR"/Image/Background/wall/ice_brick_wall60.png"));
+            m_Ice[a]->SetZIndex(7);
+            m_Ice[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_Ice[a]->SetVisible(false);
+            m_Root.AddChild(m_Ice[a]);
+            if (dist3(gen3) == 0)
+            {
+                m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/detailed_snow.png"));
+            }
+            else if (dist3(gen3) == 1)
+            {
+                m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/random_piles_snow.png"));
+            }
+            else if (dist3(gen3) == 2)
+            {
+                m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/raised_snow_piles.png"));
+            }
+            else
+            {
+                m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/fine_lines_snow.png"));
+            }
+            m_Floor[a]->SetZIndex(2);
+            m_Floor[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_Floor[a]->SetVisible(false);
+            m_Root.AddChild(m_Floor[a]);
+        }
+    }//Ice and floor
+
+    {
+    //     for (int a = 0; a < 100; ++a) {
+    //         m_Ice.push_back(std::make_shared<Ice>(GA_RESOURCE_DIR"/Image/Background/ice_brick_wall.png"));
+    //         m_Ice[a]->SetZIndex(7);
+    //         m_Ice[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+    //         m_Ice[a]->SetVisible(false);
+    //         m_Root.AddChild(m_Ice[a]);
+    //         if (dist3(gen3) == 0)
+    //         {
+    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/detailed_snow.png"));
+    //         }
+    //         else if (dist3(gen3) == 1)
+    //         {
+    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/random_piles_snow.png"));
+    //         }
+    //         else if (dist3(gen3) == 1)
+    //         {
+    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/raised_snow_piles.png"));
+    //         }
+    //         else
+    //         {
+    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/fine_lines_snow.png"));
+    //         }
+    //         m_Floor[a]->SetZIndex(1);
+    //         m_Floor[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+    //         m_Floor[a]->SetVisible(false);
+    //         m_Root.AddChild(m_Floor[a]);
+    //     }
+    }//Wall
 
     m_PRM = std::make_shared<PhaseResourceManger>();
     m_Root.AddChildren(m_PRM->GetChildren());
