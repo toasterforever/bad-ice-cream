@@ -278,11 +278,26 @@ CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Users\User\Desktop\113-2_oop\bad-ice-cream\src\PhaseManager.cpp -o CMakeFiles\bad_ice_cream.dir\src\PhaseManager.cpp.s
 
+CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj: CMakeFiles/bad_ice_cream.dir/flags.make
+CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj: CMakeFiles/bad_ice_cream.dir/includes_CXX.rsp
+CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj: D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/Picture.cpp
+CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj: CMakeFiles/bad_ice_cream.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj -MF CMakeFiles\bad_ice_cream.dir\src\Picture.cpp.obj.d -o CMakeFiles\bad_ice_cream.dir\src\Picture.cpp.obj -c D:\Users\User\Desktop\113-2_oop\bad-ice-cream\src\Picture.cpp
+
+CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Users\User\Desktop\113-2_oop\bad-ice-cream\src\Picture.cpp > CMakeFiles\bad_ice_cream.dir\src\Picture.cpp.i
+
+CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Users\User\Desktop\113-2_oop\bad-ice-cream\src\Picture.cpp -o CMakeFiles\bad_ice_cream.dir\src\Picture.cpp.s
+
 CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj: CMakeFiles/bad_ice_cream.dir/flags.make
 CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj: CMakeFiles/bad_ice_cream.dir/includes_CXX.rsp
 CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj: D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/main.cpp
 CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj: CMakeFiles/bad_ice_cream.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj -MF CMakeFiles\bad_ice_cream.dir\src\main.cpp.obj.d -o CMakeFiles\bad_ice_cream.dir\src\main.cpp.obj -c D:\Users\User\Desktop\113-2_oop\bad-ice-cream\src\main.cpp
 
 CMakeFiles/bad_ice_cream.dir/src/main.cpp.i: cmake_force
@@ -309,6 +324,7 @@ bad_ice_cream_OBJECTS = \
 "CMakeFiles/bad_ice_cream.dir/src/Ice.cpp.obj" \
 "CMakeFiles/bad_ice_cream.dir/src/MainCharacter.cpp.obj" \
 "CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.obj" \
+"CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj" \
 "CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj"
 
 # External object files for target bad_ice_cream
@@ -328,6 +344,7 @@ bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/src/Fruit.cpp.obj
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/src/Ice.cpp.obj
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/src/MainCharacter.cpp.obj
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.obj
+bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/build.make
 bad_ice_cream.exe: _deps/sdl2-build/libSDL2maind.a
@@ -343,7 +360,7 @@ bad_ice_cream.exe: _deps/ptsd-build/libImGui.a
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/linkLibs.rsp
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/objects1.rsp
 bad_ice_cream.exe: CMakeFiles/bad_ice_cream.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable bad_ice_cream.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable bad_ice_cream.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\bad_ice_cream.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

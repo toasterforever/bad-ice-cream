@@ -42,7 +42,9 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         include/Fruit.hpp
         include/Namespace_Model.hpp
         src/Fruit.cpp
-        include/TurnOffThings.hpp)
+        include/TurnOffThings.hpp
+        include/Picture.hpp
+        src/Picture.cpp)
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4)

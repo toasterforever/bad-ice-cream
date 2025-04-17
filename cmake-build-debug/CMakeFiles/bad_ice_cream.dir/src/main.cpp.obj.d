@@ -616,6 +616,7 @@ CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj: \
  D:/Users/User/Desktop/113-2_oop/bad-ice-cream/PTSD/include/Util/AssetStore.inl \
  D:/Users/User/Desktop/113-2_oop/bad-ice-cream/include/Button.hpp \
  D:/Users/User/Desktop/113-2_oop/bad-ice-cream/include/Fruit.hpp \
+ D:/Users/User/Desktop/113-2_oop/bad-ice-cream/include/Picture.hpp \
  D:/Users/User/Desktop/113-2_oop/bad-ice-cream/include/PhaseResourceManger.hpp \
  D:/Users/User/Desktop/113-2_oop/bad-ice-cream/include/TaskText.hpp \
  D:/Users/User/Desktop/113-2_oop/bad-ice-cream/PTSD/include/Util/Text.hpp \

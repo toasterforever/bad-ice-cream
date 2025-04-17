@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/Ice.cpp" "CMakeFiles/bad_ice_cream.dir/src/Ice.cpp.obj" "gcc" "CMakeFiles/bad_ice_cream.dir/src/Ice.cpp.obj.d"
   "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/MainCharacter.cpp" "CMakeFiles/bad_ice_cream.dir/src/MainCharacter.cpp.obj" "gcc" "CMakeFiles/bad_ice_cream.dir/src/MainCharacter.cpp.obj.d"
   "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/PhaseManager.cpp" "CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.obj" "gcc" "CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.obj.d"
+  "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/Picture.cpp" "CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj" "gcc" "CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj.d"
   "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/src/main.cpp" "CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj" "gcc" "CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj.d"
   )
 
