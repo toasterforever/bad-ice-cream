@@ -906,6 +906,30 @@ src/PhaseManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\bad_ice_cream.dir\build.make CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.s
 .PHONY : src/PhaseManager.cpp.s
 
+src/Picture.obj: src/Picture.cpp.obj
+.PHONY : src/Picture.obj
+
+# target to build an object file
+src/Picture.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bad_ice_cream.dir\build.make CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj
+.PHONY : src/Picture.cpp.obj
+
+src/Picture.i: src/Picture.cpp.i
+.PHONY : src/Picture.i
+
+# target to preprocess a source file
+src/Picture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bad_ice_cream.dir\build.make CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.i
+.PHONY : src/Picture.cpp.i
+
+src/Picture.s: src/Picture.cpp.s
+.PHONY : src/Picture.s
+
+# target to generate assembly for a file
+src/Picture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bad_ice_cream.dir\build.make CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.s
+.PHONY : src/Picture.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -1016,6 +1040,9 @@ help:
 	@echo ... src/PhaseManager.obj
 	@echo ... src/PhaseManager.i
 	@echo ... src/PhaseManager.s
+	@echo ... src/Picture.obj
+	@echo ... src/Picture.i
+	@echo ... src/Picture.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

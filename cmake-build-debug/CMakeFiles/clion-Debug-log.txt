@@ -182,8 +182,8 @@ CMake Deprecation Warning at PTSD/lib/sdl2_ttf/external/freetype/CMakeLists.txt:
 
 -- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
 -- Populating sdl2_mixer
--- Configuring done (0.2s)
--- Generating done (0.1s)
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
 -- Build files have been written to: D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/sdl2_mixer-subbuild
 [100%] Built target sdl2_mixer-populate
 -- Configuring SDL2_mixer 2.6.3
@@ -261,6 +261,6 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Generating done (0.0s)
 -- Build files have been written to: D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/imgui-subbuild
 [100%] Built target imgui-populate
--- Configuring done (9.7s)
--- Generating done (0.8s)
+-- Configuring done (6.0s)
+-- Generating done (0.7s)
 -- Build files have been written to: D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug

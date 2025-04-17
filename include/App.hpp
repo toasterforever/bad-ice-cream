@@ -10,6 +10,7 @@
 #include "Floor.hpp"
 #include "Button.hpp"
 #include "Fruit.hpp"
+#include "Picture.hpp"
 #include "PhaseResourceManger.hpp"
 
 
@@ -85,6 +86,7 @@ private:
     std::vector<std::shared_ptr<BackGround>> m_BackGround;
     std::vector<std::shared_ptr<Button>> m_Button;
     std::vector<std::shared_ptr<Button>> m_Level;
+    std::vector<std::shared_ptr<Picture>> m_FruitPicture;
     std::shared_ptr<PhaseResourceManger> m_PRM;
 
     bool m_EnterDown = false;

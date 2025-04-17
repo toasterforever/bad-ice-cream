@@ -333,14 +333,14 @@ _deps/spdlog-build/clean: _deps/spdlog-build/CMakeFiles/spdlog.dir/clean
 # Target rules for target CMakeFiles/bad_ice_cream.dir
 
 # All Build rule for target.
-CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
-CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
+CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
-CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
+CMakeFiles/bad_ice_cream.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 CMakeFiles/bad_ice_cream.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\bad_ice_cream.dir\build.make CMakeFiles/bad_ice_cream.dir/depend
@@ -394,12 +394,12 @@ _deps/ptsd-build/CMakeFiles/ImGui.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/PTSD.dir
 
 # All Build rule for target.
-_deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
+_deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
-_deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
+_deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 _deps/ptsd-build/CMakeFiles/PTSD.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\PTSD.dir\build.make _deps/ptsd-build/CMakeFiles/PTSD.dir/depend
@@ -427,14 +427,14 @@ _deps/ptsd-build/CMakeFiles/PTSD.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/Example.dir
 
 # All Build rule for target.
-_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
-_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
+_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
-_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
+_deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 _deps/ptsd-build/CMakeFiles/Example.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\Example.dir\build.make _deps/ptsd-build/CMakeFiles/Example.dir/depend
@@ -462,17 +462,17 @@ _deps/ptsd-build/CMakeFiles/Example.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/Tests.dir
 
 # All Build rule for target.
-_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
+_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
-_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
+_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
-_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 _deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+_deps/ptsd-build/CMakeFiles/Tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\Tests.dir\build.make _deps/ptsd-build/CMakeFiles/Tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\Tests.dir\build.make _deps/ptsd-build/CMakeFiles/Tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=62,63,64,65,66 "Built target Tests"
@@ -498,17 +498,17 @@ _deps/ptsd-build/CMakeFiles/Tests.dir/clean:
 # Target rules for target _deps/ptsd-build/CMakeFiles/AudioTest.dir
 
 # All Build rule for target.
-_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/ptsd-build/CMakeFiles/ImGui.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/ptsd-build/CMakeFiles/PTSD.dir/all
+_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
-_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
+_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/spdlog-build/CMakeFiles/spdlog.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/ptsd-build/lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
-_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 _deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+_deps/ptsd-build/CMakeFiles/AudioTest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\AudioTest.dir\build.make _deps/ptsd-build/CMakeFiles/AudioTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\ptsd-build\CMakeFiles\AudioTest.dir\build.make _deps/ptsd-build/CMakeFiles/AudioTest.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Users\User\Desktop\113-2_oop\bad-ice-cream\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target AudioTest"
@@ -690,8 +690,8 @@ _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/clean:
 # Target rules for target _deps/sdl2_image-build/CMakeFiles/showanim.dir
 
 # All Build rule for target.
-_deps/sdl2_image-build/CMakeFiles/showanim.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_image-build/CMakeFiles/showanim.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/sdl2_image-build/CMakeFiles/showanim.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_image-build/CMakeFiles/showanim.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_image-build\CMakeFiles\showanim.dir\build.make _deps/sdl2_image-build/CMakeFiles/showanim.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_image-build\CMakeFiles\showanim.dir\build.make _deps/sdl2_image-build/CMakeFiles/showanim.dir/build
@@ -718,8 +718,8 @@ _deps/sdl2_image-build/CMakeFiles/showanim.dir/clean:
 # Target rules for target _deps/sdl2_image-build/CMakeFiles/showimage.dir
 
 # All Build rule for target.
-_deps/sdl2_image-build/CMakeFiles/showimage.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_image-build/CMakeFiles/showimage.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/sdl2_image-build/CMakeFiles/showimage.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_image-build/CMakeFiles/showimage.dir/all: _deps/sdl2_image-build/CMakeFiles/SDL2_image.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_image-build\CMakeFiles\showimage.dir\build.make _deps/sdl2_image-build/CMakeFiles/showimage.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_image-build\CMakeFiles\showimage.dir\build.make _deps/sdl2_image-build/CMakeFiles/showimage.dir/build
@@ -773,8 +773,8 @@ _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/clean:
 # Target rules for target _deps/sdl2_ttf-build/CMakeFiles/glfont.dir
 
 # All Build rule for target.
-_deps/sdl2_ttf-build/CMakeFiles/glfont.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_ttf-build/CMakeFiles/glfont.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/sdl2_ttf-build/CMakeFiles/glfont.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_ttf-build/CMakeFiles/glfont.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/sdl2_ttf-build/CMakeFiles/glfont.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_ttf-build\CMakeFiles\glfont.dir\build.make _deps/sdl2_ttf-build/CMakeFiles/glfont.dir/depend
@@ -802,8 +802,8 @@ _deps/sdl2_ttf-build/CMakeFiles/glfont.dir/clean:
 # Target rules for target _deps/sdl2_ttf-build/CMakeFiles/showfont.dir
 
 # All Build rule for target.
-_deps/sdl2_ttf-build/CMakeFiles/showfont.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_ttf-build/CMakeFiles/showfont.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/sdl2_ttf-build/CMakeFiles/showfont.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_ttf-build/CMakeFiles/showfont.dir/all: _deps/sdl2_ttf-build/CMakeFiles/SDL2_ttf.dir/all
 _deps/sdl2_ttf-build/CMakeFiles/showfont.dir/all: _deps/sdl2_ttf-build/external/freetype/CMakeFiles/freetype.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_ttf-build\CMakeFiles\showfont.dir\build.make _deps/sdl2_ttf-build/CMakeFiles/showfont.dir/depend
@@ -883,8 +883,8 @@ _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/clean:
 # Target rules for target _deps/sdl2_mixer-build/CMakeFiles/playmus.dir
 
 # All Build rule for target.
-_deps/sdl2_mixer-build/CMakeFiles/playmus.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_mixer-build/CMakeFiles/playmus.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/sdl2_mixer-build/CMakeFiles/playmus.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_mixer-build/CMakeFiles/playmus.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_mixer-build\CMakeFiles\playmus.dir\build.make _deps/sdl2_mixer-build/CMakeFiles/playmus.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_mixer-build\CMakeFiles\playmus.dir\build.make _deps/sdl2_mixer-build/CMakeFiles/playmus.dir/build
@@ -911,8 +911,8 @@ _deps/sdl2_mixer-build/CMakeFiles/playmus.dir/clean:
 # Target rules for target _deps/sdl2_mixer-build/CMakeFiles/playwave.dir
 
 # All Build rule for target.
-_deps/sdl2_mixer-build/CMakeFiles/playwave.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_mixer-build/CMakeFiles/playwave.dir/all: _deps/sdl2-build/CMakeFiles/SDL2main.dir/all
+_deps/sdl2_mixer-build/CMakeFiles/playwave.dir/all: _deps/sdl2-build/CMakeFiles/SDL2-static.dir/all
 _deps/sdl2_mixer-build/CMakeFiles/playwave.dir/all: _deps/sdl2_mixer-build/CMakeFiles/SDL2_mixer.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_mixer-build\CMakeFiles\playwave.dir\build.make _deps/sdl2_mixer-build/CMakeFiles/playwave.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sdl2_mixer-build\CMakeFiles\playwave.dir\build.make _deps/sdl2_mixer-build/CMakeFiles/playwave.dir/build

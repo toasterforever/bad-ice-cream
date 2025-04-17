@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/bad_ice_cream.dir/src/MainCharacter.cpp.obj.d"
   "CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.obj"
   "CMakeFiles/bad_ice_cream.dir/src/PhaseManager.cpp.obj.d"
+  "CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj"
+  "CMakeFiles/bad_ice_cream.dir/src/Picture.cpp.obj.d"
   "CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj"
   "CMakeFiles/bad_ice_cream.dir/src/main.cpp.obj.d"
   "bad_ice_cream.exe"
