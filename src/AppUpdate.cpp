@@ -22,7 +22,8 @@ static std::mt19937 gen2(rd2());  // 使用 Mersenne Twister 隨機數引擎
 static std::uniform_int_distribution<int> dist2(0, 49);  // 產生 0~19 的整數
 int LV_Change = 0;
 int Fruit_Counter = 0;
-
+int Fruit_Counter_Arr[9]={0,0,0,0,0,0,0,0,0};
+bool Fruit_Reset_Arr[9]={false,false,false,false,false,false,false,false,false};
 void App::Update() {
     const auto now = std::chrono::steady_clock::now();
     switch (m_Phase){
@@ -279,6 +280,9 @@ void App::Update() {
                 m_Button[4]->SetVisible(true);
                 m_Button[5]->SetVisible(true);
                 m_Button[6]->SetVisible(true);
+                m_FruitPicture[0]->SetVisible(true);
+                m_FruitPicture[0]->SetPosition(1);
+                Fruit_Counter_Arr[0]=16;
                 LV_Change = 1;
                 for (int a = 0; a < 100; a++)
                 {
@@ -332,30 +336,21 @@ void App::Update() {
                 m_Fruit[14]->SetPosition(7, 10);
                 m_Fruit[15]->SetVisible(true);
                 m_Fruit[15]->SetPosition(8, 10);
-                Map={
-                         "############",//0
-                         "#..........#",//1
-                         "#..........#",//2
-                         "#..........#",//3
-                         "#..........#",//4
-                         "#..........#",//5
-                         "#..........#",//6
-                         "#..........#",//8
-                         "#..........#",//8
-                         "#..........#",//9
-                         "#..........#",//10
-                         "############"//11
-                         // "012345678901"
-                     };
             }
-            break;
-        }
+            if (Fruit_Counter_Arr[0]==0)
+            {
+                m_FruitPicture[0]->SetVisible(false);
+            }
+            break;}
     case Phase::LV02:{
         if (LV_Change == 0)
         {
             m_Button[4]->SetVisible(true);
             m_Button[5]->SetVisible(true);
             m_Button[6]->SetVisible(true);
+            m_FruitPicture[0]->SetVisible(true);
+            m_FruitPicture[0]->SetPosition(1);
+            Fruit_Counter_Arr[0]=8;
             LV_Change = 1;
             for (int a = 0; a < 100; a++)
             {
@@ -363,6 +358,68 @@ void App::Update() {
                 m_Ice[a]->SetVisible(false);
             }
 
+
+            m_Fruit[0]->SetVisible(true);
+            m_Fruit[1]->SetVisible(true);
+            m_Fruit[2]->SetVisible(true);
+            m_Fruit[3]->SetVisible(true);
+            m_Fruit[0]->SetPosition(3, 3);
+            m_Fruit[1]->SetPosition(2, 2);
+            m_Fruit[2]->SetPosition(2, 9);
+            m_Fruit[3]->SetPosition(3, 8);
+
+            m_Fruit[4]->SetVisible(true);
+            m_Fruit[5]->SetVisible(true);
+            m_Fruit[6]->SetVisible(true);
+            m_Fruit[7]->SetVisible(true);
+            m_Fruit[4]->SetPosition(8, 3);
+            m_Fruit[5]->SetPosition(9, 2);
+            m_Fruit[6]->SetPosition(9, 9);
+            m_Fruit[7]->SetPosition(8, 8);
+            Fruit_Counter=8;
+
+
+
+            m_IceCream->SetVisible(true);
+            m_IceCream->SetPosition(5,5);
+
+            m_Enemies_1[1]->SetVisible(true);
+            m_Enemies_1[2]->SetVisible(true);
+
+
+            m_Enemies_1[1]->SetPosition(1,7);
+            m_Enemies_1[2]->SetPosition(10,4);
+
+
+
+            m_Enemies_1[5]->SetVisible(true);
+            m_Enemies_1[6]->SetVisible(true);
+
+
+            m_Enemies_1[5]->SetPosition(7,1);
+            m_Enemies_1[6]->SetPosition(4,10);
+
+
+        }
+        if (Fruit_Counter_Arr[0]==0)
+        {
+            m_FruitPicture[0]->SetVisible(false);
+        }
+        break;}
+    case Phase::LV03:{
+        if (LV_Change == 0){
+            m_Button[4]->SetVisible(true);
+            m_Button[5]->SetVisible(true);
+            m_Button[6]->SetVisible(true);
+            m_FruitPicture[0]->SetVisible(true);
+            m_FruitPicture[0]->SetPosition(1);
+            Fruit_Counter_Arr[0]=8;
+            LV_Change = 1;
+            for (int a = 0; a < 100; a++)
+            {
+                m_Floor[a]->SetVisible(true);
+                m_Ice[a]->SetVisible(false);
+            }
             m_Ice[10*3+3]->SetVisible(true);
             m_Ice[10*3+4]->SetVisible(true);
             m_Ice[10*3+5]->SetVisible(true);
@@ -389,54 +446,115 @@ void App::Update() {
             m_Ice[10*7+8]->SetVisible(true);
             m_Ice[10*8+7]->SetVisible(true);
 
+            m_Enemies_1[8]->SetVisible(true);
+            m_Enemies_1[9]->SetVisible(true);
+            m_Enemies_1[10]->SetVisible(true);
+            m_Enemies_1[11]->SetVisible(true);
+            m_Enemies_1[8]->SetPosition(1,1);
+            m_Enemies_1[9]->SetPosition(10,1);
+            m_Enemies_1[10]->SetPosition(1,10);
+            m_Enemies_1[11]->SetPosition(10,10);
+
+            m_IceCream->SetVisible(true);
+            m_IceCream->SetPosition(5,5);
+
             m_Fruit[0]->SetVisible(true);
             m_Fruit[1]->SetVisible(true);
             m_Fruit[2]->SetVisible(true);
             m_Fruit[3]->SetVisible(true);
-            m_Fruit[0]->SetPosition(3, 3);
-            m_Fruit[1]->SetPosition(2, 2);
-            m_Fruit[2]->SetPosition(2, 9);
-            m_Fruit[3]->SetPosition(3, 8);
+            m_Fruit[0]->SetPosition(1, 10);
+            m_Fruit[1]->SetPosition(1, 1);
+            m_Fruit[2]->SetPosition(10, 1);
+            m_Fruit[3]->SetPosition(10, 10);
+            Fruit_Counter=4;
 
-            m_Fruit[4]->SetVisible(true);
-            m_Fruit[5]->SetVisible(true);
-            m_Fruit[6]->SetVisible(true);
-            m_Fruit[7]->SetVisible(true);
-            m_Fruit[4]->SetPosition(8, 3);
-            m_Fruit[5]->SetPosition(9, 2);
-            m_Fruit[6]->SetPosition(9, 9);
-            m_Fruit[7]->SetPosition(8, 8);
-            Fruit_Counter=8;
+        }
+        if (Fruit_Counter_Arr[0]==0)
+        {
+            m_FruitPicture[0]->SetVisible(false);
+        }
+        break;
+    }
+    case Phase::LV04:{
+        if (LV_Change == 0){
+            m_Button[4]->SetVisible(true);
+            m_Button[5]->SetVisible(true);
+            m_Button[6]->SetVisible(true);
+            m_FruitPicture[0]->SetVisible(true);
+            m_FruitPicture[0]->SetPosition(1);
+            m_FruitPicture[1]->SetVisible(true);
+            m_FruitPicture[1]->SetPosition(2);
+            Fruit_Counter_Arr[0]=4;
+            Fruit_Counter_Arr[1]=8;
+            LV_Change = 1;
+            for (int a = 0; a < 100; a++)
+            {
+                m_Floor[a]->SetVisible(true);
+                m_Ice[a]->SetVisible(false);
+            }
 
-
+            m_Enemies_1[8]->SetVisible(true);
+            m_Enemies_1[9]->SetVisible(true);
+            m_Enemies_1[10]->SetVisible(true);
+            m_Enemies_1[11]->SetVisible(true);
+            m_Enemies_1[8]->SetPosition(1,1);
+            m_Enemies_1[9]->SetPosition(10,1);
+            m_Enemies_1[10]->SetPosition(1,10);
+            m_Enemies_1[11]->SetPosition(10,10);
 
             m_IceCream->SetVisible(true);
             m_IceCream->SetPosition(5,5);
-            m_Enemies_1[0]->SetVisible(true);
-            m_Enemies_1[1]->SetVisible(true);
-            m_Enemies_1[2]->SetVisible(true);
-            m_Enemies_1[3]->SetVisible(true);
-            m_Enemies_1[0]->SetPosition(1,1);
-            m_Enemies_1[1]->SetPosition(10,1);
-            m_Enemies_1[2]->SetPosition(1,10);
-            m_Enemies_1[3]->SetPosition(10,10);
-            Map={
-                "############",//0
-                "#..........#",//1
-                "#..........#",//2
-                "#..........#",//3
-                "#..........#",//4
-                "#..........#",//5
-                "#..........#",//6
-                "#..........#",//8
-                "#..........#",//8
-                "#..........#",//9
-                "#..........#",//10
-                "############"//11
-                // "012345678901"
-            };
+
+            m_Fruit[0]->SetVisible(true);
+            m_Fruit[1]->SetVisible(true);
+            m_Fruit[2]->SetVisible(true);
+            m_Fruit[3]->SetVisible(true);
+            m_Fruit[0]->SetPosition(1, 10);
+            m_Fruit[1]->SetPosition(1, 1);
+            m_Fruit[2]->SetPosition(10, 1);
+            m_Fruit[3]->SetPosition(10, 10);
+
+
+            m_Fruit[16]->SetVisible(false);
+            m_Fruit[17]->SetVisible(false);
+            m_Fruit[18]->SetVisible(false);
+            m_Fruit[19]->SetVisible(false);
+            m_Fruit[20]->SetVisible(false);
+            m_Fruit[21]->SetVisible(false);
+            m_Fruit[22]->SetVisible(false);
+            m_Fruit[23]->SetVisible(false);
+
+            m_Fruit[16]->SetPosition(5,5);
+            m_Fruit[17]->SetPosition(5,6);
+            m_Fruit[18]->SetPosition(5,7);
+            m_Fruit[19]->SetPosition(5,4);
+            m_Fruit[20]->SetPosition(6,4);
+            m_Fruit[21]->SetPosition(6,5);
+            m_Fruit[22]->SetPosition(6,6);
+            m_Fruit[23]->SetPosition(6,7);
+
+            Fruit_Counter=4+8;
+
         }
-        break;}
+        if (Fruit_Counter>=8)
+        {
+            Fruit_Counter_Arr[0]=Fruit_Counter-8;
+        }
+        if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
+        {
+            Fruit_Reset_Arr[1]=true;
+            m_FruitPicture[0]->SetVisible(false);
+            m_Fruit[16]->SetVisible(true);
+            m_Fruit[17]->SetVisible(true);
+            m_Fruit[18]->SetVisible(true);
+            m_Fruit[19]->SetVisible(true);
+            m_Fruit[20]->SetVisible(true);
+            m_Fruit[21]->SetVisible(true);
+            m_Fruit[22]->SetVisible(true);
+            m_Fruit[23]->SetVisible(true);
+        }
+        break;
+    }
     default:
         break;
     }//LV初始化
@@ -512,7 +630,7 @@ void App::Update() {
 
                 if (!keyOrder.empty())
                 {
-                    if (keyOrder.front()==Util::Keycode::SPACE)
+                    if (keyOrder.front()==Util::Keycode::SPACE&&m_IceCream->GetDirection()!=Model::Direction::None)
                     {
                         if (now - lastIceTime >= cooldownTime)
                         {
@@ -530,7 +648,10 @@ void App::Update() {
                                     NewX=NewX-1;break;
                                 case Model::Direction::Right:
                                     NewX=NewX+1;break;
+                                case Model::Direction::None:
+                                    LOG_WARN("direction=none in Ice");break;
                                 }
+
                             }
                             if (m_IceCream->IsMoving())
                             {
@@ -544,6 +665,8 @@ void App::Update() {
                                     NewX=NewX-1;break;
                                 case Model::Direction::Right:
                                     NewX=NewX+1;break;
+                                case Model::Direction::None:
+                                    LOG_WARN("direction=none in Ice");
                                 }
                             }
                             if ( ((!m_IceCream->TowardHasThings(NewX,NewY)&&Map[NewX][NewY]!='E')||m_IceCream->IsitIce(NewX,NewY) )&&!(NewX<1 || NewX>10 || NewY<1 || NewY>10))
@@ -579,6 +702,8 @@ void App::Update() {
                                     case Model::Direction::Right:
 
                                         NewX=NewX+1;break;
+                                    case Model::Direction::None:
+                                        LOG_WARN("direction=none in Ice");
                                     }
                                     if (NewX<1 || NewX>10 || NewY<1 || NewY>10)
                                     {
@@ -626,6 +751,10 @@ void App::Update() {
                     {
                         fruit->SetVisible(false);
                         Fruit_Counter--;
+                        LOG_DEBUG(fruit->GetIJ());
+                        LOG_DEBUG(Fruit_Counter);
+                        LOG_DEBUG(Fruit_Counter_Arr[0]);
+                        LOG_DEBUG(Fruit_Counter_Arr[1]);
                     }
                 }
             }
@@ -669,8 +798,6 @@ void App::Update() {
         default:
             break;
     }//CharacterUpdate
-
-
 
 
     /*

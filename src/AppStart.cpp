@@ -125,13 +125,26 @@ void App::Start()
     }//IceCream
     {
         for (int a = 0; a < 4; ++a) {
-            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/Toaster1.png"));
+            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/Toaster1.png",Model::Move::Row_Move));
             m_Enemies_1[a]->SetZIndex(8);
             m_Enemies_1[a]->SetPosition(a+1, 1);
             m_Enemies_1[a]->SetVisible(false);
             m_Root.AddChild(m_Enemies_1[a]);
         }
-
+        for (int a = 0; a < 4; ++a) {
+            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Column_Move));
+            m_Enemies_1[4+a]->SetZIndex(8);
+            m_Enemies_1[4+a]->SetPosition(a+1, 1);
+            m_Enemies_1[4+a]->SetVisible(false);
+            m_Root.AddChild(m_Enemies_1[4+a]);
+        }
+        for (int a = 0; a < 4; ++a) {
+            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/瓦斯爐.png",Model::Move::Around_Move));
+            m_Enemies_1[8+a]->SetZIndex(8);
+            m_Enemies_1[8+a]->SetPosition(a+1, 1);
+            m_Enemies_1[8+a]->SetVisible(false);
+            m_Root.AddChild(m_Enemies_1[8+a]);
+        }
         // for (int a = 0; a < 10; ++a) {
         //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png"));
         //     m_Enemies_1[a+10]->SetZIndex(8);
@@ -155,7 +168,14 @@ void App::Start()
             m_Fruit[a]->SetVisible(false);
             m_Root.AddChild(m_Fruit[a]);
         }
-    }
+        for (int a = 0; a < 16; ++a) {
+            m_Fruit.push_back(std::make_shared<Fruit>(GA_RESOURCE_DIR"/Image/Character/Fruit/櫻桃.png"));
+            m_Fruit[16+a]->SetZIndex(5);
+            m_Fruit[16+a]->SetPosition(a+1, 1);
+            m_Fruit[16+a]->SetVisible(false);
+            m_Root.AddChild(m_Fruit[16+a]);
+        }
+    }//Fruit
     {
         for (int a = 0; a < 100; ++a) {
             m_Ice.push_back(std::make_shared<Ice>(GA_RESOURCE_DIR"/Image/Background/wall/ice_brick_wall60.png"));
@@ -185,6 +205,64 @@ void App::Start()
             m_Root.AddChild(m_Floor[a]);
         }
     }//Ice and floor
+
+    {
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/Lemon.png"));
+        m_FruitPicture[0]->SetZIndex(90);
+        m_FruitPicture[0]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[0]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/櫻桃.png"));
+        m_FruitPicture[1]->SetZIndex(90);
+        m_FruitPicture[1]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[1]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/水蜜桃.png"));
+        m_FruitPicture[2]->SetZIndex(5);
+        m_FruitPicture[2]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[2]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/火龍果.png"));
+        m_FruitPicture[3]->SetZIndex(5);
+        m_FruitPicture[3]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[3]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/草莓.png"));
+        m_FruitPicture[4]->SetZIndex(5);
+        m_FruitPicture[4]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[4]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/葡萄.png"));
+        m_FruitPicture[5]->SetZIndex(5);
+        m_FruitPicture[5]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[5]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/西洋梨.png"));
+        m_FruitPicture[6]->SetZIndex(5);
+        m_FruitPicture[6]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[6]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/西瓜.png"));
+        m_FruitPicture[7]->SetZIndex(5);
+        m_FruitPicture[7]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[7]);
+
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/香蕉.png"));
+        m_FruitPicture[8]->SetZIndex(5);
+        m_FruitPicture[8]->SetVisibility(false);
+        m_Root.AddChild(m_FruitPicture[8]);
+    }//Picture
+
+    {
+    //     m_FruitPicture.push_back(std::make_shared<Character>(GA_RESOURCE_DIR"/Image/Character/Fruit/香蕉.png"));
+    //     m_FruitPicture[0]->SetZIndex(90);
+    //     m_FruitPicture[0]->SetPosition(5,5);
+    //     m_FruitPicture[0]->SetVisible(true);
+    //     LOG_DEBUG("m_FruitPicture Created");
+    //     LOG_DEBUG(m_FruitPicture[0]->GetZIndex());
+    //     LOG_DEBUG(m_FruitPicture[0]->GetPosition());
+    }//debug
 
     {
     //     for (int a = 0; a < 100; ++a) {
