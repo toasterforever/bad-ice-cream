@@ -1,2 +1,0 @@
-C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc libImGui.a CMakeFiles/ImGui.dir/lib/imgui/backends/imgui_impl_sdl2.cpp.obj CMakeFiles/ImGui.dir/lib/imgui/backends/imgui_impl_opengl3.cpp.obj CMakeFiles/ImGui.dir/lib/imgui/imgui.cpp.obj CMakeFiles/ImGui.dir/lib/imgui/imgui_demo.cpp.obj CMakeFiles/ImGui.dir/lib/imgui/imgui_draw.cpp.obj CMakeFiles/ImGui.dir/lib/imgui/imgui_tables.cpp.obj CMakeFiles/ImGui.dir/lib/imgui/imgui_widgets.cpp.obj
-C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\ranlib.exe libImGui.a

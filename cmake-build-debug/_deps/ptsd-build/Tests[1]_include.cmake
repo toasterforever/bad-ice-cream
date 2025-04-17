@@ -1,5 +1,0 @@
-if(EXISTS "D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/ptsd-build/Tests[1]_tests.cmake")
-  include("D:/Users/User/Desktop/113-2_oop/bad-ice-cream/cmake-build-debug/_deps/ptsd-build/Tests[1]_tests.cmake")
-else()
-  add_test(Tests_NOT_BUILT Tests_NOT_BUILT)
-endif()
