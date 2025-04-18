@@ -44,7 +44,9 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         src/Fruit.cpp
         include/TurnOffThings.hpp
         include/Picture.hpp
-        src/Picture.cpp)
+        src/Picture.cpp
+        src/Wall.cpp
+        include/BGM.hpp)
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4)

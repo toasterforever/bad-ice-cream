@@ -19,13 +19,14 @@ void KeyRelease(Util::Keycode key) {
 
 static std::random_device rd2;   // 產生隨機種子
 static std::mt19937 gen2(rd2());  // 使用 Mersenne Twister 隨機數引擎
-static std::uniform_int_distribution<int> dist2(0, 49);  // 產生 0~19 的整數
+static std::uniform_int_distribution<int> dist2(0, 49);  // 產生 0~49 的整數
 int LV_Change = 0;
 int Fruit_Counter = 0;
 int Fruit_Counter_Arr[9]={0,0,0,0,0,0,0,0,0};
 bool Fruit_Reset_Arr[9]={false,false,false,false,false,false,false,false,false};
 void App::Update() {
     const auto now = std::chrono::steady_clock::now();
+    SwitchBGM(m_CurrentBGMIndex);
     switch (m_Phase){
         case Phase::Start:{
             const auto mousePosition = Util::Input::GetCursorPosition();
@@ -271,6 +272,16 @@ void App::Update() {
         default:
             break;
     }//Phase Change
+
+    switch (m_Phase){
+        case Phase::Win:
+            m_CurrentBGMIndex=1;break;
+        case Phase::Lose:
+            m_CurrentBGMIndex=2;break;
+        default:
+            m_CurrentBGMIndex=0;break;
+
+    }
 
     switch (m_Phase)
     {
