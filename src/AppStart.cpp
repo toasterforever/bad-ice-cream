@@ -10,6 +10,13 @@ void App::Start()
     static std::random_device rd3;   // 產生隨機種子
     static std::mt19937 gen3(rd3());  // 使用 Mersenne Twister 隨機數引擎
     static std::uniform_int_distribution<int> dist3(0, 19);  // 產生 0~19 的整數
+
+    {
+        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/main.mp3"));
+        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/success.mp3"));
+        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/fail.mp3"));
+        m_BGM[0]->Play();
+    }
     {
         m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_Background.png"));
         m_BackGround[0]->ResetPosition();
@@ -183,6 +190,7 @@ void App::Start()
             m_Ice[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
             m_Ice[a]->SetVisible(false);
             m_Root.AddChild(m_Ice[a]);
+
             if (dist3(gen3) == 0)
             {
                 m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/detailed_snow.png"));

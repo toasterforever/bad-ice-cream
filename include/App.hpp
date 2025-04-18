@@ -12,7 +12,7 @@
 #include "Fruit.hpp"
 #include "Picture.hpp"
 #include "PhaseResourceManger.hpp"
-
+#include "Util/BGM.hpp"
 
 
 class App {
@@ -35,6 +35,17 @@ public:
     void TurnOffLevel();
     void TurnOffButton();
     void TurnOffLevelButton();
+
+    void SwitchBGM(size_t newIndex)
+    {
+        if (newIndex>=m_BGM.size()||newIndex==m_CurrentBGMIndex)
+        {
+            return;
+        }
+        m_BGM[m_CurrentBGMIndex]->Pause();
+        m_CurrentBGMIndex = newIndex;
+        m_BGM[m_CurrentBGMIndex]->Play();
+    }
 
     void ExchangePhase()
     {
@@ -83,11 +94,16 @@ private:
 
     std::vector<std::shared_ptr<Ice>> m_Ice;
     std::vector<std::shared_ptr<Floor>> m_Floor;
+    std::vector<std::shared_ptr<Wall>> m_Wall;
+
     std::vector<std::shared_ptr<BackGround>> m_BackGround;
+    std::vector<std::unique_ptr<Util::BGM>> m_BGM;
+    int m_CurrentBGMIndex = 0;
     std::vector<std::shared_ptr<Button>> m_Button;
     std::vector<std::shared_ptr<Button>> m_Level;
     std::vector<std::shared_ptr<Picture>> m_FruitPicture;
     std::shared_ptr<PhaseResourceManger> m_PRM;
+
 
     bool m_EnterDown = false;
 };
