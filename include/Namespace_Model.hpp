@@ -45,5 +45,11 @@ namespace Model {
         Right,
         None
     };
+    enum class PicureSource
+    {
+        Fruit,
+        Locked,
+        None
+    };
 }
 #endif //NAMESPACE_MODEL_HPP

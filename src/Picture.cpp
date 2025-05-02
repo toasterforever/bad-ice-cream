@@ -3,8 +3,9 @@
 //
 #include "Picture.hpp"
 #include "Util/Image.hpp"
-Picture::Picture(const std::string& ImagePath){
+Picture::Picture(const std::string& ImagePath, Model::PicureSource Model){
     SetImage(ImagePath);
+    m_Source=Model;
 
 }
 
@@ -21,7 +22,16 @@ void Picture::SetVisibility(const bool newVisibility)
 
 void Picture::SetPosition(const int newI, const int newJ)
 {
-    m_Transform.translation = glm::vec2(-330+(cellSize*newI),330-(cellSize*newJ));
+    if (m_Source==Model::PicureSource::Locked)
+    {
+        auto const NewPosition = glm::vec2(newI*110-220,newJ*-90+180+50);
+        SetPosition(NewPosition);
+    }
+    else
+    {
+        m_Transform.translation = glm::vec2(-330+(cellSize*newI),330-(cellSize*newJ));
+    }
+
 }
 
 void Picture::SetPosition(const glm::vec2& newPosition)

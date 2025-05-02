@@ -216,50 +216,60 @@ void App::Start()
 
     {
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/Lemon.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/Lemon.png",Model::PicureSource::Fruit));
         m_FruitPicture[0]->SetZIndex(90);
         m_FruitPicture[0]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[0]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/櫻桃.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/櫻桃.png",Model::PicureSource::Fruit));
         m_FruitPicture[1]->SetZIndex(90);
         m_FruitPicture[1]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[1]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/水蜜桃.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/水蜜桃.png",Model::PicureSource::Fruit));
         m_FruitPicture[2]->SetZIndex(5);
         m_FruitPicture[2]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[2]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/火龍果.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/火龍果.png",Model::PicureSource::Fruit));
         m_FruitPicture[3]->SetZIndex(5);
         m_FruitPicture[3]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[3]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/草莓.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/草莓.png",Model::PicureSource::Fruit));
         m_FruitPicture[4]->SetZIndex(5);
         m_FruitPicture[4]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[4]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/葡萄.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/葡萄.png",Model::PicureSource::Fruit));
         m_FruitPicture[5]->SetZIndex(5);
         m_FruitPicture[5]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[5]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/西洋梨.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/西洋梨.png",Model::PicureSource::Fruit));
         m_FruitPicture[6]->SetZIndex(5);
         m_FruitPicture[6]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[6]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/西瓜.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/西瓜.png",Model::PicureSource::Fruit));
         m_FruitPicture[7]->SetZIndex(5);
         m_FruitPicture[7]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[7]);
 
-        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/香蕉.png"));
+        m_FruitPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Character/Fruit/香蕉.png",Model::PicureSource::Fruit));
         m_FruitPicture[8]->SetZIndex(5);
         m_FruitPicture[8]->SetVisibility(false);
         m_Root.AddChild(m_FruitPicture[8]);
+
+        for (int a=0;a<50;a++)
+        {
+            m_LVLockedPicture.push_back(std::make_shared<Picture>(GA_RESOURCE_DIR"/Image/Background/Level/NEW/LOCK.png",Model::PicureSource::Locked));
+            m_LVLockedPicture[a]->SetZIndex(65);
+            m_LVLockedPicture[a]->SetPosition(a%5, a/5);
+            m_LVLockedPicture[a]->SetVisible(false);
+            m_Root.AddChild(m_LVLockedPicture[a]);
+        }
+
     }//Picture
 
     {
@@ -302,8 +312,8 @@ void App::Start()
     //     }
     }//Wall
 
-    m_PRM = std::make_shared<PhaseResourceManger>();
-    m_Root.AddChildren(m_PRM->GetChildren());
+
+
 
 
     m_CurrentState = State::UPDATE;

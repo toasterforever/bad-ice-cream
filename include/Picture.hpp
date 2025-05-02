@@ -5,13 +5,14 @@
 #ifndef PICTURE_HPP
 #define PICTURE_HPP
 
+#include "Namespace_Model.hpp"
 #include "Util/GameObject.hpp"
 #define cellSize 60
 class Picture : public Util::GameObject {
 public:
 
 
-    explicit Picture(const std::string& ImagePath);
+    explicit Picture(const std::string& ImagePath, const Model::PicureSource Model);
 
     Picture(const Picture&) = delete;
 
@@ -42,9 +43,21 @@ public:
         m_Transform.translation = glm::vec2(0,0);
     }
 
+    bool CheckLocked()
+    {
+        return Locked;
+    };
+
+    void Unlock()
+    {
+        Locked = false;
+    }
 private:
 
     std::string m_ImagePath;
 
+    Model::PicureSource m_Source;
+
+    bool Locked=true;
 };
 #endif //PICTURE_HPP

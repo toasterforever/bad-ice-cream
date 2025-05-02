@@ -58,6 +58,10 @@ void App::TurnOffLevelButton()
         LevelButton->SetVisible(false);
     }
 
+    for (const auto& Locked : m_LVLockedPicture)
+    {
+        Locked->SetVisible(false);
+    }
 }
 
 #endif //TURNOFFTHINGS_HPP

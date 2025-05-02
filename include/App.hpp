@@ -11,7 +11,7 @@
 #include "Button.hpp"
 #include "Fruit.hpp"
 #include "Picture.hpp"
-#include "PhaseResourceManger.hpp"
+
 #include "Util/BGM.hpp"
 
 
@@ -102,8 +102,8 @@ private:
     std::vector<std::shared_ptr<Button>> m_Button;
     std::vector<std::shared_ptr<Button>> m_Level;
     std::vector<std::shared_ptr<Picture>> m_FruitPicture;
-    std::shared_ptr<PhaseResourceManger> m_PRM;
 
+    std::vector<std::shared_ptr<Picture>> m_LVLockedPicture;
 
     bool m_EnterDown = false;
 };

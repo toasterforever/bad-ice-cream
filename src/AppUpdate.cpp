@@ -19,14 +19,14 @@ void KeyRelease(Util::Keycode key) {
 
 static std::random_device rd2;   // 產生隨機種子
 static std::mt19937 gen2(rd2());  // 使用 Mersenne Twister 隨機數引擎
-static std::uniform_int_distribution<int> dist2(0, 49);  // 產生 0~49 的整數
+static std::uniform_int_distribution<int> dist2(0, 99);  // 產生 0~99 的整數
 int LV_Change = 0;
 int Fruit_Counter = 0;
-int Fruit_Counter_Arr[9]={0,0,0,0,0,0,0,0,0};
-bool Fruit_Reset_Arr[9]={false,false,false,false,false,false,false,false,false};
+std::array<int, 9> Fruit_Counter_Arr;
+std::array<bool, 9> Fruit_Reset_Arr;
 void App::Update() {
     const auto now = std::chrono::steady_clock::now();
-    SwitchBGM(m_CurrentBGMIndex);
+    m_LVLockedPicture[0]->Unlock();
     switch (m_Phase){
         case Phase::Start:{
             const auto mousePosition = Util::Input::GetCursorPosition();
@@ -91,6 +91,11 @@ void App::Update() {
                 for (int a = 0; a < 25; a++)
                 {
                     m_Level[a]->SetVisible(true);
+                    if (m_LVLockedPicture[a]->CheckLocked())
+                    {
+                        m_LVLockedPicture[a]->SetVisible(true);
+                    }
+
                 }
                 if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
                 {
@@ -108,15 +113,42 @@ void App::Update() {
                     {
                         if (m_Level[a]->isClicked(mousePosition))
                         {
-                            lastMouseTime = now;
-                            m_BackGround[3]->SetVisible(false);
-                            TurnOffButton();
-                            TurnOffLevelButton();
-                            m_Phase= static_cast<Phase>(static_cast<int>(Phase::LV01) + a);
-                            m_LastPhase=Phase::Manu;
-                            break;
+                            if (m_LVLockedPicture[a]->CheckLocked())
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                lastMouseTime = now;
+                                m_BackGround[3]->SetVisible(false);
+                                TurnOffButton();
+                                TurnOffLevelButton();
+                                m_Phase= static_cast<Phase>(static_cast<int>(Phase::LV01) + a);
+                                m_LastPhase=Phase::Manu;
+                                break;
+                            }
+
                         }
                     }
+                }
+                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+                {
+                    if (Util::Input::IsKeyPressed(Util::Keycode::LCTRL)||Util::Input::IsKeyPressed(Util::Keycode::RCTRL))
+                    {
+                        for (int a=0;a<25;a++)
+                        {
+                            if (m_Level[a]->isClicked(mousePosition)&&m_LVLockedPicture[a]->CheckLocked())
+                            {
+                                lastMouseTime = now;
+                                m_LVLockedPicture[a]->Unlock();
+                                m_LVLockedPicture[a]->SetVisible(false);
+                                break;
+
+
+                            }
+                        }
+                    }
+
                 }
                 break;
             }
@@ -127,6 +159,7 @@ void App::Update() {
                 m_Button[8]->SetVisible(true);
                 m_Button[9]->SetVisible(true);
                 LV_Change = 0;
+                m_LVLockedPicture[static_cast<int>(m_LastPhase) -static_cast<int>(Phase::LV01)+1]->Unlock();
                 if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
                 {
                     if (m_Button[7]->isClicked(mousePosition))
@@ -275,13 +308,12 @@ void App::Update() {
 
     switch (m_Phase){
         case Phase::Win:
-            m_CurrentBGMIndex=1;break;
+            SwitchBGM(1);break;
         case Phase::Lose:
-            m_CurrentBGMIndex=2;break;
+            SwitchBGM(2);break;
         default:
-            m_CurrentBGMIndex=0;break;
-
-    }
+            SwitchBGM(0);break;
+    }//BGM
 
     switch (m_Phase)
     {
@@ -495,8 +527,8 @@ void App::Update() {
             m_FruitPicture[0]->SetPosition(1);
             m_FruitPicture[1]->SetVisible(true);
             m_FruitPicture[1]->SetPosition(2);
-            Fruit_Counter_Arr[0]=4;
-            Fruit_Counter_Arr[1]=8;
+            Fruit_Counter_Arr={4,8,0,0,0,0,0,0,0};
+            Fruit_Reset_Arr={false,false,false,false,false,false,false,false,false};
             LV_Change = 1;
             for (int a = 0; a < 100; a++)
             {
@@ -732,7 +764,10 @@ void App::Update() {
                     }
 
                 m_IceCream->UpdateMovement(keyOrder);
-
+                if (m_Ice[m_IceCream->GetI()-1+(m_IceCream->GetJ()-1)*10]->isCreate())
+                {
+                    m_Ice[m_IceCream->GetI()-1+(m_IceCream->GetJ()-1)*10]->SetVisible(false);
+                }
                 }
             }//IceCream
             {
