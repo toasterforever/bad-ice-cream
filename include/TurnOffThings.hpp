@@ -26,6 +26,10 @@ void App::TurnOffLevel()
     for (const auto& Picture : m_FruitPicture) {
         Picture->SetVisible(false);
     }
+    for (const auto& Text:m_Texts)
+    {
+        Text->SetVisible(false);
+    }
     Map={
         "############",//0
         "#..........#",//1

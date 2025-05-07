@@ -5,7 +5,7 @@
 #ifndef BGM_HPP
 #define BGM_HPP
 
-#include "spdlog/details/os-inl.h"
+
 #include "Util/BGM.hpp"
 
 class BGM:public Util::BGM
@@ -19,5 +19,5 @@ class BGM:public Util::BGM
     private:
         int volume=32;
 
-}
+};
 #endif //BGM_HPP

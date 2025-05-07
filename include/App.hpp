@@ -11,8 +11,8 @@
 #include "Button.hpp"
 #include "Fruit.hpp"
 #include "Picture.hpp"
-
-#include "Util/BGM.hpp"
+#include "Text.hpp"
+#include "BGM.hpp"
 
 
 class App {
@@ -96,14 +96,17 @@ private:
     std::vector<std::shared_ptr<Floor>> m_Floor;
     std::vector<std::shared_ptr<Wall>> m_Wall;
 
-    std::vector<std::shared_ptr<BackGround>> m_BackGround;
-    std::vector<std::unique_ptr<Util::BGM>> m_BGM;
     int m_CurrentBGMIndex = 0;
+    std::vector<std::shared_ptr<BackGround>> m_BackGround;
+    std::vector<std::shared_ptr<BGM>> m_BGM;
+
     std::vector<std::shared_ptr<Button>> m_Button;
     std::vector<std::shared_ptr<Button>> m_Level;
-    std::vector<std::shared_ptr<Picture>> m_FruitPicture;
 
+    std::vector<std::shared_ptr<Picture>> m_FruitPicture;
     std::vector<std::shared_ptr<Picture>> m_LVLockedPicture;
+
+    std::vector<std::shared_ptr<Text>> m_Texts;
 
     bool m_EnterDown = false;
 };

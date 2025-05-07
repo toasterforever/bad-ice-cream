@@ -320,12 +320,30 @@ void App::Update() {
     case Phase::LV01:{
             if (LV_Change == 0)
             {
+                Map={
+                    "############",//0
+                    "#..........#",//1
+                    "#..........#",//2
+                    "#..........#",//3
+                    "#..........#",//4
+                    "#..........#",//5
+                    "#..........#",//6
+                    "#..........#",//8
+                    "#..........#",//8
+                    "#..........#",//9
+                    "#..........#",//10
+                    "############"//11
+                    // "012345678901"
+                };
                 m_Button[4]->SetVisible(true);
                 m_Button[5]->SetVisible(true);
                 m_Button[6]->SetVisible(true);
                 m_FruitPicture[0]->SetVisible(true);
                 m_FruitPicture[0]->SetPosition(1);
+                Fruit_Counter=16;
                 Fruit_Counter_Arr[0]=16;
+                m_Texts[0]->SetVisible(true);
+                m_Texts[0]->SetText(std::to_string(Fruit_Counter_Arr[0]));
                 LV_Change = 1;
                 for (int a = 0; a < 100; a++)
                 {
@@ -338,7 +356,6 @@ void App::Update() {
                 {
                     m_Enemies_1[a]->SetVisible(true);
                 }
-                Fruit_Counter=16;
                 m_Enemies_1[0]->SetPosition(5,5);
                 m_Enemies_1[1]->SetPosition(5,6);
                 m_Enemies_1[2]->SetPosition(6,6);
@@ -388,6 +405,21 @@ void App::Update() {
     case Phase::LV02:{
         if (LV_Change == 0)
         {
+            Map={
+                "############",//0
+                "#..........#",//1
+                "#..........#",//2
+                "#..........#",//3
+                "#..........#",//4
+                "#..........#",//5
+                "#..........#",//6
+                "#..........#",//8
+                "#..........#",//8
+                "#..........#",//9
+                "#..........#",//10
+                "############"//11
+                // "012345678901"
+            };
             m_Button[4]->SetVisible(true);
             m_Button[5]->SetVisible(true);
             m_Button[6]->SetVisible(true);
@@ -451,6 +483,21 @@ void App::Update() {
         break;}
     case Phase::LV03:{
         if (LV_Change == 0){
+            Map={
+                "############",//0
+                "#..........#",//1
+                "#..........#",//2
+                "#..........#",//3
+                "#..........#",//4
+                "#..........#",//5
+                "#..........#",//6
+                "#..........#",//8
+                "#..........#",//8
+                "#..........#",//9
+                "#..........#",//10
+                "############"//11
+                // "012345678901"
+            };
             m_Button[4]->SetVisible(true);
             m_Button[5]->SetVisible(true);
             m_Button[6]->SetVisible(true);
@@ -520,6 +567,21 @@ void App::Update() {
     }
     case Phase::LV04:{
         if (LV_Change == 0){
+            Map={
+                "############",//0
+                "#..........#",//1
+                "#..........#",//2
+                "#..........#",//3
+                "#..........#",//4
+                "#..........#",//5
+                "#..........#",//6
+                "#..........#",//8
+                "#..........#",//8
+                "#..........#",//9
+                "#..........#",//10
+                "############"//11
+                // "012345678901"
+            };
             m_Button[4]->SetVisible(true);
             m_Button[5]->SetVisible(true);
             m_Button[6]->SetVisible(true);
@@ -598,6 +660,26 @@ void App::Update() {
         }
         break;
     }
+    case Phase::LV25:
+        {
+            m_FruitPicture[0]->SetVisible(true);
+            m_FruitPicture[0]->SetPosition(1);
+            m_FruitPicture[1]->SetVisible(true);
+            m_FruitPicture[1]->SetPosition(2);
+            m_FruitPicture[2]->SetVisible(true);
+            m_FruitPicture[2]->SetPosition(3);
+            m_FruitPicture[3]->SetVisible(true);
+            m_FruitPicture[3]->SetPosition(4);
+            m_FruitPicture[4]->SetVisible(true);
+            m_FruitPicture[4]->SetPosition(5);
+            m_FruitPicture[5]->SetVisible(true);
+            m_FruitPicture[5]->SetPosition(6);
+            m_FruitPicture[6]->SetVisible(true);
+            m_FruitPicture[6]->SetPosition(7);
+            m_IceCream->SetVisible(true);
+            Fruit_Counter=50;
+            Fruit_Counter_Arr[0]=Fruit_Counter;
+        }
     default:
         break;
     }//LV初始化
@@ -797,10 +879,7 @@ void App::Update() {
                     {
                         fruit->SetVisible(false);
                         Fruit_Counter--;
-                        LOG_DEBUG(fruit->GetIJ());
-                        LOG_DEBUG(Fruit_Counter);
-                        LOG_DEBUG(Fruit_Counter_Arr[0]);
-                        LOG_DEBUG(Fruit_Counter_Arr[1]);
+                        m_Texts[0]->SetText(std::to_string(Fruit_Counter_Arr[0]));
                     }
                 }
             }

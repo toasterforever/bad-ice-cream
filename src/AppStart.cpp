@@ -12,11 +12,13 @@ void App::Start()
     static std::uniform_int_distribution<int> dist3(0, 19);  // 產生 0~19 的整數
 
     {
-        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/main.mp3"));
-        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/success.mp3"));
-        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/fail.mp3"));
+        m_BGM.push_back(std::make_shared<BGM>(GA_RESOURCE_DIR"/BGM/main.mp3"));
+        m_BGM.push_back(std::make_shared<BGM>(GA_RESOURCE_DIR"/BGM/success.mp3"));
+        m_BGM.push_back(std::make_shared<BGM>(GA_RESOURCE_DIR"/BGM/fail.mp3"));
         m_BGM[0]->Play();
-    }
+
+    }//BGM
+
     {
         m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_Background.png"));
         m_BackGround[0]->ResetPosition();
@@ -112,6 +114,38 @@ void App::Start()
         m_Root.AddChild(m_Button[9]);
 
     }//button
+
+    {
+
+        std::string str="0";
+        m_Texts.push_back(std::make_shared<Text>(str,1));
+        m_Root.AddChild(m_Texts[0]);
+        m_Texts[0]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,2));
+        m_Root.AddChild(m_Texts[1]);
+        m_Texts[1]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,3));
+        m_Root.AddChild(m_Texts[2]);
+        m_Texts[2]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,4));
+        m_Root.AddChild(m_Texts[3]);
+        m_Texts[3]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,5));
+        m_Root.AddChild(m_Texts[4]);
+        m_Texts[4]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,6));
+        m_Root.AddChild(m_Texts[5]);
+        m_Texts[5]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,7));
+        m_Root.AddChild(m_Texts[6]);
+        m_Texts[6]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,8));
+        m_Root.AddChild(m_Texts[7]);
+        m_Texts[7]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,9));
+        m_Root.AddChild(m_Texts[8]);
+        m_Texts[8]->SetVisible(false);
+    }//Text
 
     {
         for (int a = 0; a < 25; ++a) {
