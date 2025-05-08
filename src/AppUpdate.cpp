@@ -397,7 +397,7 @@ void App::Update() {
                 m_Fruit[15]->SetVisible(true);
                 m_Fruit[15]->SetPosition(8, 10);
             }
-            if (Fruit_Counter_Arr[0]==0)
+            if (Fruit_Counter==0)
             {
                 m_FruitPicture[0]->SetVisible(false);
             }
@@ -476,7 +476,7 @@ void App::Update() {
 
 
         }
-        if (Fruit_Counter_Arr[0]==0)
+        if (Fruit_Counter==0)
         {
             m_FruitPicture[0]->SetVisible(false);
         }
@@ -879,10 +879,35 @@ void App::Update() {
                     {
                         fruit->SetVisible(false);
                         Fruit_Counter--;
-                        m_Texts[0]->SetText(std::to_string(Fruit_Counter_Arr[0]));
+                        for (int i=0;i<9;i++)
+                        {
+                            if (Fruit_Counter_Arr[i]!=0)
+                            {
+                                Fruit_Counter_Arr[i]--;
+                                m_Texts[i]->SetText(std::to_string(Fruit_Counter_Arr[i]));
+                                break;
+                            }
+                            if (Fruit_Counter_Arr[i]==0)
+                            {
+                                m_Texts[i]->SetVisible(false);
+                            }
+                        }
+
                     }
                 }
-            }
+            }//Fruit
+            {
+                for (int a=0;a<9;a++)
+                {
+                    m_Texts[a]->SetVisible(true);
+                    m_Texts[a]->SetText(std::to_string(Fruit_Counter_Arr[a]));
+                    if (Fruit_Counter_Arr[a]==0)
+                    {
+                        m_Texts[a]->SetVisible(false);
+                    }
+                }
+
+            }//counter
             {
                 {
                     //     Map= {

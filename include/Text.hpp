@@ -5,6 +5,7 @@
 #ifndef TEXT_HPP
 #define TEXT_HPP
 
+#include "spdlog/spdlog.h"
 #include "Util/GameObject.hpp"
 #include "Util/Color.hpp"
 #include "Util/Text.hpp"
@@ -15,35 +16,37 @@ class Text :public Util::GameObject
         Text(std::string& text,int a) : GameObject(
         std::make_unique<Util::Text>(GA_RESOURCE_DIR"/Font/Inkfree.ttf", 55,
                                      text,
-                                     m_Color=Util::Color(0,100,150,200)),
+                                     Util::Color(0,100,150,200)),
                                      100) {
             SetPosition(a);
+            m_UtilText = std::dynamic_pointer_cast<Util::Text>(this->m_Drawable);
 
         }
 
         void SetPosition(glm::vec2& position)
         {
-            m_Position=position;
+
             m_Transform.translation=position;
         }
 
         void SetPosition(int I)
         {
-            m_Position=glm::vec2(-300+cellSize*I,-360);
             m_Transform.translation = glm::vec2(-320+cellSize*I,-350);
         }
         glm::vec2 GetPosition() const
         {
-            return m_Position;
+            return m_Transform.translation;
         }
 
         void SetText(const std::string &text) {
-            m_Text = text;
+
+            if (m_UtilText) {
+                m_UtilText->SetText(text);
+            } else {
+                std::cout<<"Error null"<<std::endl;
+            }
         }
     private:
-        int size=20;
-        std::string m_Text;
-        Util::Color m_Color=Util::Color(0,255,255);
-    glm::vec2 m_Position;
+        std::shared_ptr<Util::Text> m_UtilText=nullptr;
 };
 #endif //TEXT_HPP
