@@ -11,9 +11,10 @@
 #include "Button.hpp"
 #include "Fruit.hpp"
 #include "Picture.hpp"
+#include "Text.hpp"
+#include "BGM.hpp"
 
-#include "Util/BGM.hpp"
-
+#include <chrono>
 
 class App {
 public:
@@ -36,6 +37,12 @@ public:
     void TurnOffButton();
     void TurnOffLevelButton();
 
+    void TurnOnLV();
+    void TurnOnInterface();
+    void ChangeFromLV();
+
+    void LVUpdate();
+
     void SwitchBGM(size_t newIndex)
     {
         if (newIndex>=m_BGM.size()||newIndex==m_CurrentBGMIndex)
@@ -53,8 +60,15 @@ public:
         m_Phase=m_LastPhase;
         m_LastPhase=phase;
     }
+
+
+
+
+    std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
+    std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
+    const std::chrono::milliseconds cooldownTime{300};
+    const std::chrono::milliseconds cooldownMouseTime{300};
 private:
-    void ValidTask();
 
     enum class Phase {
         Start,
@@ -96,16 +110,19 @@ private:
     std::vector<std::shared_ptr<Floor>> m_Floor;
     std::vector<std::shared_ptr<Wall>> m_Wall;
 
-    std::vector<std::shared_ptr<BackGround>> m_BackGround;
-    std::vector<std::unique_ptr<Util::BGM>> m_BGM;
     int m_CurrentBGMIndex = 0;
+    std::vector<std::shared_ptr<BackGround>> m_BackGround;
+    std::vector<std::shared_ptr<BGM>> m_BGM;
+
     std::vector<std::shared_ptr<Button>> m_Button;
     std::vector<std::shared_ptr<Button>> m_Level;
-    std::vector<std::shared_ptr<Picture>> m_FruitPicture;
 
+    std::vector<std::shared_ptr<Picture>> m_FruitPicture;
     std::vector<std::shared_ptr<Picture>> m_LVLockedPicture;
 
-    bool m_EnterDown = false;
+    std::vector<std::shared_ptr<Text>> m_Texts;
+
+
 };
 
 #endif

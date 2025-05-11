@@ -12,11 +12,13 @@ void App::Start()
     static std::uniform_int_distribution<int> dist3(0, 19);  // 產生 0~19 的整數
 
     {
-        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/main.mp3"));
-        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/success.mp3"));
-        m_BGM.push_back(std::make_unique<Util::BGM>(GA_RESOURCE_DIR"/BGM/fail.mp3"));
+        m_BGM.push_back(std::make_shared<BGM>(GA_RESOURCE_DIR"/BGM/main.mp3"));
+        m_BGM.push_back(std::make_shared<BGM>(GA_RESOURCE_DIR"/BGM/success.mp3"));
+        m_BGM.push_back(std::make_shared<BGM>(GA_RESOURCE_DIR"/BGM/fail.mp3"));
         m_BGM[0]->Play();
-    }
+
+    }//BGM
+
     {
         m_BackGround.push_back(std::make_shared<BackGround>(GA_RESOURCE_DIR"/Image/Background/Interface/Interface_Background.png"));
         m_BackGround[0]->ResetPosition();
@@ -114,6 +116,42 @@ void App::Start()
     }//button
 
     {
+
+        std::string str="0";
+        m_Texts.push_back(std::make_shared<Text>(str,1));
+        m_Root.AddChild(m_Texts[0]);
+        m_Texts[0]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,2));
+        m_Root.AddChild(m_Texts[1]);
+        m_Texts[1]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,3));
+        m_Root.AddChild(m_Texts[2]);
+        m_Texts[2]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,4));
+        m_Root.AddChild(m_Texts[3]);
+        m_Texts[3]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,5));
+        m_Root.AddChild(m_Texts[4]);
+        m_Texts[4]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,6));
+        m_Root.AddChild(m_Texts[5]);
+        m_Texts[5]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,7));
+        m_Root.AddChild(m_Texts[6]);
+        m_Texts[6]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,8));
+        m_Root.AddChild(m_Texts[7]);
+        m_Texts[7]->SetVisible(false);
+        m_Texts.push_back(std::make_shared<Text>(str,9));
+        m_Root.AddChild(m_Texts[8]);
+        m_Texts[8]->SetVisible(false);
+
+        m_Texts.push_back(std::make_shared<Text>(str,5));
+        m_Root.AddChild(m_Texts[9]);
+        m_Texts[9]->SetVisible(false);
+    }//Text
+
+    {
         for (int a = 0; a < 25; ++a) {
             m_Level.push_back(std::make_shared<Button>(GA_RESOURCE_DIR"/Image/Background/Level/NEW/LV"+(a + 1 < 10 ? "0" + std::to_string(a + 1) : std::to_string(a + 1))+".png",Model::ButtonStyle::W80H80));
             m_Level[a]->SetZIndex(60);
@@ -152,13 +190,13 @@ void App::Start()
             m_Enemies_1[8+a]->SetVisible(false);
             m_Root.AddChild(m_Enemies_1[8+a]);
         }
-        // for (int a = 0; a < 10; ++a) {
-        //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png"));
-        //     m_Enemies_1[a+10]->SetZIndex(8);
-        //     m_Enemies_1[a+10]->SetPosition(1, a+1);
-        //     m_Enemies_1[a+10]->SetVisible(false);
-        //     m_Root.AddChild(m_Enemies_1[a+10]);
-        // }
+        for (int a = 0; a < 4; ++a) {
+            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Auto_Move));
+            m_Enemies_1[a+12]->SetZIndex(8);
+            m_Enemies_1[a+12]->SetPosition(1, a+1);
+            m_Enemies_1[a+12]->SetVisible(false);
+            m_Root.AddChild(m_Enemies_1[a+12]);
+        }
         // for (int a = 0; a < 10; ++a) {
         //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/微波爐.png"));
         //     m_Enemies_1[a+20]->SetZIndex(8);
@@ -281,40 +319,6 @@ void App::Start()
     //     LOG_DEBUG(m_FruitPicture[0]->GetZIndex());
     //     LOG_DEBUG(m_FruitPicture[0]->GetPosition());
     }//debug
-
-    {
-    //     for (int a = 0; a < 100; ++a) {
-    //         m_Ice.push_back(std::make_shared<Ice>(GA_RESOURCE_DIR"/Image/Background/ice_brick_wall.png"));
-    //         m_Ice[a]->SetZIndex(7);
-    //         m_Ice[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
-    //         m_Ice[a]->SetVisible(false);
-    //         m_Root.AddChild(m_Ice[a]);
-    //         if (dist3(gen3) == 0)
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/detailed_snow.png"));
-    //         }
-    //         else if (dist3(gen3) == 1)
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/random_piles_snow.png"));
-    //         }
-    //         else if (dist3(gen3) == 1)
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/raised_snow_piles.png"));
-    //         }
-    //         else
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/fine_lines_snow.png"));
-    //         }
-    //         m_Floor[a]->SetZIndex(1);
-    //         m_Floor[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
-    //         m_Floor[a]->SetVisible(false);
-    //         m_Root.AddChild(m_Floor[a]);
-    //     }
-    }//Wall
-
-
-
-
 
     m_CurrentState = State::UPDATE;
 }

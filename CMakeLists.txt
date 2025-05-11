@@ -47,7 +47,10 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         src/Picture.cpp
         src/Wall.cpp
         include/BGM.hpp
-        include/Text.hpp)
+        include/Text.hpp
+        src/AutoMove.cpp
+        include/Phase.hpp
+)
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4)

@@ -20,7 +20,14 @@ void Enemies::MoveTowards(){
     Model::Direction direction = GetDirection();
     if (TowardHasThings(direction))
     {
-        SetDirection(GetRandomDirection());return;
+        if (ModelMove==Model::Move::Row_Move||ModelMove==Model::Move::Column_Move||ModelMove==Model::Move::Around_Move)
+        {
+            SetDirection(GetRandomDirection());return;
+        }
+        if (ModelMove==Model::Move::Auto_Move)
+        {
+            SetDirection(AutoMove(MainCharacterPosition));return;
+        }
     }
     if(direction == Model::Direction::Up){
         MoveUp();
@@ -66,7 +73,7 @@ Model::Direction Enemies::GetRandomDirection()
             return Model::Direction::Down;
         }
     }
-    if (ModelMove==Model::Move::Around_Move)
+    if (ModelMove==Model::Move::Around_Move||ModelMove==Model::Move::Auto_Move)
     {
         switch (dist(gen)) {
             case 0: return Model::Direction::Up;
@@ -75,10 +82,7 @@ Model::Direction Enemies::GetRandomDirection()
             case 3: return Model::Direction::Right;
         }
     }
-    if (ModelMove==Model::Move::Auto_Move)
-    {
-        return Model::Direction::None;
-    }
+
     if (ModelMove==Model::Move::Dont_Move)
     {
         return Model::Direction::None;

@@ -24,6 +24,8 @@ inline std::vector<std::string> Map = {
     // "012345678901"
 };
 
+inline glm::vec2 MainCharacterPosition;//讓敵人追蹤的目標
+
 namespace Model {
     enum class Move {
         Row_Move,
@@ -39,11 +41,11 @@ namespace Model {
         NotDefined
     };
     enum class Direction {
-        Up,
-        Down,
-        Left,
-        Right,
-        None
+        Up=1,
+        Down=2,
+        Left=3,
+        Right=4,
+        None=-1
     };
     enum class PicureSource
     {

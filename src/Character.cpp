@@ -84,6 +84,7 @@ void Character::UpdatePosition()
         // 抵達目標位置後，更新 i, j
         i = NextI;
         j = NextJ;
+        MainCharacterPosition={i,j};//全域變數，方便Enemies調用
     }
 }
 
