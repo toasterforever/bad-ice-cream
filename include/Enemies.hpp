@@ -24,6 +24,8 @@ public:
     void SetModel(Model::Move NewModel);
 
     void UpdatePosition() override;
+
+    Model::Direction AutoMove(glm::vec2 MainPosition);
 private:
     Model::Move ModelMove;
 

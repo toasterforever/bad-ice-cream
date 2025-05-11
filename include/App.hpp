@@ -14,6 +14,7 @@
 #include "Text.hpp"
 #include "BGM.hpp"
 
+#include <chrono>
 
 class App {
 public:
@@ -36,6 +37,12 @@ public:
     void TurnOffButton();
     void TurnOffLevelButton();
 
+    void TurnOnLV();
+    void TurnOnInterface();
+    void ChangeFromLV();
+
+    void LVUpdate();
+
     void SwitchBGM(size_t newIndex)
     {
         if (newIndex>=m_BGM.size()||newIndex==m_CurrentBGMIndex)
@@ -53,8 +60,15 @@ public:
         m_Phase=m_LastPhase;
         m_LastPhase=phase;
     }
+
+
+
+
+    std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
+    std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
+    const std::chrono::milliseconds cooldownTime{300};
+    const std::chrono::milliseconds cooldownMouseTime{300};
 private:
-    void ValidTask();
 
     enum class Phase {
         Start,
@@ -108,7 +122,7 @@ private:
 
     std::vector<std::shared_ptr<Text>> m_Texts;
 
-    bool m_EnterDown = false;
+
 };
 
 #endif

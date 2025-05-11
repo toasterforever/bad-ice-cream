@@ -145,6 +145,10 @@ void App::Start()
         m_Texts.push_back(std::make_shared<Text>(str,9));
         m_Root.AddChild(m_Texts[8]);
         m_Texts[8]->SetVisible(false);
+
+        m_Texts.push_back(std::make_shared<Text>(str,5));
+        m_Root.AddChild(m_Texts[9]);
+        m_Texts[9]->SetVisible(false);
     }//Text
 
     {
@@ -186,13 +190,13 @@ void App::Start()
             m_Enemies_1[8+a]->SetVisible(false);
             m_Root.AddChild(m_Enemies_1[8+a]);
         }
-        // for (int a = 0; a < 10; ++a) {
-        //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png"));
-        //     m_Enemies_1[a+10]->SetZIndex(8);
-        //     m_Enemies_1[a+10]->SetPosition(1, a+1);
-        //     m_Enemies_1[a+10]->SetVisible(false);
-        //     m_Root.AddChild(m_Enemies_1[a+10]);
-        // }
+        for (int a = 0; a < 4; ++a) {
+            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Auto_Move));
+            m_Enemies_1[a+12]->SetZIndex(8);
+            m_Enemies_1[a+12]->SetPosition(1, a+1);
+            m_Enemies_1[a+12]->SetVisible(false);
+            m_Root.AddChild(m_Enemies_1[a+12]);
+        }
         // for (int a = 0; a < 10; ++a) {
         //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/微波爐.png"));
         //     m_Enemies_1[a+20]->SetZIndex(8);
@@ -315,40 +319,6 @@ void App::Start()
     //     LOG_DEBUG(m_FruitPicture[0]->GetZIndex());
     //     LOG_DEBUG(m_FruitPicture[0]->GetPosition());
     }//debug
-
-    {
-    //     for (int a = 0; a < 100; ++a) {
-    //         m_Ice.push_back(std::make_shared<Ice>(GA_RESOURCE_DIR"/Image/Background/ice_brick_wall.png"));
-    //         m_Ice[a]->SetZIndex(7);
-    //         m_Ice[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
-    //         m_Ice[a]->SetVisible(false);
-    //         m_Root.AddChild(m_Ice[a]);
-    //         if (dist3(gen3) == 0)
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/detailed_snow.png"));
-    //         }
-    //         else if (dist3(gen3) == 1)
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/random_piles_snow.png"));
-    //         }
-    //         else if (dist3(gen3) == 1)
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/raised_snow_piles.png"));
-    //         }
-    //         else
-    //         {
-    //             m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/fine_lines_snow.png"));
-    //         }
-    //         m_Floor[a]->SetZIndex(1);
-    //         m_Floor[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
-    //         m_Floor[a]->SetVisible(false);
-    //         m_Root.AddChild(m_Floor[a]);
-    //     }
-    }//Wall
-
-
-
-
 
     m_CurrentState = State::UPDATE;
 }
