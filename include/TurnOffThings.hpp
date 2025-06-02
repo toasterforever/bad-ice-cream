@@ -12,8 +12,10 @@ void App::TurnOffLevel()
 
     for (const auto& enemy : m_Enemies_1) {
         enemy->SetVisible(false);
+        enemy->SetDirection(Model::Direction::None);
     }
     m_IceCream->SetVisible(false);
+    m_IceCream->SetDirection(Model::Direction::None);
     for (const auto& Ice : m_Ice) {
         Ice->SetVisible(false);
     }
@@ -22,6 +24,7 @@ void App::TurnOffLevel()
     }
     for (const auto& Fruit : m_Fruit) {
         Fruit->SetVisible(false);
+        Fruit->SetDirection(Model::Direction::None);
     }
     for (const auto& Picture : m_FruitPicture) {
         Picture->SetVisible(false);

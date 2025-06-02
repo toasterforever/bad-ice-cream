@@ -983,7 +983,7 @@ void App::LVUpdate(){
                             m_IceCream->SetVisible(false);
                         }
 
-                        if (dist2(gen2) == 0)
+                        if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)
                         {
                             if (enemy->GetModel()!=Model::Move::Auto_Move)
                             {
@@ -1037,8 +1037,12 @@ void App::LVUpdate(){
                     }
                     if (fruit->GetModel()!=Model::Move::Dont_Move)
                     {
-                        fruit->MoveTowards();
-                        if (dist2(gen2) == 0)
+                        if (!m_Ice[fruit->GetI()-1+(fruit->GetJ()-1)*10]->isCreate())
+                        {
+                            fruit->MoveTowards();
+                        }
+
+                        if (dist2(gen2) == 0||fruit->GetDirection()==Model::Direction::None)
                         {
                             fruit->SetDirection(fruit->GetRandomDirection());
                         }
