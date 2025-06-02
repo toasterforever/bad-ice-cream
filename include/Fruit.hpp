@@ -11,6 +11,10 @@ class Fruit : public Enemies
 {
     public:
         explicit Fruit(const std::string& ImagePath);
+        void MoveLeft() override ;
+        void MoveRight()override ;
+        void MoveUp()override ;
+        void MoveDown()override ;
 
 };
 

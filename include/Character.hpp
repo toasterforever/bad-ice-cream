@@ -62,10 +62,10 @@ public:
         return false;
     }
 
-    void MoveLeft();
-    void MoveRight();
-    void MoveUp();
-    void MoveDown();
+    virtual void MoveLeft();
+    virtual void MoveRight();
+    virtual void MoveUp();
+    virtual void MoveDown();
 
     [[nodiscard]] Model::Direction GetDirection() const {return currentDirection;}
 
