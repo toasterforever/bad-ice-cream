@@ -8,6 +8,8 @@
 #include <string>
 #include "Util/Input.hpp"
 
+
+
 inline std::vector<std::string> Map = {
     "############",//0
     "#..........#",//1
@@ -41,10 +43,10 @@ namespace Model {
         NotDefined
     };
     enum class Direction {
-        Up=1,
-        Down=2,
-        Left=3,
-        Right=4,
+        Up=0,
+        Down=1,
+        Left=2,
+        Right=3,
         None=-1
     };
     enum class PicureSource
@@ -53,5 +55,11 @@ namespace Model {
         Locked,
         None
     };
+
+    std::string DirToStr(Model::Direction dir);
+    int DirToNum(Model::Direction dir);
+    glm::vec2 DirToPos(Model::Direction dir);
 }
+
+
 #endif //NAMESPACE_MODEL_HPP

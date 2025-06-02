@@ -42,6 +42,7 @@ public:
     void ChangeFromLV();
 
     void LVUpdate();
+    void LVReset();
 
     void SwitchBGM(size_t newIndex)
     {

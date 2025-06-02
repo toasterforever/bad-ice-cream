@@ -3,9 +3,26 @@
 //
 #include "Enemies.hpp"
 
+#include "MainCharacter.hpp"
+#include "spdlog/spdlog.h"
+#include "Util/Logger.hpp"
 Enemies::Enemies(const std::string& ImagePath,Model::Move ModelMove): Character(ImagePath),ModelMove(ModelMove)
 {
 
+}
+void Enemies::MoveDirection()
+{
+    switch (GetDirection())
+    {
+        case Model::Direction::Up:
+            MoveUp();break;
+        case Model::Direction::Down:
+            MoveDown();break;
+        case Model::Direction::Left:
+            MoveLeft();break;
+        case Model::Direction::Right:
+            MoveRight();break;
+    }
 }
 void Enemies::MoveTowards(){
     if (IsMoving())
@@ -17,6 +34,15 @@ void Enemies::MoveTowards(){
         i = NextI;
         j = NextJ;
 
+
+    if (ModelMove==Model::Move::Auto_Move)
+    {
+
+        SetDirection(AutoMove(MainCharacterPosition));
+        MoveDirection();
+        return;
+    }
+
     Model::Direction direction = GetDirection();
     if (TowardHasThings(direction))
     {
@@ -24,24 +50,9 @@ void Enemies::MoveTowards(){
         {
             SetDirection(GetRandomDirection());return;
         }
-        if (ModelMove==Model::Move::Auto_Move)
-        {
-            SetDirection(AutoMove(MainCharacterPosition));return;
-        }
+
     }
-    if(direction == Model::Direction::Up){
-        MoveUp();
-    }
-    else if(direction == Model::Direction::Down){
-        MoveDown();
-    }
-    else if(direction == Model::Direction::Left){
-        MoveLeft();
-    }
-    else if(direction == Model::Direction::Right)
-    {
-        MoveRight();
-    }
+    MoveDirection();
 }
 
 Model::Direction Enemies::GetRandomDirection()
@@ -129,9 +140,4 @@ void Enemies::UpdatePosition()
         j = NextJ;
 
     }
-}
-
-void Enemies::SetModel(Model::Move const NewModel)
-{
-    ModelMove=NewModel;
 }

@@ -7,7 +7,7 @@
 #include "App.hpp"
 #include "Util/Input.hpp"
 #include "Util/Keycode.hpp"
-
+#include "Util/Logger.hpp"
 
 #include <random>
 static std::random_device rd2;   // 產生隨機種子
@@ -24,6 +24,41 @@ void KeyRelease(Util::Keycode key) {
     keyOrder.erase(std::remove(keyOrder.begin(), keyOrder.end(), key), keyOrder.end());
 }
 
+inline void App::LVReset()
+{
+    Map={
+        "############",//0
+        "#..........#",//1
+        "#..........#",//2
+        "#..........#",//3
+        "#..........#",//4
+        "#..........#",//5
+        "#..........#",//6
+        "#..........#",//8
+        "#..........#",//8
+        "#..........#",//9
+        "#..........#",//10
+        "############"//11
+        // "012345678901"
+    };
+    m_Button[4]->SetVisible(true);
+    m_Button[5]->SetVisible(true);
+    m_Button[6]->SetVisible(true);
+    LV_Change = 1;
+    for (int a = 0; a < 100; a++)
+    {
+        m_Floor[a]->SetVisible(true);
+        m_Ice[a]->SetVisible(false);
+    }
+    m_IceCream->SetVisible(true);
+
+    Fruit_Reset_Arr={false,false,false,false,false,false,false,false,false};
+    Fruit_Counter = 0;
+    for (int n : Fruit_Counter_Arr)
+        Fruit_Counter += n;
+}
+
+
 void App::TurnOnLV()
 {
 
@@ -32,37 +67,16 @@ void App::TurnOnLV()
     case Phase::LV01:{
             if (LV_Change == 0)
             {
-                Map={
-                    "############",//0
-                    "#..........#",//1
-                    "#..........#",//2
-                    "#..........#",//3
-                    "#..........#",//4
-                    "#..........#",//5
-                    "#..........#",//6
-                    "#..........#",//8
-                    "#..........#",//8
-                    "#..........#",//9
-                    "#..........#",//10
-                    "############"//11
-                    // "012345678901"
-                };
-                m_Button[4]->SetVisible(true);
-                m_Button[5]->SetVisible(true);
-                m_Button[6]->SetVisible(true);
+                LVReset();
+
                 m_FruitPicture[0]->SetVisible(true);
                 m_FruitPicture[0]->SetPosition(1);
                 Fruit_Counter=16;
                 Fruit_Counter_Arr[0]=16;
                 m_Texts[0]->SetVisible(true);
                 m_Texts[0]->SetText(std::to_string(Fruit_Counter_Arr[0]));
-                LV_Change = 1;
-                for (int a = 0; a < 100; a++)
-                {
-                    m_Floor[a]->SetVisible(true);
-                    m_Ice[a]->SetVisible(false);
-                }
-                m_IceCream->SetVisible(true);
+
+
                 m_IceCream->SetPosition(1,1);
                 for (int a = 0; a < 4; a++)
                 {
@@ -117,33 +131,13 @@ void App::TurnOnLV()
     case Phase::LV02:{
         if (LV_Change == 0)
         {
-            Map={
-                "############",//0
-                "#..........#",//1
-                "#..........#",//2
-                "#..........#",//3
-                "#..........#",//4
-                "#..........#",//5
-                "#..........#",//6
-                "#..........#",//8
-                "#..........#",//8
-                "#..........#",//9
-                "#..........#",//10
-                "############"//11
-                // "012345678901"
-            };
-            m_Button[4]->SetVisible(true);
-            m_Button[5]->SetVisible(true);
-            m_Button[6]->SetVisible(true);
+            LVReset();
+
             m_FruitPicture[0]->SetVisible(true);
             m_FruitPicture[0]->SetPosition(1);
             Fruit_Counter_Arr[0]=8;
-            LV_Change = 1;
-            for (int a = 0; a < 100; a++)
-            {
-                m_Floor[a]->SetVisible(true);
-                m_Ice[a]->SetVisible(false);
-            }
+
+
 
 
             m_Fruit[0]->SetVisible(true);
@@ -167,7 +161,7 @@ void App::TurnOnLV()
 
 
 
-            m_IceCream->SetVisible(true);
+
             m_IceCream->SetPosition(5,5);
 
             m_Enemies_1[1]->SetVisible(true);
@@ -195,33 +189,13 @@ void App::TurnOnLV()
         break;}
     case Phase::LV03:{
         if (LV_Change == 0){
-            Map={
-                "############",//0
-                "#..........#",//1
-                "#..........#",//2
-                "#..........#",//3
-                "#..........#",//4
-                "#..........#",//5
-                "#..........#",//6
-                "#..........#",//8
-                "#..........#",//8
-                "#..........#",//9
-                "#..........#",//10
-                "############"//11
-                // "012345678901"
-            };
-            m_Button[4]->SetVisible(true);
-            m_Button[5]->SetVisible(true);
-            m_Button[6]->SetVisible(true);
+            LVReset();
+
             m_FruitPicture[0]->SetVisible(true);
             m_FruitPicture[0]->SetPosition(1);
             Fruit_Counter_Arr[0]=4;
-            LV_Change = 1;
-            for (int a = 0; a < 100; a++)
-            {
-                m_Floor[a]->SetVisible(true);
-                m_Ice[a]->SetVisible(false);
-            }
+
+
             m_Ice[10*3+3]->SetVisible(true);
             m_Ice[10*3+4]->SetVisible(true);
             m_Ice[10*3+5]->SetVisible(true);
@@ -257,7 +231,7 @@ void App::TurnOnLV()
             m_Enemies_1[10]->SetPosition(1,10);
             m_Enemies_1[11]->SetPosition(10,10);
 
-            m_IceCream->SetVisible(true);
+
             m_IceCream->SetPosition(5,5);
 
             m_Fruit[0]->SetVisible(true);
@@ -279,36 +253,16 @@ void App::TurnOnLV()
     }
     case Phase::LV04:{
         if (LV_Change == 0){
-            Map={
-                "############",//0
-                "#..........#",//1
-                "#..........#",//2
-                "#..........#",//3
-                "#..........#",//4
-                "#..........#",//5
-                "#..........#",//6
-                "#..........#",//8
-                "#..........#",//8
-                "#..........#",//9
-                "#..........#",//10
-                "############"//11
-                // "012345678901"
-            };
-            m_Button[4]->SetVisible(true);
-            m_Button[5]->SetVisible(true);
-            m_Button[6]->SetVisible(true);
+            LVReset();
+
             m_FruitPicture[0]->SetVisible(true);
             m_FruitPicture[0]->SetPosition(1);
             m_FruitPicture[1]->SetVisible(true);
             m_FruitPicture[1]->SetPosition(2);
             Fruit_Counter_Arr={4,8,0,0,0,0,0,0,0};
-            Fruit_Reset_Arr={false,false,false,false,false,false,false,false,false};
-            LV_Change = 1;
-            for (int a = 0; a < 100; a++)
-            {
-                m_Floor[a]->SetVisible(true);
-                m_Ice[a]->SetVisible(false);
-            }
+
+
+
 
             m_Enemies_1[8]->SetVisible(true);
             m_Enemies_1[9]->SetVisible(true);
@@ -319,7 +273,7 @@ void App::TurnOnLV()
             m_Enemies_1[10]->SetPosition(1,10);
             m_Enemies_1[11]->SetPosition(10,10);
 
-            m_IceCream->SetVisible(true);
+
             m_IceCream->SetPosition(5,5);
 
             m_Fruit[0]->SetVisible(true);
@@ -349,6 +303,77 @@ void App::TurnOnLV()
             m_Fruit[21]->SetPosition(6,5);
             m_Fruit[22]->SetPosition(6,6);
             m_Fruit[23]->SetPosition(6,7);
+
+            Fruit_Counter=4+8;
+
+        }
+        if (Fruit_Counter>=8)
+        {
+            Fruit_Counter_Arr[0]=Fruit_Counter-8;
+        }
+        if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
+        {
+            Fruit_Reset_Arr[1]=true;
+            m_FruitPicture[0]->SetVisible(false);
+            m_Fruit[16]->SetVisible(true);
+            m_Fruit[17]->SetVisible(true);
+            m_Fruit[18]->SetVisible(true);
+            m_Fruit[19]->SetVisible(true);
+            m_Fruit[20]->SetVisible(true);
+            m_Fruit[21]->SetVisible(true);
+            m_Fruit[22]->SetVisible(true);
+            m_Fruit[23]->SetVisible(true);
+        }
+        break;
+    }
+    case Phase::LV05:{
+        if (LV_Change == 0){
+            LVReset();
+
+
+            m_FruitPicture[0]->SetVisible(true);
+            m_FruitPicture[0]->SetPosition(1);
+            m_FruitPicture[1]->SetVisible(true);
+            m_FruitPicture[1]->SetPosition(2);
+            Fruit_Counter_Arr={4,8,0,0,0,0,0,0,0};
+            
+            m_Fruit[0]->SetVisible(true);
+            m_Fruit[1]->SetVisible(true);
+            m_Fruit[2]->SetVisible(true);
+            m_Fruit[3]->SetVisible(true);
+            m_Fruit[0]->SetPosition(5, 5);
+            m_Fruit[1]->SetPosition(5, 6);
+            m_Fruit[2]->SetPosition(6, 5);
+            m_Fruit[3]->SetPosition(6, 6);
+
+
+            m_Fruit[16]->SetVisible(false);
+            m_Fruit[17]->SetVisible(false);
+            m_Fruit[18]->SetVisible(false);
+            m_Fruit[19]->SetVisible(false);
+            m_Fruit[20]->SetVisible(false);
+            m_Fruit[21]->SetVisible(false);
+            m_Fruit[22]->SetVisible(false);
+            m_Fruit[23]->SetVisible(false);
+
+            m_Fruit[16]->SetPosition(1,1);
+            m_Fruit[17]->SetPosition(1,2);
+            m_Fruit[18]->SetPosition(1,9);
+            m_Fruit[19]->SetPosition(1,10);
+            m_Fruit[20]->SetPosition(10,1);
+            m_Fruit[21]->SetPosition(10,2);
+            m_Fruit[22]->SetPosition(10,9);
+            m_Fruit[23]->SetPosition(10,10);
+
+
+            m_Enemies_1[12]->SetVisible(true);
+            m_Enemies_1[12]->SetPosition(10,10);
+
+
+
+            m_IceCream->SetPosition(1,1);
+
+
 
             Fruit_Counter=4+8;
 
@@ -747,6 +772,17 @@ void App::LVUpdate(){
                 }
             }//Ice
             {
+                for (const auto& wall : m_Wall)
+                {
+                    if (wall->GetVisibility())
+                    {
+                        Map[wall->GetI()][wall->GetJ()]='#';
+                    }
+                }
+            }
+            {
+                MainCharacterPosition={m_IceCream->GetIJ()};
+
                 if (Util::Input::IsKeyPressed(Util::Keycode::A)) {keyOrder.push_back(Util::Keycode::A);}
                 else KeyRelease(Util::Keycode::A);
                 if (Util::Input::IsKeyPressed(Util::Keycode::D)) {keyOrder.push_back(Util::Keycode::D);}
@@ -854,11 +890,16 @@ void App::LVUpdate(){
                     }
 
                 m_IceCream->UpdateMovement(keyOrder);
+
                 if (m_Ice[m_IceCream->GetI()-1+(m_IceCream->GetJ()-1)*10]->isCreate())
                 {
                     m_Ice[m_IceCream->GetI()-1+(m_IceCream->GetJ()-1)*10]->SetVisible(false);
                 }
                 }
+
+
+
+
             }//IceCream
             {
 
