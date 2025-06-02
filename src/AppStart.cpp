@@ -229,6 +229,12 @@ void App::Start()
             m_Ice[a]->SetVisible(false);
             m_Root.AddChild(m_Ice[a]);
 
+            m_Wall.push_back(std::make_shared<Wall>(GA_RESOURCE_DIR"/Image/Background/wall/red_brick_wall.png"));
+            m_Wall[a]->SetZIndex(7);
+            m_Wall[a]->SetPosition(a%10+1, a/10+1);
+            m_Wall[a]->SetVisible(false);
+            m_Root.AddChild(m_Wall[a]);
+
             if (dist3(gen3) == 0)
             {
                 m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/detailed_snow.png"));
@@ -250,7 +256,7 @@ void App::Start()
             m_Floor[a]->SetVisible(false);
             m_Root.AddChild(m_Floor[a]);
         }
-    }//Ice and floor
+    }//Ice, floor and wall
 
     {
 

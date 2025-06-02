@@ -50,6 +50,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         include/Text.hpp
         src/AutoMove.cpp
         include/Phase.hpp
+        src/NameSpace_Model.cpp
 )
 
 if(MSVC)
