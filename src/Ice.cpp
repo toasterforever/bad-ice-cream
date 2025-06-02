@@ -20,7 +20,7 @@ bool Ice::isBroke() const
 
 bool Ice::TowardHasThings(int const NewI, int const NewJ)
 {
-    if (Map[NewI][NewJ] == '#'||Map[NewI][NewJ] == 'E')
+    if (Map[NewI][NewJ] == '#'||Map[NewI][NewJ] == 'E'||Map2[NewI][NewJ] == 'A')
     {
         return true;
     }

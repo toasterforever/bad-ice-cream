@@ -110,6 +110,7 @@ private:
     std::vector<std::shared_ptr<Ice>> m_Ice;
     std::vector<std::shared_ptr<Floor>> m_Floor;
     std::vector<std::shared_ptr<Wall>> m_Wall;
+    std::vector<std::shared_ptr<Wall>> m_AirWall;
 
     int m_CurrentBGMIndex = 0;
     std::vector<std::shared_ptr<BackGround>> m_BackGround;

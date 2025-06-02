@@ -847,6 +847,13 @@ void App::LVUpdate(){
                         Map[wall->GetI()][wall->GetJ()]='#';
                     }
                 }
+                for (const auto& wall : m_AirWall)
+                {
+                    if (wall->GetVisibility())
+                    {
+                        Map2[wall->GetI()][wall->GetJ()]='A';
+                    }
+                }
 
             }//Wall
 

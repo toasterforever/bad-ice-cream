@@ -259,6 +259,12 @@ void App::Start()
             m_Wall[a]->SetVisible(false);
             m_Root.AddChild(m_Wall[a]);
 
+            m_AirWall.push_back(std::make_shared<Wall>(GA_RESOURCE_DIR"/Image/Background/wall/air_wall.png"));
+            m_AirWall[a]->SetZIndex(7);
+            m_AirWall[a]->SetPosition(a%10+1, a/10+1);
+            m_AirWall[a]->SetVisible(false);
+            m_Root.AddChild(m_AirWall[a]);
+
             if (dist3(gen3) == 0)
             {
                 m_Floor.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/floor/detailed_snow.png"));

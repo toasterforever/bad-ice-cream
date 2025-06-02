@@ -46,7 +46,7 @@ void MainCharacter::UpdateMovement(std::vector<Util::Keycode> keyOrder){
 
 bool MainCharacter::TowardHasThings(int const NewI, int const NewJ)
 {
-    if (Map[NewI][NewJ] == 'I'||Map[NewI][NewJ] == '#')
+    if (Map[NewI][NewJ] == 'I'||Map[NewI][NewJ] == '#'||Map2[NewI][NewJ] == 'A')
     {
         return true;
     }
