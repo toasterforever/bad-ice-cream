@@ -968,9 +968,9 @@ void App::LVUpdate(){
 
                 m_IceCream->UpdateMovement(keyOrder);
 
-                if (m_Ice[m_IceCream->GetI()-1+(m_IceCream->GetJ()-1)*10]->isCreate())
+                if (m_Ice[m_IceCream->GetIndex()]->isCreate())
                 {
-                    m_Ice[m_IceCream->GetI()-1+(m_IceCream->GetJ()-1)*10]->SetVisible(false);
+                    m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
                 }
                 }
 
@@ -1044,7 +1044,7 @@ void App::LVUpdate(){
                     }
                     if (fruit->GetModel()!=Model::Move::Dont_Move)
                     {
-                        if (!m_Ice[fruit->GetI()-1+(fruit->GetJ()-1)*10]->isCreate())
+                        if (!m_Ice[fruit->GetIndex()]->isCreate())
                         {
                             fruit->MoveTowards();
                         }
