@@ -220,6 +220,30 @@ void App::Start()
             m_Fruit[16+a]->SetVisible(false);
             m_Root.AddChild(m_Fruit[16+a]);
         }
+        for (int a = 0; a < 4; ++a) {
+            m_Fruit.push_back(std::make_shared<Fruit>(GA_RESOURCE_DIR"/Image/Character/Fruit/水蜜桃.png"));
+            m_Fruit[32+a]->SetModel(Model::Move::Column_Move);
+            m_Fruit[32+a]->SetZIndex(5);
+            m_Fruit[32+a]->SetPosition(a+1, 1);
+            m_Fruit[32+a]->SetVisible(false);
+            m_Root.AddChild(m_Fruit[32+a]);
+        }
+        for (int a = 0; a < 4; ++a) {
+            m_Fruit.push_back(std::make_shared<Fruit>(GA_RESOURCE_DIR"/Image/Character/Fruit/火龍果.png"));
+            m_Fruit[36+a]->SetModel(Model::Move::Row_Move);
+            m_Fruit[36+a]->SetZIndex(5);
+            m_Fruit[36+a]->SetPosition(a+1, 1);
+            m_Fruit[36+a]->SetVisible(false);
+            m_Root.AddChild(m_Fruit[36+a]);
+        }
+        for (int a = 0; a < 4; ++a) {
+            m_Fruit.push_back(std::make_shared<Fruit>(GA_RESOURCE_DIR"/Image/Character/Fruit/草莓.png"));
+            m_Fruit[40+a]->SetModel(Model::Move::Around_Move);
+            m_Fruit[40+a]->SetZIndex(5);
+            m_Fruit[40+a]->SetPosition(a+1, 1);
+            m_Fruit[40+a]->SetVisible(false);
+            m_Root.AddChild(m_Fruit[40+a]);
+        }
     }//Fruit
     {
         for (int a = 0; a < 100; ++a) {

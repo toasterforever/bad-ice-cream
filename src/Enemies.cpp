@@ -22,6 +22,8 @@ void Enemies::MoveDirection()
             MoveLeft();break;
         case Model::Direction::Right:
             MoveRight();break;
+        case Model::Direction::None:
+            break;
     }
 }
 void Enemies::MoveTowards(){

@@ -54,8 +54,13 @@ inline void App::LVReset()
 
     Fruit_Reset_Arr={false,false,false,false,false,false,false,false,false};
     Fruit_Counter = 0;
-    for (int n : Fruit_Counter_Arr)
-        Fruit_Counter += n;
+
+    Fruit_Counter_Arr = {0};
+    for (auto text:m_Texts)
+    {
+        text->SetText("0");
+    }
+
 }
 
 
@@ -397,6 +402,69 @@ void App::TurnOnLV()
         }
         break;
     }
+
+    case Phase::LV06:
+        {
+            if (LV_Change == 0){
+            LVReset();
+
+            {
+                m_FruitPicture[2]->SetVisible(true);
+                m_FruitPicture[2]->SetPosition(3);
+                m_FruitPicture[3]->SetVisible(true);
+                m_FruitPicture[3]->SetPosition(4);
+                m_FruitPicture[4]->SetVisible(true);
+                m_FruitPicture[4]->SetPosition(5);
+                Fruit_Counter_Arr={0,0,4,4,4,0,0,0,0};
+
+                {
+                    m_Fruit[32+0]->SetVisible(true);
+                    m_Fruit[32+1]->SetVisible(true);
+                    m_Fruit[32+2]->SetVisible(true);
+                    m_Fruit[32+3]->SetVisible(true);
+                    m_Fruit[32+0]->SetPosition(5, 5);
+                    m_Fruit[32+1]->SetPosition(5, 6);
+                    m_Fruit[32+2]->SetPosition(6, 5);
+                    m_Fruit[32+3]->SetPosition(6, 6);
+
+                    m_Fruit[36+0]->SetVisible(true);
+                    m_Fruit[36+1]->SetVisible(true);
+                    m_Fruit[36+2]->SetVisible(true);
+                    m_Fruit[36+3]->SetVisible(true);
+
+                    m_Fruit[40+0]->SetVisible(true);
+                    m_Fruit[40+1]->SetVisible(true);
+                    m_Fruit[40+2]->SetVisible(true);
+                    m_Fruit[40+3]->SetVisible(true);
+
+                    m_Fruit[36+0]->SetPosition(4,4);
+                    m_Fruit[36+1]->SetPosition(4,7);
+                    m_Fruit[36+2]->SetPosition(7,4);
+                    m_Fruit[36+3]->SetPosition(7,7);
+
+                    m_Fruit[40+0]->SetPosition(3,3);
+                    m_Fruit[40+1]->SetPosition(3,8);
+                    m_Fruit[40+2]->SetPosition(8,3);
+                    m_Fruit[40+3]->SetPosition(8,8);
+                }
+            }//Fruit
+
+            {
+                m_Enemies_1[8]->SetVisible(true);
+                m_Enemies_1[8]->SetPosition(10,10);
+            }//Enemies
+
+            m_IceCream->SetPosition(1,1);
+
+
+
+            Fruit_Counter=4+4+4;
+
+        }
+
+        break;
+        }
+
     case Phase::LV25:
         {
             m_FruitPicture[0]->SetVisible(true);
@@ -779,7 +847,9 @@ void App::LVUpdate(){
                         Map[wall->GetI()][wall->GetJ()]='#';
                     }
                 }
-            }
+
+            }//Wall
+
             {
                 MainCharacterPosition={m_IceCream->GetIJ()};
 
@@ -915,33 +985,63 @@ void App::LVUpdate(){
 
                         if (dist2(gen2) == 0)
                         {
-                            enemy->SetDirection(enemy->GetRandomDirection());
+                            if (enemy->GetModel()!=Model::Move::Auto_Move)
+                            {
+                                enemy->SetDirection(enemy->GetRandomDirection());
+                            }
+
                         }
                     }
 
                 }
             }//Enemies
             {
-                for (const auto& fruit : m_Fruit)
+                for (size_t i = 0; i < m_Fruit.size(); ++i)
                 {
+                    auto& fruit = m_Fruit[i];// 安全地使用 index，遍歷不會錯
                     if (fruit->IfCollides(m_IceCream,fruit->GetPosition())&&fruit->GetVisibility()==true)
                     {
                         fruit->SetVisible(false);
+                        if (i<16)
+                        {
+                            Fruit_Counter_Arr[0]--;
+                        }
+                        else if (i<32)
+                        {
+                            Fruit_Counter_Arr[1]--;
+                        }
+                        else if (i<36)
+                        {
+                            Fruit_Counter_Arr[2]--;
+                        }
+                        else if (i<40)
+                        {
+                            Fruit_Counter_Arr[3]--;
+                        }
+                        else if (i<44)
+                        {
+                            Fruit_Counter_Arr[4]--;
+                        }
                         Fruit_Counter--;
                         for (int i=0;i<9;i++)
                         {
-                            if (Fruit_Counter_Arr[i]!=0)
-                            {
-                                Fruit_Counter_Arr[i]--;
-                                m_Texts[i]->SetText(std::to_string(Fruit_Counter_Arr[i]));
-                                break;
-                            }
+                            m_Texts[i]->SetText(std::to_string(Fruit_Counter_Arr[i]));
+
                             if (Fruit_Counter_Arr[i]==0)
                             {
                                 m_Texts[i]->SetVisible(false);
+                                m_FruitPicture[i]->SetVisible(false);
                             }
                         }
 
+                    }
+                    if (fruit->GetModel()!=Model::Move::Dont_Move)
+                    {
+                        fruit->MoveTowards();
+                        if (dist2(gen2) == 0)
+                        {
+                            fruit->SetDirection(fruit->GetRandomDirection());
+                        }
                     }
                 }
             }//Fruit
