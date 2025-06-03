@@ -4,7 +4,7 @@
 
 
 #include "TurnOffThings.hpp"
-#include "Phase.hpp"
+
 
 
 
@@ -17,9 +17,12 @@ void App::Update() {
 
     TurnOnInterface();//InterFace轉換判定跟初始化
     TurnOnLV();
-    ChangeFromLV();//LV換PHASE判定
-    LVUpdate();//角色判定
 
+    FruitCounter();
+    FruitUpdate();
+
+    CharacterUpdate();//角色判定
+    ChangeFromLV();//LV換PHASE判定
     switch (m_Phase){
         case Phase::Win:
             SwitchBGM(1);break;

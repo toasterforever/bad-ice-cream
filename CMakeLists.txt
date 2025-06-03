@@ -49,8 +49,11 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         include/BGM.hpp
         include/Text.hpp
         src/AutoMove.cpp
-        include/Phase.hpp
         src/NameSpace_Model.cpp
+        src/FruitUpdate.cpp
+        src/PhaseChange.cpp
+        src/TurnOnLV.cpp
+        src/CharacterUpdate.cpp
 )
 
 if(MSVC)

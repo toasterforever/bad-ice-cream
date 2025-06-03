@@ -41,7 +41,7 @@ public:
     void TurnOnInterface();
     void ChangeFromLV();
 
-    void LVUpdate();
+    void CharacterUpdate();
     void LVReset();
 
     void SwitchBGM(size_t newIndex)
@@ -62,13 +62,26 @@ public:
         m_LastPhase=phase;
     }
 
-
-
+    void FruitUpdate();
+    void FruitCounter();
 
     std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
     std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
     const std::chrono::milliseconds cooldownTime{300};
     const std::chrono::milliseconds cooldownMouseTime{300};
+
+    int LV_Change = 0;
+    int Fruit_Counter = 0;
+    std::array<int, 9> Fruit_Counter_Arr;
+    std::array<bool, 9> Fruit_Reset_Arr;
+
+    std::vector<Util::Keycode> keyOrder;
+    void KeyRelease(Util::Keycode key) {
+        keyOrder.erase(std::remove(keyOrder.begin(), keyOrder.end(), key), keyOrder.end());
+    }
+
+
+
 private:
 
     enum class Phase {
