@@ -47,13 +47,16 @@ inline void App::LVReset()
 
 void App::TurnOnLV()
 {
-
-    switch (m_Phase)
+    if (LV_Change==0)
+    {
+        LV_Change=1;
+        LVReset();
+        switch (m_Phase)
     {
     case Phase::LV01:{
-            if (LV_Change == 0)
+
             {
-                LVReset();
+
 
                 Fruit_Counter_Arr[0]=16;
 
@@ -106,9 +109,9 @@ void App::TurnOnLV()
             }
             break;}
     case Phase::LV02:{
-        if (LV_Change == 0)
+
         {
-            LVReset();
+
 
 
             Fruit_Counter_Arr[0]=8;
@@ -161,8 +164,8 @@ void App::TurnOnLV()
 
         break;}
     case Phase::LV03:{
-        if (LV_Change == 0){
-            LVReset();
+        {
+
 
             m_FruitPicture[0]->SetVisible(true);
             m_FruitPicture[0]->SetPosition(1);
@@ -222,8 +225,8 @@ void App::TurnOnLV()
         break;
     }
     case Phase::LV04:{
-        if (LV_Change == 0){
-            LVReset();
+        {
+
 
             m_FruitPicture[0]->SetVisible(true);
             m_FruitPicture[0]->SetPosition(1);
@@ -282,8 +285,8 @@ void App::TurnOnLV()
         break;
     }
     case Phase::LV05:{
-        if (LV_Change == 0){
-            LVReset();
+        {
+
 
 
             m_FruitPicture[0]->SetVisible(true);
@@ -340,8 +343,8 @@ void App::TurnOnLV()
 
     case Phase::LV06:
         {
-            if (LV_Change == 0){
-            LVReset();
+            {
+
 
             {
                 m_FruitPicture[2]->SetVisible(true);
@@ -395,7 +398,7 @@ void App::TurnOnLV()
 
             Fruit_Counter=4+4+4;
 
-        }
+            }
 
         break;
         }
@@ -423,4 +426,6 @@ void App::TurnOnLV()
     default:
         break;
     }
+    }
+
 }
