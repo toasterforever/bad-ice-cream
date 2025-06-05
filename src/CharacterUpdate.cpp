@@ -12,74 +12,18 @@ static std::uniform_int_distribution<int> dist2(0, 99);  // 產生 0~99 的整�
 
 
 void App::CharacterUpdate(){
+    if (IsGaming()){
+        IceCreamUpdate();
+        MapUpdate();//Ice Wall AirWall
+        EnemiesUpdate();
+        FruitUpdate();
+    }//CharacterUpdate
+}
+
+void App::IceCreamUpdate()
+{
     const auto now = std::chrono::steady_clock::now();
-    switch (m_Phase){
-        case Phase::LV01:
-        case Phase::LV02:
-        case Phase::LV03:
-        case Phase::LV04:
-        case Phase::LV05:
-        case Phase::LV06:
-        case Phase::LV07:
-        case Phase::LV08:
-        case Phase::LV09:
-        case Phase::LV10:
-        case Phase::LV11:
-        case Phase::LV12:
-        case Phase::LV13:
-        case Phase::LV14:
-        case Phase::LV15:
-        case Phase::LV16:
-        case Phase::LV17:
-        case Phase::LV18:
-        case Phase::LV19:
-        case Phase::LV20:
-        case Phase::LV21:
-        case Phase::LV22:
-        case Phase::LV23:
-        case Phase::LV24:
-        case Phase::LV25:{
-            {
-
-
-                for (int i=1;i<11;i++)
-                {
-                    for (int j=1;j<11;j++)
-                    {
-                        if (m_Ice[(i-1)+(j-1)*10]->isCreate()==true)
-                        {
-                            Map[i][j]='I';
-                        }
-                        else
-                        {
-                            if (Map[i][j]=='I')
-                            {
-                                Map[i][j]='.';
-                            }
-                        }
-                    }
-
-                }
-            }//Ice
-            {
-                for (const auto& wall : m_Wall)
-                {
-                    if (wall->GetVisibility())
-                    {
-                        Map[wall->GetI()][wall->GetJ()]='#';
-                    }
-                }
-                for (const auto& wall : m_AirWall)
-                {
-                    if (wall->GetVisibility())
-                    {
-                        Map2[wall->GetI()][wall->GetJ()]='A';
-                    }
-                }
-
-            }//Wall
-
-            {
+    {
                 MainCharacterPosition={m_IceCream->GetIJ()};
 
                 if (Util::Input::IsKeyPressed(Util::Keycode::A)) {keyOrder.push_back(Util::Keycode::A);}
@@ -200,79 +144,123 @@ void App::CharacterUpdate(){
 
 
             }//IceCream
+}
+
+void App::MapUpdate()
+{
+    {
+        for (int i=1;i<11;i++)
+        {
+            for (int j=1;j<11;j++)
             {
-
-                for (const auto& enemy : m_Enemies_1) {
-                    if (enemy->GetVisibility())
-                    {
-                        enemy->MoveTowards();
-
-                        if (enemy->IfCollides(m_IceCream,enemy->GetPosition()))
-                        {
-                            m_IceCream->SetVisible(false);
-                        }
-
-                        if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)
-                        {
-                            if (enemy->GetModel()!=Model::Move::Auto_Move)
-                            {
-                                enemy->SetDirection(enemy->GetRandomDirection());
-                            }
-
-                        }
-                    }
-
-                }
-            }//Enemies
-            {
-                for (size_t i = 0; i < m_Fruit.size(); ++i)
+                if (m_Ice[(i-1)+(j-1)*10]->isCreate()==true)
                 {
-                    auto& fruit = m_Fruit[i];// 安全地使用 index，遍歷不會錯
-                    if (fruit->IfCollides(m_IceCream,fruit->GetPosition())&&fruit->GetVisibility()==true)
+                    Map[i][j]='I';
+                }
+                else
+                {
+                    if (Map[i][j]=='I')
                     {
-                        fruit->SetVisible(false);
-                        if (i<16)
-                        {
-                            Fruit_Counter_Arr[0]--;
-                        }
-                        else if (i<32)
-                        {
-                            Fruit_Counter_Arr[1]--;
-                        }
-                        else if (i<36)
-                        {
-                            Fruit_Counter_Arr[2]--;
-                        }
-                        else if (i<40)
-                        {
-                            Fruit_Counter_Arr[3]--;
-                        }
-                        else if (i<44)
-                        {
-                            Fruit_Counter_Arr[4]--;
-                        }
-                        Fruit_Counter--;
-
-
-                    }
-                    if (fruit->GetModel()!=Model::Move::Dont_Move)
-                    {
-                        if (!m_Ice[fruit->GetIndex()]->isCreate())
-                        {
-                            fruit->MoveTowards();
-                        }
-
-                        if (dist2(gen2) == 0||fruit->GetDirection()==Model::Direction::None)
-                        {
-                            fruit->SetDirection(fruit->GetRandomDirection());
-                        }
+                        Map[i][j]='.';
                     }
                 }
-            }//Fruit
+            }
 
-            break;
         }
-        default:
-            break;
-    }//CharacterUpdate
+    }//Ice
+    {
+        for (const auto& wall : m_Wall)
+        {
+            if (wall->GetVisibility())
+            {
+                Map[wall->GetI()][wall->GetJ()]='#';
+            }
+        }
+        for (const auto& wall : m_AirWall)
+        {
+            if (wall->GetVisibility())
+            {
+                Map2[wall->GetI()][wall->GetJ()]='A';
+            }
+        }
+
+    }//Wall
+}
+
+void App::EnemiesUpdate()
+{
+    {
+
+        for (const auto& enemy : m_Enemies_1) {
+            if (enemy->GetVisibility())
+            {
+                enemy->MoveTowards();
+
+                if (enemy->IfCollides(m_IceCream,enemy->GetPosition()))
+                {
+                    m_IceCream->SetVisible(false);
+                }
+
+                if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)
+                {
+                    if (enemy->GetModel()!=Model::Move::Auto_Move)
+                    {
+                        enemy->SetDirection(enemy->GetRandomDirection());
+                    }
+
+                }
+            }
+
+        }
+    }//Enemies
+}
+
+void App::FruitUpdate()
+{
+    {
+        for (size_t i = 0; i < m_Fruit.size(); ++i)
+        {
+            auto& fruit = m_Fruit[i];// 安全地使用 index，遍歷不會錯
+            if (fruit->IfCollides(m_IceCream,fruit->GetPosition())&&fruit->GetVisibility()==true)
+            {
+                fruit->SetVisible(false);
+                fruit->SetInGame(false);
+                if (i<16)
+                {
+                    Fruit_Counter_Arr[0]--;
+                }
+                else if (i<32)
+                {
+                    Fruit_Counter_Arr[1]--;
+                }
+                else if (i<36)
+                {
+                    Fruit_Counter_Arr[2]--;
+                }
+                else if (i<40)
+                {
+                    Fruit_Counter_Arr[3]--;
+                }
+                else if (i<44)
+                {
+                    Fruit_Counter_Arr[4]--;
+                }
+                Fruit_Counter--;
+
+
+            }
+            if (fruit->GetModel()!=Model::Move::Dont_Move)
+            {
+                if (!m_Ice[fruit->GetIndex()]->isCreate())
+                {
+                    fruit->MoveTowards();
+                }
+
+                if (dist2(gen2) == 0||fruit->GetDirection()==Model::Direction::None)
+                {
+                    fruit->SetDirection(fruit->GetRandomDirection());
+                }
+            }
+        }
+    }//Fruit
 }
