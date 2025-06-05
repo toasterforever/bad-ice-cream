@@ -28,10 +28,14 @@ public:
     State GetCurrentState() const { return m_CurrentState; }
 
     void Start();
-
     void Update();
-
     void End(); // NOLINT(readability-convert-member-functions-to-static)
+    void ExchangePhase()
+    {
+        Phase const phase=m_Phase;
+        m_Phase=m_LastPhase;
+        m_LastPhase=phase;
+    }
 
     void TurnOffLevel();
     void TurnOffButton();
@@ -39,10 +43,14 @@ public:
 
     void TurnOnLV();
     void TurnOnInterface();
-    void ChangeFromLV();
+    void InterfaceChangeFromLV();
+    void LVReset();
 
     void CharacterUpdate();
-    void LVReset();
+    void IceCreamUpdate();
+    void MapUpdate();
+    void EnemiesUpdate();
+    void FruitUpdate();
 
     void SwitchBGM(size_t newIndex)
     {
@@ -55,32 +63,13 @@ public:
         m_BGM[m_CurrentBGMIndex]->Play();
     }
 
-    void ExchangePhase()
-    {
-        Phase const phase=m_Phase;
-        m_Phase=m_LastPhase;
-        m_LastPhase=phase;
-    }
-
-    void FruitUpdate();
+    void FruitUpdate2();
     void FruitCounter();
 
-    std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
-    std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
-    const std::chrono::milliseconds cooldownTime{300};
-    const std::chrono::milliseconds cooldownMouseTime{300};
-
-    int LV_Change = 0;
-    int Fruit_Counter = 0;
-    std::array<int, 9> Fruit_Counter_Arr;
-    std::array<bool, 9> Fruit_Reset_Arr;
-
-    std::vector<Util::Keycode> keyOrder;
-    void KeyRelease(Util::Keycode key) {
-        keyOrder.erase(std::remove(keyOrder.begin(), keyOrder.end(), key), keyOrder.end());
+    bool IsGaming()
+    {
+        return 1<=static_cast<int>(m_Phase)&&25>=static_cast<int>(m_Phase);
     }
-
-
 
 private:
 
@@ -141,6 +130,21 @@ private:
 
     std::vector<std::shared_ptr<Text>> m_Texts;
 
+
+    std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
+    std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
+    const std::chrono::milliseconds cooldownTime{300};
+    const std::chrono::milliseconds cooldownMouseTime{300};
+
+    int LV_Change = 0;
+    int Fruit_Counter = 0;
+    std::array<int, 9> Fruit_Counter_Arr;
+    std::array<bool, 9> Fruit_Reset_Arr;
+
+    std::vector<Util::Keycode> keyOrder;
+    void KeyRelease(Util::Keycode key) {
+        keyOrder.erase(std::remove(keyOrder.begin(), keyOrder.end(), key), keyOrder.end());
+    }
 
 };
 
