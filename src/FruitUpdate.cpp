@@ -9,7 +9,7 @@ void App::FruitCounter()
     int sum=0;
     for (int a=0; a<m_Fruit.size(); a++)
     {
-        if (m_Fruit[a]->GetVisibility())
+        if (m_Fruit[a]->InGame())
         {
             counter++;
         }

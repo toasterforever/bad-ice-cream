@@ -24,6 +24,7 @@ void App::TurnOffLevel()
     }
     for (const auto& Fruit : m_Fruit) {
         Fruit->SetVisible(false);
+        Fruit->SetInGame(false);
         Fruit->SetDirection(Model::Direction::None);
     }
     for (const auto& Picture : m_FruitPicture) {

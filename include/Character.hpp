@@ -84,7 +84,8 @@ public:
 
     bool IsMoving() const;
 
-
+    bool InGame(){return inGame;}
+    void SetInGame(bool a){inGame=a;}
 private:
 
     std::string m_ImagePath;
@@ -93,7 +94,7 @@ private:
 
     Model::Direction currentDirection = Model::Direction::None;
 
-
+    bool inGame = false;
 
 };
 
