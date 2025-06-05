@@ -47,7 +47,7 @@ inline void App::LVReset()
 
 void App::TurnOnLV()
 {
-    if (LV_Change==0)
+    if (LV_Change==0&&IsGaming())
     {
         LV_Change=1;
         LVReset();
@@ -472,6 +472,7 @@ void App::TurnOnLV()
             m_IceCream->SetVisible(true);
             Fruit_Counter=50;
             Fruit_Counter_Arr[0]=Fruit_Counter;
+            break;
         }
     default:
         break;

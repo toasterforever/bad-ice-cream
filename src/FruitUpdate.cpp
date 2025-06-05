@@ -102,7 +102,7 @@ void App::FruitCounter()
         }
 
     }
-    if (!(static_cast<int>(m_Phase)>=static_cast<int>(Phase::LV01)&&static_cast<int>(m_Phase)<=static_cast<int>(Phase::LV25)))
+    if (!IsGaming())
     {
         for (int a=0; a<m_FruitPicture.size(); a++)
         {

@@ -232,33 +232,9 @@ void App::TurnOnInterface()
 void App::ChangeFromLV()
 {
     const auto now = std::chrono::steady_clock::now();
-    switch (m_Phase)
+    if (IsGaming())
     {
-        case Phase::LV01:
-        case Phase::LV02:
-        case Phase::LV03:
-        case Phase::LV04:
-        case Phase::LV05:
-        case Phase::LV06:
-        case Phase::LV07:
-        case Phase::LV08:
-        case Phase::LV09:
-        case Phase::LV10:
-        case Phase::LV11:
-        case Phase::LV12:
-        case Phase::LV13:
-        case Phase::LV14:
-        case Phase::LV15:
-        case Phase::LV16:
-        case Phase::LV17:
-        case Phase::LV18:
-        case Phase::LV19:
-        case Phase::LV20:
-        case Phase::LV21:
-        case Phase::LV22:
-        case Phase::LV23:
-        case Phase::LV24:
-        case Phase::LV25:{
+
             const auto mousePosition = Util::Input::GetCursorPosition();
 
             if (Fruit_Counter==0)
@@ -267,7 +243,6 @@ void App::ChangeFromLV()
                 m_LastPhase=m_Phase;
                 m_Phase=Phase::Win;
                 TurnOffLevel();
-                break;
             }
             if (!m_IceCream->GetVisibility())
             {
@@ -275,14 +250,12 @@ void App::ChangeFromLV()
                 m_LastPhase=m_Phase;
                 m_Phase=Phase::Lose;
                 TurnOffLevel();
-                break;
             }
             if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime&&m_Button[4]->isClicked(mousePosition))
             {
                 TurnOffButton();
                 lastMouseTime = now;
                 LV_Change=0;
-                break;
             }
             if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime&&m_Button[5]->isClicked(mousePosition))
             {
@@ -290,7 +263,6 @@ void App::ChangeFromLV()
                 TurnOffButton();
                 m_LastPhase=m_Phase;
                 m_Phase=Phase::Help;
-                break;
             }
             if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime&&m_Button[6]->isClicked(mousePosition))
             {
@@ -300,11 +272,6 @@ void App::ChangeFromLV()
                 m_Phase=Phase::Manu;
                 LV_Change=0;
                 TurnOffLevel();
-                break;
             }
-            break;
-        }
-        default:
-            break;
     }
 }
