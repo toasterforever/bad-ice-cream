@@ -356,14 +356,38 @@ void App::Start()
     }//Picture
 
     {
-    //     m_FruitPicture.push_back(std::make_shared<Character>(GA_RESOURCE_DIR"/Image/Character/Fruit/香蕉.png"));
-    //     m_FruitPicture[0]->SetZIndex(90);
-    //     m_FruitPicture[0]->SetPosition(5,5);
-    //     m_FruitPicture[0]->SetVisible(true);
-    //     LOG_DEBUG("m_FruitPicture Created");
-    //     LOG_DEBUG(m_FruitPicture[0]->GetZIndex());
-    //     LOG_DEBUG(m_FruitPicture[0]->GetPosition());
-    }//debug
+        for (int a=0;a<100;a++)
+        {
+            m_Arrow_Up.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_up.png"));
+            m_Arrow_Up[a]->SetZIndex(3);
+            m_Arrow_Up[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_Arrow_Up[a]->SetVisible(false);
+            m_Root.AddChild(m_Arrow_Up[a]);
+
+            m_Arrow_Left.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_left.png"));
+            m_Arrow_Left[a]->SetZIndex(3);
+            m_Arrow_Left[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_Arrow_Left[a]->SetVisible(false);
+            m_Root.AddChild(m_Arrow_Left[a]);
+
+            m_Arrow_Down.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_down.png"));
+            m_Arrow_Down[a]->SetZIndex(3);
+            m_Arrow_Down[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_Arrow_Down[a]->SetVisible(false);
+            m_Root.AddChild(m_Arrow_Down[a]);
+
+            m_Arrow_Right.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_right.png"));
+            m_Arrow_Right[a]->SetZIndex(3);
+            m_Arrow_Right[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_Arrow_Right[a]->SetVisible(false);
+            m_Root.AddChild(m_Arrow_Right[a]);
+        }
+
+
+
+
+
+    }
 
     m_CurrentState = State::UPDATE;
 }

@@ -122,6 +122,10 @@ private:
 
     std::vector<std::shared_ptr<Ice>> m_Ice;
     std::vector<std::shared_ptr<Floor>> m_Floor;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Up;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Left;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Right;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Down;
     std::vector<std::shared_ptr<Wall>> m_Wall;
     std::vector<std::shared_ptr<Wall>> m_AirWall;
 
