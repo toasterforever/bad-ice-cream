@@ -229,7 +229,7 @@ void App::TurnOnInterface()
     }
 }
 
-void App::ChangeFromLV()
+void App::InterfaceChangeFromLV()
 {
     const auto now = std::chrono::steady_clock::now();
     if (IsGaming())

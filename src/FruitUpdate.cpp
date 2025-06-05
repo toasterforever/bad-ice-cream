@@ -113,7 +113,7 @@ void App::FruitCounter()
     }
 }
 
-void App::FruitUpdate()
+void App::FruitUpdate2()
 {
     switch (m_Phase)
     {

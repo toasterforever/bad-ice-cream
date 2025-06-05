@@ -19,10 +19,10 @@ void App::Update() {
     TurnOnLV();
 
     FruitCounter();
-    FruitUpdate();
+    FruitUpdate2();
 
     CharacterUpdate();//角色判定
-    ChangeFromLV();//LV換PHASE判定
+    InterfaceChangeFromLV();//LV換PHASE判定
     switch (m_Phase){
         case Phase::Win:
             SwitchBGM(1);break;
