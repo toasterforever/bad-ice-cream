@@ -74,17 +74,17 @@ public:
 private:
 
     enum class Phase {
-        Start,
-        Manu,
-        Help,
+        Start=70,
+        Manu=80,
+        Help=90,
         //Pause,
-        LV01,LV02,LV03,LV04,LV05,
+        LV01=1,LV02,LV03,LV04,LV05,
         LV06,LV07,LV08,LV09,LV10,
         LV11,LV12,LV13,LV14,LV15,
         LV16,LV17,LV18,LV19,LV20,
         LV21,LV22,LV23,LV24,LV25,
 
-        Win,Lose
+        Win=30,Lose=40
 
     };
 
