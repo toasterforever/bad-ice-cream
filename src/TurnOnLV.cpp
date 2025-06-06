@@ -453,7 +453,61 @@ void App::TurnOnLV()
 
         break;
         }
+    case Phase::LV07:
+    {
+        {
+            Fruit_Counter_Arr={0,8,0,0,0,0,0,0,0};
 
+            m_Fruit[16]->SetVisible(true);
+            m_Fruit[17]->SetVisible(true);
+            m_Fruit[18]->SetVisible(true);
+            m_Fruit[19]->SetVisible(true);
+            m_Fruit[20]->SetVisible(true);
+            m_Fruit[21]->SetVisible(true);
+            m_Fruit[22]->SetVisible(true);
+            m_Fruit[23]->SetVisible(true);
+
+            m_Fruit[16+0]->SetInGame(true);
+            m_Fruit[16+1]->SetInGame(true);
+            m_Fruit[16+2]->SetInGame(true);
+            m_Fruit[16+3]->SetInGame(true);
+            m_Fruit[20+0]->SetInGame(true);
+            m_Fruit[20+1]->SetInGame(true);
+            m_Fruit[20+2]->SetInGame(true);
+            m_Fruit[20+3]->SetInGame(true);
+
+            m_Fruit[16]->SetPosition(5,5);
+            m_Fruit[17]->SetPosition(5,6);
+            m_Fruit[18]->SetPosition(5,7);
+            m_Fruit[19]->SetPosition(5,4);
+            m_Fruit[20]->SetPosition(6,4);
+            m_Fruit[21]->SetPosition(6,5);
+            m_Fruit[22]->SetPosition(6,6);
+            m_Fruit[23]->SetPosition(6,7);
+
+        }//Fruit
+
+        {
+            m_Enemies_1[8]->SetVisible(true);
+            m_Enemies_1[8]->SetPosition(10,10);
+        }//Enemies
+
+        {
+            m_Wall[10*(4-1)+(4-1)]->SetVisible(true);
+            m_Wall[10*(5-1)+(4-1)]->SetVisible(true);
+            m_Wall[10*(6-1)+(4-1)]->SetVisible(true);
+            m_Wall[10*(7-1)+(4-1)]->SetVisible(true);
+            m_Wall[10*(4-1)+(7-1)]->SetVisible(true);
+            m_Wall[10*(5-1)+(7-1)]->SetVisible(true);
+            m_Wall[10*(6-1)+(7-1)]->SetVisible(true);
+            m_Wall[10*(7-1)+(7-1)]->SetVisible(true);
+
+            m_Wall[10*(2-1)+(2-1)]->SetVisible(true);
+            m_Wall[10*(3-1)+(2-1)]->SetVisible(true);
+        }
+        m_IceCream->SetPosition(1,1);
+        break;
+    }
     case Phase::LV25:
         {
             m_FruitPicture[0]->SetVisible(true);
