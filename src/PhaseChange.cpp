@@ -244,7 +244,7 @@ void App::InterfaceChangeFromLV()
                 m_Phase=Phase::Win;
                 TurnOffLevel();
             }
-            if (!m_IceCream->GetVisibility())
+            if (!m_IceCream->GetVisibility()&&Fruit_Counter>0)
             {
                 TurnOffButton();
                 m_LastPhase=m_Phase;
