@@ -453,7 +453,7 @@ void App::TurnOnLV()
 
         break;
         }
-    case Phase::LV07:
+case Phase::LV07:
     {
         {
             Fruit_Counter_Arr={0,8,0,0,0,0,0,0,0};
@@ -508,6 +508,56 @@ void App::TurnOnLV()
         m_IceCream->SetPosition(1,1);
         break;
     }
+
+    case Phase::LV08:
+        {
+            {
+                m_Fruit[16]->SetVisible(true);
+                m_Fruit[17]->SetVisible(true);
+                m_Fruit[18]->SetVisible(true);
+                m_Fruit[19]->SetVisible(true);
+                m_Fruit[16]->SetInGame(true);
+                m_Fruit[17]->SetInGame(true);
+                m_Fruit[18]->SetInGame(true);
+                m_Fruit[19]->SetInGame(true);
+                m_Fruit[16]->SetPosition(2,4);
+                m_Fruit[17]->SetPosition(2,5);
+                m_Fruit[18]->SetPosition(9,6);
+                m_Fruit[19]->SetPosition(9,7);
+            }//Fruit
+            {
+                m_Enemies_1[8]->SetVisible(true);
+                m_Enemies_1[9]->SetVisible(true);
+                m_Enemies_1[10]->SetVisible(true);
+                m_Enemies_1[11]->SetVisible(true);
+                m_Enemies_1[8]->SetPosition(2,8);
+                m_Enemies_1[9]->SetPosition(2,9);
+                m_Enemies_1[10]->SetPosition(7,8);
+                m_Enemies_1[11]->SetPosition(7,9);
+            }//Enemies
+            {
+                m_AirWall[10*(2-1)+(2-1)]->SetVisible(true);
+                m_AirWall[10*(3-1)+(2-1)]->SetVisible(true);
+                m_AirWall[10*(6-1)+(2-1)]->SetVisible(true);
+                m_AirWall[10*(7-1)+(2-1)]->SetVisible(true);
+                m_AirWall[10*(4-1)+(4-1)]->SetVisible(true);
+                m_AirWall[10*(5-1)+(4-1)]->SetVisible(true);
+                m_AirWall[10*(8-1)+(4-1)]->SetVisible(true);
+                m_AirWall[10*(9-1)+(4-1)]->SetVisible(true);
+                m_AirWall[10*(2-1)+(7-1)]->SetVisible(true);
+                m_AirWall[10*(3-1)+(7-1)]->SetVisible(true);
+                m_AirWall[10*(6-1)+(7-1)]->SetVisible(true);
+                m_AirWall[10*(7-1)+(7-1)]->SetVisible(true);
+                m_AirWall[10*(4-1)+(9-1)]->SetVisible(true);
+                m_AirWall[10*(5-1)+(9-1)]->SetVisible(true);
+                m_AirWall[10*(8-1)+(9-1)]->SetVisible(true);
+                m_AirWall[10*(9-1)+(9-1)]->SetVisible(true);
+
+
+            }//AirWall
+            m_IceCream->SetPosition(1,1);
+            break;
+        }
     case Phase::LV25:
         {
             m_FruitPicture[0]->SetVisible(true);
