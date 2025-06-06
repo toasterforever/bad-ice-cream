@@ -401,16 +401,12 @@ void App::TurnOnLV()
                     m_Fruit[32+1]->SetInGame(true);
                     m_Fruit[32+2]->SetInGame(true);
                     m_Fruit[32+3]->SetInGame(true);
-                    m_Fruit[32+0]->SetPosition(5, 5);
-                    m_Fruit[32+1]->SetPosition(5, 6);
-                    m_Fruit[32+2]->SetPosition(6, 5);
-                    m_Fruit[32+3]->SetPosition(6, 6);
+
 
                     m_Fruit[36+0]->SetVisible(true);
                     m_Fruit[36+1]->SetVisible(true);
                     m_Fruit[36+2]->SetVisible(true);
                     m_Fruit[36+3]->SetVisible(true);
-
                     m_Fruit[40+0]->SetVisible(true);
                     m_Fruit[40+1]->SetVisible(true);
                     m_Fruit[40+2]->SetVisible(true);
@@ -425,15 +421,20 @@ void App::TurnOnLV()
                     m_Fruit[40+2]->SetInGame(true);
                     m_Fruit[40+3]->SetInGame(true);
 
-                    m_Fruit[36+0]->SetPosition(4,4);
-                    m_Fruit[36+1]->SetPosition(4,7);
-                    m_Fruit[36+2]->SetPosition(7,4);
-                    m_Fruit[36+3]->SetPosition(7,7);
+                    m_Fruit[32+0]->SetPosition(5, 5);
+                    m_Fruit[32+1]->SetPosition(5, 6);
+                    m_Fruit[32+2]->SetPosition(6, 5);
+                    m_Fruit[32+3]->SetPosition(6, 6);
 
-                    m_Fruit[40+0]->SetPosition(3,3);
-                    m_Fruit[40+1]->SetPosition(3,8);
-                    m_Fruit[40+2]->SetPosition(8,3);
-                    m_Fruit[40+3]->SetPosition(8,8);
+                    m_Fruit[36+0]->SetPosition(3,3);
+                    m_Fruit[36+1]->SetPosition(3,8);
+                    m_Fruit[36+2]->SetPosition(8,3);
+                    m_Fruit[36+3]->SetPosition(8,8);
+
+                    m_Fruit[40+0]->SetPosition(4,4);
+                    m_Fruit[40+1]->SetPosition(4,7);
+                    m_Fruit[40+2]->SetPosition(7,4);
+                    m_Fruit[40+3]->SetPosition(7,7);
                 }
             }//Fruit
 
