@@ -71,7 +71,7 @@ Context::Context() {
 #ifndef __APPLE__
     glEnable(GL_DEBUG_OUTPUT);
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-    //glDebugMessageCallback(Core::OpenGLDebugMessageCallback, nullptr);
+    glDebugMessageCallback(Core::OpenGLDebugMessageCallback, nullptr);
 #endif
 
     glEnable(GL_DEPTH_TEST);
