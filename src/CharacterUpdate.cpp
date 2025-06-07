@@ -26,24 +26,7 @@ void App::IceCreamUpdate()
     {
                 MainCharacterPosition={m_IceCream->GetIJ()};
 
-                if (Util::Input::IsKeyPressed(Util::Keycode::A)) {keyOrder.push_back(Util::Keycode::A);}
-                else KeyRelease(Util::Keycode::A);
-                if (Util::Input::IsKeyPressed(Util::Keycode::D)) {keyOrder.push_back(Util::Keycode::D);}
-                else KeyRelease(Util::Keycode::D);
-                if (Util::Input::IsKeyPressed(Util::Keycode::S)) {keyOrder.push_back(Util::Keycode::S);}
-                else KeyRelease(Util::Keycode::S);
-                if (Util::Input::IsKeyPressed(Util::Keycode::W)) {keyOrder.push_back(Util::Keycode::W);}
-                else KeyRelease(Util::Keycode::W);
-                if (Util::Input::IsKeyPressed(Util::Keycode::UP)) {keyOrder.push_back(Util::Keycode::UP);}
-                else KeyRelease(Util::Keycode::UP);
-                if (Util::Input::IsKeyPressed(Util::Keycode::DOWN)) {keyOrder.push_back(Util::Keycode::DOWN);}
-                else KeyRelease(Util::Keycode::DOWN);
-                if (Util::Input::IsKeyPressed(Util::Keycode::LEFT)) {keyOrder.push_back(Util::Keycode::LEFT);}
-                else KeyRelease(Util::Keycode::LEFT);
-                if (Util::Input::IsKeyPressed(Util::Keycode::RIGHT)) {keyOrder.push_back(Util::Keycode::RIGHT);}
-                else KeyRelease(Util::Keycode::RIGHT);
-                if (Util::Input::IsKeyPressed(Util::Keycode::SPACE)){keyOrder.push_back(Util::Keycode::SPACE);}
-                else KeyRelease(Util::Keycode::SPACE);
+                KeyUpdate();
 
                 if (!keyOrder.empty())
                 {
@@ -263,4 +246,26 @@ void App::FruitUpdate()
             }
         }
     }//Fruit
+}
+
+void App::KeyUpdate()
+{
+    if (Util::Input::IsKeyPressed(Util::Keycode::A)) {keyOrder.push_back(Util::Keycode::A);}
+    else KeyRelease(Util::Keycode::A);
+    if (Util::Input::IsKeyPressed(Util::Keycode::D)) {keyOrder.push_back(Util::Keycode::D);}
+    else KeyRelease(Util::Keycode::D);
+    if (Util::Input::IsKeyPressed(Util::Keycode::S)) {keyOrder.push_back(Util::Keycode::S);}
+    else KeyRelease(Util::Keycode::S);
+    if (Util::Input::IsKeyPressed(Util::Keycode::W)) {keyOrder.push_back(Util::Keycode::W);}
+    else KeyRelease(Util::Keycode::W);
+    if (Util::Input::IsKeyPressed(Util::Keycode::UP)) {keyOrder.push_back(Util::Keycode::UP);}
+    else KeyRelease(Util::Keycode::UP);
+    if (Util::Input::IsKeyPressed(Util::Keycode::DOWN)) {keyOrder.push_back(Util::Keycode::DOWN);}
+    else KeyRelease(Util::Keycode::DOWN);
+    if (Util::Input::IsKeyPressed(Util::Keycode::LEFT)) {keyOrder.push_back(Util::Keycode::LEFT);}
+    else KeyRelease(Util::Keycode::LEFT);
+    if (Util::Input::IsKeyPressed(Util::Keycode::RIGHT)) {keyOrder.push_back(Util::Keycode::RIGHT);}
+    else KeyRelease(Util::Keycode::RIGHT);
+    if (Util::Input::IsKeyPressed(Util::Keycode::SPACE)){keyOrder.push_back(Util::Keycode::SPACE);}
+    else KeyRelease(Util::Keycode::SPACE);
 }
