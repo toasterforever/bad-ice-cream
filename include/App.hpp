@@ -135,7 +135,6 @@ private:
     std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
     std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
     const std::chrono::milliseconds cooldownTime{300};
-    const std::chrono::milliseconds cooldownMouseTime{300};
 
     int LV_Change = 0;
     int Fruit_Counter = 0;
