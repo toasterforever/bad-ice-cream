@@ -13,7 +13,7 @@ public:
 
     bool isCreate() const;
     bool isBroke() const;
-    bool TowardHasThings(int NewI, int NewJ) override;
+    static bool HasThings(int NewI, int NewJ);
 private:
     std::string m_ImagePath;
 
