@@ -51,6 +51,7 @@ public:
     void MapUpdate();
     void EnemiesUpdate();
     void FruitUpdate();
+    void KeyUpdate();
 
     void SwitchBGM(size_t newIndex)
     {
