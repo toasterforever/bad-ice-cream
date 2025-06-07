@@ -62,7 +62,14 @@ public:
         }
         m_BGM[m_CurrentBGMIndex]->Pause();
         m_CurrentBGMIndex = newIndex;
-        m_BGM[m_CurrentBGMIndex]->Play();
+        if (newIndex==0)
+        {
+            m_BGM[m_CurrentBGMIndex]->Play(-1);
+        }
+        else
+        {
+            m_BGM[m_CurrentBGMIndex]->Play(0);
+        }
     }
 
     void FruitUpdate2();
