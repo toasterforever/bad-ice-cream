@@ -24,109 +24,102 @@ void App::IceCreamUpdate()
 {
     const auto now = std::chrono::steady_clock::now();
     {
-                MainCharacterPosition={m_IceCream->GetIJ()};
+        MainCharacterPosition={m_IceCream->GetIJ()};
 
-                KeyUpdate();
+        KeyUpdate();
 
-                if (!keyOrder.empty())
+        if (!keyOrder.empty())
+        {
+            if (keyOrder.front()==Util::Keycode::SPACE&&m_IceCream->GetDirection()!=Model::Direction::None)
+            {
+                if (now - lastIceTime >= cooldownTime)
                 {
-                    if (keyOrder.front()==Util::Keycode::SPACE&&m_IceCream->GetDirection()!=Model::Direction::None)
+                    int NewX=m_IceCream->GetNextI(), NewY=m_IceCream->GetNextJ();
+                    Model::Direction direction=m_IceCream->GetDirection();
+                    if (NewX==m_IceCream->GetI() && NewY==m_IceCream->GetJ())
                     {
-                        if (now - lastIceTime >= cooldownTime)
+                        switch (direction)
                         {
-                            int NewX=m_IceCream->GetNextI(), NewY=m_IceCream->GetNextJ();
-                            Model::Direction const direction=m_IceCream->GetDirection();
-                            if (NewX==m_IceCream->GetI() && NewY==m_IceCream->GetJ())
-                            {
-                                switch (direction)
-                                {
-                                case Model::Direction::Up:
-                                    NewY=NewY-1;break;
-                                case Model::Direction::Down:
-                                    NewY=NewY+1;break;
-                                case Model::Direction::Left:
-                                    NewX=NewX-1;break;
-                                case Model::Direction::Right:
-                                    NewX=NewX+1;break;
-                                }
+                        case Model::Direction::Up:
+                            NewY=NewY-1;break;
+                        case Model::Direction::Down:
+                            NewY=NewY+1;break;
+                        case Model::Direction::Left:
+                            NewX=NewX-1;break;
+                        case Model::Direction::Right:
+                            NewX=NewX+1;break;
+                        }
 
+                    }
+                    if (m_IceCream->IsMoving())
+                    {
+                        switch (direction)
+                        {
+                        case Model::Direction::Up:
+                            NewY=NewY-1;break;
+                        case Model::Direction::Down:
+                            NewY=NewY+1;break;
+                        case Model::Direction::Left:
+                            NewX=NewX-1;break;
+                        case Model::Direction::Right:
+                            NewX=NewX+1;break;
+                        }
+
+                    }
+                    const bool CreateOrBroke=m_Ice[(NewX-1)+(NewY-1)*10]->GetVisibility();
+                    while (true)
+                    {
+                        if (!Ice::HasThings(NewX, NewY))
+                        {
+                            lastIceTime = now;
+
+                            if (m_Ice[(NewX-1)+(NewY-1)*10]->isCreate()==CreateOrBroke)
+                            {
+                                m_Ice[(NewX-1)+(NewY-1)*10]->SetVisible(!CreateOrBroke);
                             }
-                            if (m_IceCream->IsMoving())
+                            else
                             {
-                                switch (direction)
-                                {
-                                case Model::Direction::Up:
-                                    NewY=NewY-1;break;
-                                case Model::Direction::Down:
-                                    NewY=NewY+1;break;
-                                case Model::Direction::Left:
-                                    NewX=NewX-1;break;
-                                case Model::Direction::Right:
-                                    NewX=NewX+1;break;
-                                }
-
-                            }
-                            if ( ((!m_IceCream->TowardHasThings(NewX,NewY)&&Map[NewX][NewY]!='E')||m_IceCream->IsitIce(NewX,NewY) )&&!(NewX<1 || NewX>10 || NewY<1 || NewY>10))
-                            {
-                                lastIceTime = now;
-
-                                const bool CreateOrBroke=m_Ice[(NewX-1)+(NewY-1)*10]->GetVisibility();
-
-                                while (true)
-                                {
-
-                                    if (m_Ice[(NewX-1)+(NewY-1)*10]->isCreate()==CreateOrBroke&&!m_Ice[(NewX-1)+(NewY-1)*10]->TowardHasThings(NewX,NewY))
-                                    {
-                                        m_Ice[(NewX-1)+(NewY-1)*10]->SetVisible(!CreateOrBroke);
-                                    }
-                                    else
-                                    {
-                                        break;
-                                    }
-
-                                    switch (direction)
-                                    {
-                                    case Model::Direction::Up:
-
-                                        NewY=NewY-1;break;
-                                    case Model::Direction::Down:
-
-                                        NewY=NewY+1;break;
-                                    case Model::Direction::Left:
-
-                                        NewX=NewX-1;break;
-                                    case Model::Direction::Right:
-
-                                        NewX=NewX+1;break;
-                                    }
-
-                                    if (NewX<1 || NewX>10 || NewY<1 || NewY>10)
-                                    {
-                                        break;
-                                    }
-
-
-                                }
-                                std::cout<<Map[1]<<std::endl<<Map[2]<<std::endl<<Map[3]<<std::endl<<Map[4]<<std::endl<<Map[5]<<std::endl;
-                                std::cout<<Map[6]<<std::endl<<Map[7]<<std::endl<<Map[8]<<std::endl<<Map[9]<<std::endl<<Map[10]<<std::endl;
-                                std::cout<<std::endl<<std::endl;
-
+                                break;
                             }
                         }
+                        else
+                        {
+                            break;
+                        }
+                        switch (direction)
+                        {
+                            case Model::Direction::Up:
+
+                                NewY=NewY-1;break;
+                            case Model::Direction::Down:
+
+                                NewY=NewY+1;break;
+                            case Model::Direction::Left:
+
+                                NewX=NewX-1;break;
+                            case Model::Direction::Right:
+
+                                NewX=NewX+1;break;
+                        }
+                        std::cout<<Map[1]<<std::endl<<Map[2]<<std::endl<<Map[3]<<std::endl<<Map[4]<<std::endl<<Map[5]<<std::endl;
+                        std::cout<<Map[6]<<std::endl<<Map[7]<<std::endl<<Map[8]<<std::endl<<Map[9]<<std::endl<<Map[10]<<std::endl;
+                        std::cout<<std::endl<<std::endl;
                     }
-
-                m_IceCream->UpdateMovement(keyOrder);
-
-                if (m_Ice[m_IceCream->GetIndex()]->isCreate())
-                {
-                    m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
                 }
-                }
+            }
+
+            m_IceCream->UpdateMovement(keyOrder);
+
+            if (m_Ice[m_IceCream->GetIndex()]->isCreate())
+            {
+                m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
+            }
+        }
 
 
 
 
-            }//IceCream
+    }//IceCream
 }
 
 void App::MapUpdate()
