@@ -16,7 +16,7 @@ void App::TurnOnInterface()
             m_Button[0]->SetVisible(true);//Manu
             m_Button[1]->SetVisible(true);//Help
 
-            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime)
             {
 
                 if (m_Button[0]->isClicked(mousePosition))
@@ -45,7 +45,7 @@ void App::TurnOnInterface()
             m_BackGround[2]->SetVisible(true);//Interface_Help
             m_Button[2]->SetVisible(true);//Back
 
-            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime)
             {
                 if (m_Button[2]->isClicked(mousePosition))
                 {
@@ -79,7 +79,7 @@ void App::TurnOnInterface()
                     }
 
                 }
-                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime)
                 {
                     if (m_Button[2]->isClicked(mousePosition))
                     {
@@ -113,7 +113,7 @@ void App::TurnOnInterface()
                         }
                     }
                 }
-                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime)
                 {
                     if (Util::Input::IsKeyPressed(Util::Keycode::LCTRL)||Util::Input::IsKeyPressed(Util::Keycode::RCTRL))
                     {
@@ -142,7 +142,7 @@ void App::TurnOnInterface()
                 m_Button[9]->SetVisible(true);
                 LV_Change = 0;
                 m_LVLockedPicture[static_cast<int>(m_LastPhase) -static_cast<int>(Phase::LV01)+1]->Unlock();
-                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime)
                 {
                     if (m_Button[7]->isClicked(mousePosition))
                     {
@@ -182,7 +182,7 @@ void App::TurnOnInterface()
                 m_Button[8]->SetVisible(true);
                 m_Button[9]->SetVisible(true);
                 LV_Change = 0;
-                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime)
+                if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime)
                 {
                     if (m_Button[7]->isClicked(mousePosition))
                     {
@@ -251,20 +251,20 @@ void App::InterfaceChangeFromLV()
                 m_Phase=Phase::Lose;
                 TurnOffLevel();
             }
-            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime&&m_Button[4]->isClicked(mousePosition))
+            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime&&m_Button[4]->isClicked(mousePosition))
             {
                 TurnOffButton();
                 lastMouseTime = now;
                 LV_Change=0;
             }
-            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime&&m_Button[5]->isClicked(mousePosition))
+            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime&&m_Button[5]->isClicked(mousePosition))
             {
                 lastMouseTime = now;
                 TurnOffButton();
                 m_LastPhase=m_Phase;
                 m_Phase=Phase::Help;
             }
-            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownMouseTime&&m_Button[6]->isClicked(mousePosition))
+            if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime&&m_Button[6]->isClicked(mousePosition))
             {
                 lastMouseTime = now;
                 TurnOffButton();
