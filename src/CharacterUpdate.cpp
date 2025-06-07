@@ -22,104 +22,18 @@ void App::CharacterUpdate(){
 
 void App::IceCreamUpdate()
 {
-    const auto now = std::chrono::steady_clock::now();
-    {
+
         MainCharacterPosition={m_IceCream->GetIJ()};
 
         KeyUpdate();
 
         if (!keyOrder.empty())
         {
-            if (keyOrder.front()==Util::Keycode::SPACE&&m_IceCream->GetDirection()!=Model::Direction::None)
-            {
-                if (now - lastIceTime >= cooldownTime)
-                {
-                    int NewX=m_IceCream->GetNextI(), NewY=m_IceCream->GetNextJ();
-                    Model::Direction direction=m_IceCream->GetDirection();
-                    if (NewX==m_IceCream->GetI() && NewY==m_IceCream->GetJ())
-                    {
-                        switch (direction)
-                        {
-                        case Model::Direction::Up:
-                            NewY=NewY-1;break;
-                        case Model::Direction::Down:
-                            NewY=NewY+1;break;
-                        case Model::Direction::Left:
-                            NewX=NewX-1;break;
-                        case Model::Direction::Right:
-                            NewX=NewX+1;break;
-                        }
-
-                    }
-                    if (m_IceCream->IsMoving())
-                    {
-                        switch (direction)
-                        {
-                        case Model::Direction::Up:
-                            NewY=NewY-1;break;
-                        case Model::Direction::Down:
-                            NewY=NewY+1;break;
-                        case Model::Direction::Left:
-                            NewX=NewX-1;break;
-                        case Model::Direction::Right:
-                            NewX=NewX+1;break;
-                        }
-
-                    }
-                    const bool CreateOrBroke=m_Ice[(NewX-1)+(NewY-1)*10]->GetVisibility();
-                    while (true)
-                    {
-                        if (!Ice::HasThings(NewX, NewY))
-                        {
-                            lastIceTime = now;
-
-                            if (m_Ice[(NewX-1)+(NewY-1)*10]->isCreate()==CreateOrBroke)
-                            {
-                                m_Ice[(NewX-1)+(NewY-1)*10]->SetVisible(!CreateOrBroke);
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
-                        switch (direction)
-                        {
-                            case Model::Direction::Up:
-
-                                NewY=NewY-1;break;
-                            case Model::Direction::Down:
-
-                                NewY=NewY+1;break;
-                            case Model::Direction::Left:
-
-                                NewX=NewX-1;break;
-                            case Model::Direction::Right:
-
-                                NewX=NewX+1;break;
-                        }
-                        std::cout<<Map[1]<<std::endl<<Map[2]<<std::endl<<Map[3]<<std::endl<<Map[4]<<std::endl<<Map[5]<<std::endl;
-                        std::cout<<Map[6]<<std::endl<<Map[7]<<std::endl<<Map[8]<<std::endl<<Map[9]<<std::endl<<Map[10]<<std::endl;
-                        std::cout<<std::endl<<std::endl;
-                    }
-                }
-            }
-
             m_IceCream->UpdateMovement(keyOrder);
 
-            if (m_Ice[m_IceCream->GetIndex()]->isCreate())
-            {
-                m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
-            }
+            IceUpdate();
         }
 
-
-
-
-    }//IceCream
 }
 
 void App::MapUpdate()
@@ -261,4 +175,91 @@ void App::KeyUpdate()
     else KeyRelease(Util::Keycode::RIGHT);
     if (Util::Input::IsKeyPressed(Util::Keycode::SPACE)){keyOrder.push_back(Util::Keycode::SPACE);}
     else KeyRelease(Util::Keycode::SPACE);
+}
+
+void App::IceUpdate()
+{
+    const auto now = std::chrono::steady_clock::now();
+    if (keyOrder.front()==Util::Keycode::SPACE&&m_IceCream->GetDirection()!=Model::Direction::None&&now - lastIceTime >= cooldownTime)
+        {
+            int NewX=m_IceCream->GetNextI(), NewY=m_IceCream->GetNextJ();
+            Model::Direction direction=m_IceCream->GetDirection();
+            if (NewX==m_IceCream->GetI() && NewY==m_IceCream->GetJ())
+            {
+                switch (direction)
+                {
+                case Model::Direction::Up:
+                    NewY=NewY-1;break;
+                case Model::Direction::Down:
+                    NewY=NewY+1;break;
+                case Model::Direction::Left:
+                    NewX=NewX-1;break;
+                case Model::Direction::Right:
+                    NewX=NewX+1;break;
+                }
+
+            }
+            if (m_IceCream->IsMoving())
+            {
+                switch (direction)
+                {
+                case Model::Direction::Up:
+                    NewY=NewY-1;break;
+                case Model::Direction::Down:
+                    NewY=NewY+1;break;
+                case Model::Direction::Left:
+                    NewX=NewX-1;break;
+                case Model::Direction::Right:
+                    NewX=NewX+1;break;
+                }
+
+            }
+            const bool CreateOrBroke=m_Ice[(NewX-1)+(NewY-1)*10]->GetVisibility();
+            while (true)
+            {
+                if (!Ice::HasThings(NewX, NewY))
+                {
+                    lastIceTime = now;
+
+                    if (m_Ice[(NewX-1)+(NewY-1)*10]->isCreate()==CreateOrBroke)
+                    {
+                        m_Ice[(NewX-1)+(NewY-1)*10]->SetVisible(!CreateOrBroke);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+                switch (direction)
+                {
+                    case Model::Direction::Up:
+
+                        NewY=NewY-1;break;
+                    case Model::Direction::Down:
+
+                        NewY=NewY+1;break;
+                    case Model::Direction::Left:
+
+                        NewX=NewX-1;break;
+                    case Model::Direction::Right:
+
+                        NewX=NewX+1;break;
+                }
+                std::cout<<Map[1]<<std::endl<<Map[2]<<std::endl<<Map[3]<<std::endl<<Map[4]<<std::endl<<Map[5]<<std::endl;
+                std::cout<<Map[6]<<std::endl<<Map[7]<<std::endl<<Map[8]<<std::endl<<Map[9]<<std::endl<<Map[10]<<std::endl;
+                std::cout<<std::endl<<std::endl;
+            }
+
+        }
+
+
+
+    if (m_Ice[m_IceCream->GetIndex()]->isCreate())
+    {
+        m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
+    }
 }
