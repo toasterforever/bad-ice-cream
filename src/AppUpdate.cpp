@@ -2,15 +2,6 @@
 #include "Util/Input.hpp"
 #include "Util/Keycode.hpp"
 
-
-#include "TurnOffThings.hpp"
-
-
-
-
-
-
-
 void App::Update() {
 
     m_LVLockedPicture[0]->Unlock();

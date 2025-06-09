@@ -325,7 +325,6 @@ void App::BlockUpdate()
         Block->TimeUpdate(m_Ice[Block->GetIndex()]->GetVisibility());
         if (Block->ChangeIce()&&Map[Block->GetI()][Block->GetJ()]=='.')
         {
-            LOG_DEBUG(Map[Block->GetJ()][Block->GetI()]);
             m_Ice[Block->GetIndex()]->SetVisible(true);
         }
     }
