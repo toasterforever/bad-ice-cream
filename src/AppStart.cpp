@@ -383,5 +383,15 @@ void App::Start()
 
     }//Arrow
 
+    {
+        for (int a=0;a<10;a++)
+        {
+            m_CampFire.push_back(std::make_shared<CampFire>(GA_RESOURCE_DIR"/Image/Background/campfire/campfire_off.png"));
+            m_CampFire[a]->SetZIndex(3);
+            m_CampFire[a]->SetPosition(1, 1);//a=(X-1)+(Y-1)*10
+            m_CampFire[a]->SetVisible(false);
+            m_Root.AddChild(m_CampFire[a]);
+        }
+    }//campfire
     m_CurrentState = State::UPDATE;
 }

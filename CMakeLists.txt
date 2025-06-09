@@ -54,6 +54,8 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         src/PhaseChange.cpp
         src/TurnOnLV.cpp
         src/CharacterUpdate.cpp
+        include/CampFire.hpp
+        src/CampFire.cpp
 )
 
 if(MSVC)

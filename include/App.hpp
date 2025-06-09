@@ -13,6 +13,7 @@
 #include "Picture.hpp"
 #include "Text.hpp"
 #include "BGM.hpp"
+#include "CampFire.hpp"
 
 #include <chrono>
 
@@ -126,6 +127,8 @@ private:
     std::vector<std::shared_ptr<Floor>> m_Arrow_Down;
     std::vector<std::shared_ptr<Wall>> m_Wall;
     std::vector<std::shared_ptr<Wall>> m_AirWall;
+    std::vector<std::shared_ptr<CampFire>> m_CampFire;
+
 
     int m_CurrentBGMIndex = 0;
     std::vector<std::shared_ptr<BackGround>> m_BackGround;
