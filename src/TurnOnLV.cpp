@@ -558,6 +558,51 @@ case Phase::LV07:
             m_IceCream->SetPosition(1,1);
             break;
         }
+    case Phase::LV09:
+        {
+            {
+                m_Fruit[0]->SetVisible(true);
+                m_Fruit[1]->SetVisible(true);
+                m_Fruit[2]->SetVisible(true);
+                m_Fruit[3]->SetVisible(true);
+                m_Fruit[0]->SetInGame(true);
+                m_Fruit[1]->SetInGame(true);
+                m_Fruit[2]->SetInGame(true);
+                m_Fruit[3]->SetInGame(true);
+                m_Fruit[0]->SetPosition(4,4);
+                m_Fruit[1]->SetPosition(4,7);
+                m_Fruit[2]->SetPosition(7,4);
+                m_Fruit[3]->SetPosition(7,7);
+                m_Fruit[40]->SetVisible(false);
+                m_Fruit[41]->SetVisible(false);
+                m_Fruit[40]->SetInGame(true);
+                m_Fruit[41]->SetInGame(true);
+                m_Fruit[40]->SetPosition(5,6);
+                m_Fruit[41]->SetPosition(6,5);
+            }//Fruit
+            {
+                m_Enemies_1[8]->SetVisible(true);
+                m_Enemies_1[9]->SetVisible(true);
+                m_Enemies_1[8]->SetPosition(5,5);
+                m_Enemies_1[9]->SetPosition(6,6);
+            }//Enemies
+            {
+                m_Arrow_Down[(4-1)+(4-1)*10]->SetVisible(true);
+                m_Arrow_Down[(4-1)+(5-1)*10]->SetVisible(true);
+                m_Arrow_Down[(4-1)+(6-1)*10]->SetVisible(true);
+                m_Arrow_Right[(4-1)+(7-1)*10]->SetVisible(true);
+                m_Arrow_Right[(5-1)+(7-1)*10]->SetVisible(true);
+                m_Arrow_Right[(6-1)+(7-1)*10]->SetVisible(true);
+                m_Arrow_Up[(7-1)+(7-1)*10]->SetVisible(true);
+                m_Arrow_Up[(7-1)+(6-1)*10]->SetVisible(true);
+                m_Arrow_Up[(7-1)+(5-1)*10]->SetVisible(true);
+                m_Arrow_Left[(7-1)+(4-1)*10]->SetVisible(true);
+                m_Arrow_Left[(6-1)+(4-1)*10]->SetVisible(true);
+                m_Arrow_Left[(5-1)+(4-1)*10]->SetVisible(true);
+            }//Arrow
+            m_IceCream->SetPosition(1,1);
+            break;
+        }
     case Phase::LV25:
         {
             m_FruitPicture[0]->SetVisible(true);

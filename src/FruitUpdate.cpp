@@ -147,6 +147,16 @@ void App::FruitUpdate2()
                     m_Fruit[23]->SetVisible(true);
                 }break;
             }
+        case Phase::LV09:
+            {
+                if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[4]==false)
+                {
+                    Fruit_Reset_Arr[4]=true;
+                    m_Fruit[41]->SetVisible(true);
+                    m_Fruit[40]->SetVisible(true);
+
+                }break;
+            }
         default:
             break;
     }
