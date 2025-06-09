@@ -366,8 +366,8 @@ if (LV_Change==0&&IsGaming())
             m_Fruit[23]->SetPosition(10,10);
 
 
-            m_Enemies_1[12]->SetVisible(true);
-            m_Enemies_1[12]->SetPosition(10,10);
+            m_Enemies_1[16]->SetVisible(true);
+            m_Enemies_1[16]->SetPosition(10,10);
 
 
 
