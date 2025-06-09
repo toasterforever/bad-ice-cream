@@ -352,25 +352,25 @@ void App::Start()
     {
         for (int a=0;a<100;a++)
         {
-            m_Arrow_Up.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_up.png"));
+            m_Arrow_Up.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_up_2.png"));
             m_Arrow_Up[a]->SetZIndex(3);
             m_Arrow_Up[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
             m_Arrow_Up[a]->SetVisible(false);
             m_Root.AddChild(m_Arrow_Up[a]);
 
-            m_Arrow_Left.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_left.png"));
+            m_Arrow_Left.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_left_2.png"));
             m_Arrow_Left[a]->SetZIndex(3);
             m_Arrow_Left[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
             m_Arrow_Left[a]->SetVisible(false);
             m_Root.AddChild(m_Arrow_Left[a]);
 
-            m_Arrow_Down.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_down.png"));
+            m_Arrow_Down.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_down_2.png"));
             m_Arrow_Down[a]->SetZIndex(3);
             m_Arrow_Down[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
             m_Arrow_Down[a]->SetVisible(false);
             m_Root.AddChild(m_Arrow_Down[a]);
 
-            m_Arrow_Right.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_right.png"));
+            m_Arrow_Right.push_back(std::make_shared<Floor>(GA_RESOURCE_DIR"/Image/Background/arrow/arrow_right_2.png"));
             m_Arrow_Right[a]->SetZIndex(3);
             m_Arrow_Right[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
             m_Arrow_Right[a]->SetVisible(false);
