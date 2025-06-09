@@ -23,16 +23,21 @@ void App::CharacterUpdate(){
 void App::IceCreamUpdate()
 {
 
-        MainCharacterPosition={m_IceCream->GetIJ()};
+    MainCharacterPosition={m_IceCream->GetIJ()};
 
-        KeyUpdate();
+    KeyUpdate();
 
-        if (!keyOrder.empty())
-        {
-            m_IceCream->UpdateMovement(keyOrder);
+    if (m_IceCream->IsMoving())
+    {
+        m_IceCream->UpdatePosition();
+    }
+    else if (!keyOrder.empty())
+    {
+        m_IceCream->UpdateMovement(keyOrder);
 
-            IceUpdate();
-        }
+        IceUpdate();
+    }
+
 
 }
 
