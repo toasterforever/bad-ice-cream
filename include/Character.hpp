@@ -47,6 +47,8 @@ public:
 
     [[nodiscard]] int GetNextIndex() const{return NextI-1+(NextJ-1)*10;}
 
+    static int GetIndex(int const I, int const J){return I-1+(J-1)*10;}
+
     void SetImage(const std::string& ImagePath);
 
     void SetPosition(int newI, int newJ)
