@@ -14,6 +14,11 @@ public:
 
     bool ChangeIce();
 
+    void ResetTimer()
+    {
+        lastIceTime=std::chrono::steady_clock::now();
+        lastUnIceTime=std::chrono::steady_clock::now();
+    }
 private:
 
     std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間

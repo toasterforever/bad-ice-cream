@@ -27,6 +27,11 @@ void App::IceCreamUpdate()
 
     MainCharacterPosition={m_IceCream->GetIJ()};
 
+
+    if (m_Ice[m_IceCream->GetIndex()]->isCreate())
+    {
+        m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
+    }
     KeyUpdate();
 
     if (m_IceCream->IsMoving())
@@ -224,6 +229,10 @@ void App::IceUpdate()
                 }
 
             }
+            if (NewX<1||NewX>10||NewY<1||NewY>10)
+            {
+                return;
+            }
             const bool CreateOrBroke=m_Ice[(NewX-1)+(NewY-1)*10]->GetVisibility();
             while (true)
             {
@@ -282,13 +291,6 @@ void App::IceUpdate()
             }
 
         }
-
-
-
-    if (m_Ice[m_IceCream->GetIndex()]->isCreate())
-    {
-        m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
-    }
 }
 
 void App::CampFireUpdate()
@@ -328,6 +330,7 @@ void App::BlockUpdate()
             m_Ice[Block->GetIndex()]->SetVisible(true);
         }
     }
+    m_IceBlock[m_IceCream->GetIndex()]->ResetTimer();
     for (const auto& Block:m_FireBlock)
     {
         if (!Block->GetVisibility())

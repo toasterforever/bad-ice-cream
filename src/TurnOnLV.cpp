@@ -508,7 +508,6 @@ void App::TurnOnLV()
         m_IceCream->SetPosition(1,1);
         break;
     }
-
     case Phase::LV08:
         {
             {
@@ -643,6 +642,7 @@ void App::TurnOnLV()
             m_IceCream->SetPosition(3,3);
             break;
         }
+
     case Phase::LV11:
         {
             {
