@@ -34,9 +34,6 @@ void App::Update() {
 
 
 
-
-
-
     /*
      *  Do not touch the code below as they serve the purpose for validating the tasks,
      *  rendering the frame, and exiting the game.
