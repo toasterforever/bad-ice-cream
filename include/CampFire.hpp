@@ -12,6 +12,10 @@ public:
     explicit CampFire(const std::string& ImagePath);
     void ImageUpdate(int count);
     void TimeUpdate(bool Ice);
+
+    void SetFired(bool const Fired){fired=Fired;}
+    bool GetFired(){return fired;}
+
 private:
     std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
     std::chrono::steady_clock::time_point lastUnIceTime;  // 記錄上次按按鈕的時間

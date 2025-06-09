@@ -19,6 +19,13 @@ public:
     {
         return i-1+(j-1)*10;
     }
+    int GetI()
+    {
+        return i;
+    }
+    int GetJ(){
+        return j;
+    }
     void SetPosition(int const newI, int const newJ)
     {
         i=newI;j=newJ;

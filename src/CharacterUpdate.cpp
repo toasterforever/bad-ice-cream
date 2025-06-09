@@ -298,6 +298,15 @@ void App::CampFireUpdate()
             continue;
         }
         CampFire->TimeUpdate(m_Ice[CampFire->GetIndex()]->GetVisibility());
-
+        if (
+            abs(m_IceCream->GetPosition().x-CampFire->GetPosition().x)<40&&
+            abs(m_IceCream->GetPosition().y-CampFire->GetPosition().y)<40
+            )
+        {
+            if (CampFire->GetFired())
+            {
+                m_IceCream->SetVisible(false);
+            }
+        }
     }
 }

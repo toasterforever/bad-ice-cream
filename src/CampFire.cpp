@@ -37,13 +37,15 @@ void CampFire::TimeUpdate(bool Ice)
     if (lastUnIceTime-lastIceTime > cooldownTime)
     {
         ImageUpdate(0);
+        SetFired(true);
     }
-    else if (lastUnIceTime-lastIceTime < cooldownTimeReady)
+    else if (lastUnIceTime-lastIceTime > cooldownTimeReady)
     {
         ImageUpdate(2);
     }
     else
     {
+        SetFired(false);
         ImageUpdate(1);
     }
 }
