@@ -202,6 +202,7 @@ void App::IceUpdate()
                     NewX=NewX-1;break;
                 case Model::Direction::Right:
                     NewX=NewX+1;break;
+                    default:break;
                 }
 
             }
@@ -217,6 +218,8 @@ void App::IceUpdate()
                     NewX=NewX-1;break;
                 case Model::Direction::Right:
                     NewX=NewX+1;break;
+                    default:
+                        break;
                 }
 
             }

@@ -108,16 +108,7 @@ private:
 
     std::shared_ptr<MainCharacter> m_IceCream;
     std::vector<std::shared_ptr<Fruit>> m_Fruit;
-    std::vector<std::shared_ptr<Enemies>> m_Enemies_1; //第1關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_2; //第2關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_3; //第3關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_4; //第4關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_5; //第5關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_6; //第6關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_7; //第7關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_8; //第8關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_9; //第9關
-    //std::vector<std::shared_ptr<Enemies>> m_Enemies_10; //第10關
+    std::vector<std::shared_ptr<Enemies>> m_Enemies_1;
 
 
     std::vector<std::shared_ptr<Ice>> m_Ice;
