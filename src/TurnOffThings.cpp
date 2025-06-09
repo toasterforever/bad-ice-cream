@@ -1,9 +1,6 @@
 //
-// Created by User on 2025/04/12.
+// Created by User on 2025/06/09.
 //
-
-#ifndef TURNOFFTHINGS_HPP
-#define TURNOFFTHINGS_HPP
 
 #include "App.hpp"
 
@@ -132,5 +129,3 @@ void App::TurnOffLevelButton()
         Locked->SetVisible(false);
     }
 }
-
-#endif //TURNOFFTHINGS_HPP
