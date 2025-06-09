@@ -922,6 +922,46 @@ if (LV_Change==0&&IsGaming())
             Map[m_IceCream->GetI()][m_IceCream->GetJ()]='!';
             break;
         }
+    case Phase::LV15:
+        {
+            {
+                for (int a=0;a<50;a++)
+                {
+                    m_IceBlock[2*a+1]->SetVisible(true);
+                    m_IceBlock[2*a+1]->ResetTimer();
+                    m_FireBlock[2*a]->SetVisible(true);
+                    m_FireBlock[2*a]->ResetTimer();
+                }
+            }
+            {
+                m_Fruit[40+0]->SetVisible(true);
+                m_Fruit[40+1]->SetVisible(true);
+                m_Fruit[40+2]->SetVisible(true);
+                m_Fruit[40+3]->SetVisible(true);
+                m_Fruit[40+0]->SetInGame(true);
+                m_Fruit[40+1]->SetInGame(true);
+                m_Fruit[40+2]->SetInGame(true);
+                m_Fruit[40+3]->SetInGame(true);
+                m_Fruit[40+0]->SetPosition(5,5);
+                m_Fruit[40+1]->SetPosition(5,6);
+                m_Fruit[40+2]->SetPosition(6,5);
+                m_Fruit[40+3]->SetPosition(6,6);
+            }
+            {
+                m_Enemies_1[8]->SetVisible(true);
+                m_Enemies_1[9]->SetVisible(true);
+                m_Enemies_1[10]->SetVisible(true);
+                m_Enemies_1[11]->SetVisible(true);
+                m_Enemies_1[8]->SetPosition(10,10);
+                m_Enemies_1[9]->SetPosition(9,9);
+                m_Enemies_1[10]->SetPosition(8,8);
+                m_Enemies_1[11]->SetPosition(7,7);
+            }
+            m_IceCream->SetPosition(1,1);
+            Map[m_IceCream->GetI()][m_IceCream->GetJ()]='!';
+            break;
+
+        }
     case Phase::LV24:
         {
             {
