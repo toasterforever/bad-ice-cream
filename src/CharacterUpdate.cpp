@@ -139,7 +139,7 @@ void App::FruitUpdate()
 
 
             }
-            if (fruit->GetModel()!=Model::Move::Dont_Move)
+            if (fruit->GetModel()!=Model::Move::Dont_Move&&fruit->GetVisibility())
             {
                 if (!m_Ice[fruit->GetIndex()]->isCreate())
                 {
