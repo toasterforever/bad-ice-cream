@@ -54,6 +54,7 @@ public:
     void FruitUpdate();
     void KeyUpdate();
     void IceUpdate();
+    void CampFireUpdate();
 
     void SwitchBGM(size_t newIndex)
     {

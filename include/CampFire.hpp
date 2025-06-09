@@ -6,35 +6,19 @@
 #define CAMPFIRE_HPP
 
 #include "floor.hpp"
-
+#include <chrono>
 class CampFire : public Floor {
 public:
     explicit CampFire(const std::string& ImagePath);
-    void ImageUpdate()
-    {
-        count++;
-        if (count==3)
-        {
-            count=0;
-        }
-        switch (count)
-        {
-            case 1:
-                SetImage(GA_RESOURCE_DIR"/Image/Background/campfire/campfire_off.png");
-            break;
-            case 2:
-                SetImage(GA_RESOURCE_DIR"/Image/Background/campfire/campfire_ready.png");
-            break;
-            case 0:
-                SetImage(GA_RESOURCE_DIR"/Image/Background/campfire/campfire_on.png");
-            break;
-
-        }
-
-    }
+    void ImageUpdate(int count);
+    void TimeUpdate(bool Ice);
 private:
-    int count=0;
+    std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
+    std::chrono::steady_clock::time_point lastUnIceTime;  // 記錄上次按按鈕的時間
+    const std::chrono::milliseconds cooldownTime{3000};
+    const std::chrono::milliseconds cooldownTimeReady{2000};
     std::string m_ImagePath;
+    bool fired = false;
 };
 
 #endif //CAMPFIRE_HPP

@@ -798,6 +798,20 @@ void App::TurnOnLV()
             m_IceCream->SetPosition(1,1);
             break;
         }
+    case Phase::LV12:
+        {
+            {
+                m_Fruit[0]->SetVisible(true);
+                m_Fruit[0]->SetInGame(true);
+                m_Fruit[0]->SetPosition(10,10);
+            }
+            {
+                m_CampFire[0]->SetVisible(true);
+                m_CampFire[0]->SetPosition(1,10);
+            }
+            m_IceCream->SetPosition(1,1);
+            break;
+        }
     case Phase::LV25:
         {
             m_FruitPicture[0]->SetVisible(true);

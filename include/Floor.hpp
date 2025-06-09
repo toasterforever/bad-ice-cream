@@ -15,11 +15,17 @@
 class Floor : public BackGround {
 public:
     explicit Floor(const std::string& ImagePath);
+    int GetIndex()
+    {
+        return i-1+(j-1)*10;
+    }
     void SetPosition(int const newI, int const newJ)
     {
+        i=newI;j=newJ;
         m_Transform.translation = glm::vec2(-330+(cellSize*newI),330-(cellSize*newJ));
     }
 private:
+    int i,j;
     std::string m_ImagePath;
 };
 

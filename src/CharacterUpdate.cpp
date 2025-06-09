@@ -17,6 +17,7 @@ void App::CharacterUpdate(){
         MapUpdate();//Ice Wall AirWall
         EnemiesUpdate();
         FruitUpdate();
+        CampFireUpdate();
     }//CharacterUpdate
 }
 
@@ -282,5 +283,18 @@ void App::IceUpdate()
     if (m_Ice[m_IceCream->GetIndex()]->isCreate())
     {
         m_Ice[m_IceCream->GetIndex()]->SetVisible(false);
+    }
+}
+
+void App::CampFireUpdate()
+{
+    for (const auto& CampFire: m_CampFire)
+    {
+        if (!CampFire->GetVisibility())
+        {
+            continue;
+        }
+        CampFire->TimeUpdate(m_Ice[CampFire->GetIndex()]->GetVisibility());
+
     }
 }
