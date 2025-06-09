@@ -7,7 +7,7 @@ CampFire::CampFire(const std::string& ImagePath): Floor(ImagePath)
 {
 
 }
-void CampFire::ImageUpdate(int count)
+void CampFire::ImageChange(int count)
 {
     switch (count)
     {
@@ -34,18 +34,21 @@ void CampFire::TimeUpdate(bool Ice)
     {
         lastUnIceTime=std::chrono::steady_clock::now();
     }
+}
+void CampFire::ImageUpdate()
+{
     if (lastUnIceTime-lastIceTime > cooldownTime)
     {
-        ImageUpdate(0);
+        ImageChange(0);
         SetFired(true);
     }
     else if (lastUnIceTime-lastIceTime > cooldownTimeReady)
     {
-        ImageUpdate(2);
+        ImageChange(2);
     }
     else
     {
         SetFired(false);
-        ImageUpdate(1);
+        ImageChange(1);
     }
 }

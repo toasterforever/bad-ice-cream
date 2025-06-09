@@ -10,7 +10,8 @@
 class CampFire : public Floor {
 public:
     explicit CampFire(const std::string& ImagePath);
-    void ImageUpdate(int count);
+    void ImageChange(int count);
+    void ImageUpdate();
     void TimeUpdate(bool Ice);
 
     void SetFired(bool const Fired){fired=Fired;}
