@@ -393,5 +393,21 @@ void App::Start()
             m_Root.AddChild(m_CampFire[a]);
         }
     }//campfire
+
+    {
+        for (int a=0;a<100;a++)
+        {
+            m_IceBlock.push_back(std::make_shared<Block>(GA_RESOURCE_DIR"/Image/Background/block/block_ice.png",Model::Block::Ice));
+            m_IceBlock[a]->SetZIndex(3);
+            m_IceBlock[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_IceBlock[a]->SetVisible(false);
+            m_Root.AddChild(m_IceBlock[a]);
+            m_FireBlock.push_back(std::make_shared<Block>(GA_RESOURCE_DIR"/Image/Background/block/block_fire.png",Model::Block::Fire));
+            m_FireBlock[a]->SetZIndex(3);
+            m_FireBlock[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
+            m_FireBlock[a]->SetVisible(false);
+            m_Root.AddChild(m_FireBlock[a]);
+        }
+    }//block
     m_CurrentState = State::UPDATE;
 }

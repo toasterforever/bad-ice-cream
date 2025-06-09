@@ -71,6 +71,12 @@ namespace Model {
         None
     };
 
+    enum class Block
+    {
+        Ice,
+        Fire
+    };
+
     std::string DirToStr(Model::Direction dir);
     int DirToNum(Model::Direction dir);
     glm::vec2 DirToPos(Model::Direction dir);

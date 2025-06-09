@@ -14,6 +14,7 @@
 #include "Text.hpp"
 #include "BGM.hpp"
 #include "CampFire.hpp"
+#include "Block.hpp"
 
 #include <chrono>
 
@@ -55,6 +56,7 @@ public:
     void KeyUpdate();
     void IceUpdate();
     void CampFireUpdate();
+    void BlockUpdate();
 
     void SwitchBGM(size_t newIndex)
     {
@@ -120,7 +122,8 @@ private:
     std::vector<std::shared_ptr<Wall>> m_Wall;
     std::vector<std::shared_ptr<Wall>> m_AirWall;
     std::vector<std::shared_ptr<CampFire>> m_CampFire;
-
+    std::vector<std::shared_ptr<Block>> m_IceBlock;
+    std::vector<std::shared_ptr<Block>> m_FireBlock;
 
     int m_CurrentBGMIndex = 0;
     std::vector<std::shared_ptr<BackGround>> m_BackGround;

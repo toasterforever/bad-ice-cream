@@ -809,6 +809,10 @@ void App::TurnOnLV()
                 m_CampFire[0]->SetVisible(true);
                 m_CampFire[0]->SetPosition(1,10);
             }
+            {
+                m_IceBlock[2]->SetVisible(true);
+                m_FireBlock[3]->SetVisible(true);
+            }
             m_IceCream->SetPosition(1,1);
             break;
         }

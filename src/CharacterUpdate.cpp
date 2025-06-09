@@ -18,6 +18,7 @@ void App::CharacterUpdate(){
         EnemiesUpdate();
         FruitUpdate();
         CampFireUpdate();
+        BlockUpdate();
     }//CharacterUpdate
 }
 
@@ -273,6 +274,7 @@ void App::IceUpdate()
                     case Model::Direction::Right:
 
                         NewX=NewX+1;break;
+                    default:break;
                 }
                 std::cout<<Map[1]<<std::endl<<Map[2]<<std::endl<<Map[3]<<std::endl<<Map[4]<<std::endl<<Map[5]<<std::endl;
                 std::cout<<Map[6]<<std::endl<<Map[7]<<std::endl<<Map[8]<<std::endl<<Map[9]<<std::endl<<Map[10]<<std::endl;
@@ -308,6 +310,35 @@ void App::CampFireUpdate()
             {
                 m_IceCream->SetVisible(false);
             }
+        }
+    }
+}
+
+void App::BlockUpdate()
+{
+    for (const auto& Block:m_IceBlock)
+    {
+        if (!Block->GetVisibility())
+        {
+            continue;
+        }
+        Block->TimeUpdate(m_Ice[Block->GetIndex()]->GetVisibility());
+        if (Block->ChangeIce()&&Map[Block->GetI()][Block->GetJ()]=='.')
+        {
+            LOG_DEBUG(Map[Block->GetJ()][Block->GetI()]);
+            m_Ice[Block->GetIndex()]->SetVisible(true);
+        }
+    }
+    for (const auto& Block:m_FireBlock)
+    {
+        if (!Block->GetVisibility())
+        {
+            continue;
+        }
+        Block->TimeUpdate(m_Ice[Block->GetIndex()]->GetVisibility());
+        if (Block->ChangeIce())
+        {
+            m_Ice[Block->GetIndex()]->SetVisible(false);
         }
     }
 }

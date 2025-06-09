@@ -56,6 +56,8 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         src/CharacterUpdate.cpp
         include/CampFire.hpp
         src/CampFire.cpp
+        include/Block.hpp
+        src/Block.cpp
 )
 
 if(MSVC)
