@@ -42,6 +42,22 @@ void App::TurnOffLevel()
     {
         wall->SetVisible(false);
     }
+    for (const auto& Arrow:m_Arrow_Left)
+    {
+        Arrow->SetVisible(false);
+    }
+    for (const auto& Arrow:m_Arrow_Right)
+    {
+        Arrow->SetVisible(false);
+    }
+    for (const auto& Arrow:m_Arrow_Up)
+    {
+        Arrow->SetVisible(false);
+    }
+    for (const auto& Arrow:m_Arrow_Down)
+    {
+        Arrow->SetVisible(false);
+    }
     Map={
         "############",//0
         "#..........#",//1

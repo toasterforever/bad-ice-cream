@@ -234,6 +234,22 @@ void App::IceUpdate()
                 {
                     break;
                 }
+                if (m_Arrow_Down[Character::GetIndex(NewX,NewY)]->GetVisibility())
+                {
+                    direction=Model::Direction::Down;
+                }
+                else if  (m_Arrow_Up[Character::GetIndex(NewX,NewY)]->GetVisibility())
+                {
+                    direction=Model::Direction::Up;
+                }
+                else if  (m_Arrow_Left[Character::GetIndex(NewX,NewY)]->GetVisibility())
+                {
+                    direction=Model::Direction::Left;
+                }
+                else if  (m_Arrow_Right[Character::GetIndex(NewX,NewY)]->GetVisibility())
+                {
+                    direction=Model::Direction::Right;
+                }
                 switch (direction)
                 {
                     case Model::Direction::Up:
