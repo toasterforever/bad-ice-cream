@@ -197,13 +197,7 @@ void App::Start()
             m_Enemies_1[a+12]->SetVisible(false);
             m_Root.AddChild(m_Enemies_1[a+12]);
         }
-        // for (int a = 0; a < 10; ++a) {
-        //     m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/微波爐.png"));
-        //     m_Enemies_1[a+20]->SetZIndex(8);
-        //     m_Enemies_1[a+20]->SetPosition(a+1, a+1);
-        //     m_Enemies_1[a+20]->SetVisible(false);
-        //     m_Root.AddChild(m_Enemies_1[a+20]);
-        // }
+
     }//Enemies
     {
         for (int a = 0; a < 16; ++a) {
