@@ -283,7 +283,6 @@ void App::EnemiesUpdate()
                             int c;
                             switch (enemy->GetDirection())
                             {
-                                LOG_DEBUG(Model::DirToStr(enemy->GetDirection()));
                                 case Model::Direction::Up:
                                     {
                                         while (true)
@@ -398,6 +397,94 @@ void App::EnemiesUpdate()
                                 default:
                                     break;
                             }
+                        }
+                    case Model::Fired::Cross:
+                        {
+                            int c=enemy->GetIndex();
+                            while (true)
+                            {
+                                c-=10;
+                                if (c<0||c>99)
+                                {
+                                    break;
+                                }
+                                if (m_Ice[c]->GetVisibility())
+                                {
+                                    if (!m_Fire[c]->GetVisibility())
+                                    {
+                                        m_Fire[c]->SetVisible(true);
+                                        m_Fire[c]->ResetTimer();
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            c=enemy->GetIndex();
+                            while (true)
+                            {
+                                c+=10;
+                                if (c<0||c>99)
+                                {
+                                    break;
+                                }
+                                if (m_Ice[c]->GetVisibility())
+                                {
+                                    if (!m_Fire[c]->GetVisibility())
+                                    {
+                                        m_Fire[c]->SetVisible(true);
+                                        m_Fire[c]->ResetTimer();
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            c=enemy->GetIndex();
+                            while (true)
+                            {
+                                c+=1;
+                                if (c%10==0)
+                                {
+                                    break;
+                                }
+                                if (m_Ice[c]->GetVisibility())
+                                {
+                                    if (!m_Fire[c]->GetVisibility())
+                                    {
+                                        m_Fire[c]->SetVisible(true);
+                                        m_Fire[c]->ResetTimer();
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            c=enemy->GetIndex();
+                            while (true)
+                            {
+                                c-=1;
+                                if (c%10==9)
+                                {
+                                    break;
+                                }
+                                if (m_Ice[c]->GetVisibility())
+                                {
+                                    if (!m_Fire[c]->GetVisibility())
+                                    {
+                                        m_Fire[c]->SetVisible(true);
+                                        m_Fire[c]->ResetTimer();
+                                    }
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            break;
                         }
                     case Model::Fired::None:
                         {

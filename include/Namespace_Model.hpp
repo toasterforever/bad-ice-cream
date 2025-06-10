@@ -50,6 +50,7 @@ namespace Model {
         Three,
         Column_Row,
         Around,
+        Cross,
         None
     };
     enum class Move {
