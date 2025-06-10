@@ -1132,12 +1132,13 @@ if (LV_Change==0&&IsGaming())
                 m_CampFire[0]->SetPosition(1,10);
             }
             {
-                m_Enemies[20]->SetVisible(true);
-                m_Enemies[20]->SetPosition(10,10);
+                m_Enemies[24]->SetVisible(true);
+                m_Enemies[24]->SetPosition(10,10);
             }
             {
                 m_Ice[10-1+(9-1)*10]->SetVisible(true);
                 m_Ice[9-1+(10-1)*10]->SetVisible(true);
+                m_Ice[9-1+(9-1)*10]->SetVisible(true);
             }
             {
                 m_IceBlock[2]->SetVisible(true);

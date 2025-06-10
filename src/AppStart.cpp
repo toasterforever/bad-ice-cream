@@ -431,7 +431,7 @@ void App::Start()
             m_FireBlock[a]->SetVisible(false);
             m_Root.AddChild(m_FireBlock[a]);
             m_Fire.push_back(std::make_shared<Block>(GA_RESOURCE_DIR"/Image/Background/block/fire.png",Model::Block::Melt));
-            m_Fire[a]->SetZIndex(3);
+            m_Fire[a]->SetZIndex(6);
             m_Fire[a]->SetPosition(a%10+1, a/10+1);//a=(X-1)+(Y-1)*10
             m_Fire[a]->SetVisible(false);
             m_Root.AddChild(m_Fire[a]);

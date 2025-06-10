@@ -145,90 +145,117 @@ void App::EnemiesUpdate()
 
                             break;
                         }
-                    // case Model::Fired::Three:
-                    //     {
-                    //         switch (enemy->GetDirection())
-                    //         {
-                    //         case Model::Direction::Left:
-                    //             {
-                    //                 m_Fire[enemy->GetIndex()-1]->SetVisible(true);
-                    //                 if (enemy->GetJ()>1)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()-1-10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()-1-10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 if (enemy->GetJ()<10)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 break;
-                    //             }
-                    //         case Model::Direction::Right:
-                    //             {
-                    //                 m_Fire[enemy->GetIndex()+1]->SetVisible(true);
-                    //                 if (enemy->GetJ()>1)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()+1-10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()+1-10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 if (enemy->GetJ()<10)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 break;
-                    //             }
-                    //         case Model::Direction::Up:
-                    //             {
-                    //                 m_Fire[enemy->GetIndex()-10]->SetVisible(true);
-                    //                 if (enemy->GetI()>1)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()-1-10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()-1-10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 if (enemy->GetI()<10)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()+1-10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()+1-10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 break;
-                    //             }
-                    //         case Model::Direction::Down:
-                    //             {
-                    //                 m_Fire[enemy->GetIndex()+10]->SetVisible(true);
-                    //                 if (enemy->GetI()>1)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 if (enemy->GetI()<10)
-                    //                 {
-                    //                     if (m_Ice[enemy->GetIndex()+1+10]->GetVisibility())
-                    //                     {
-                    //                         m_Fire[enemy->GetIndex()+1+10]->SetVisible(true);
-                    //                     }
-                    //                 }
-                    //                 break;
-                    //             }
-                    //         }
-                    //
-                    //         break;
-                    //     }
+                    case Model::Fired::Three:
+                        {
+                            switch (enemy->GetDirection())
+                            {
+                            case Model::Direction::Left:
+                                {
+                                    if (!m_Fire[enemy->GetIndex()-1]->GetVisibility())
+                                    {
+                                        m_Fire[enemy->GetIndex()-1]->SetVisible(true);
+                                        m_Fire[enemy->GetIndex()-1]->ResetTimer();
+                                    }
+                                    if (enemy->GetJ()>1)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()-1-10]->GetVisibility()&&!m_Fire[enemy->GetIndex()-1-10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()-1-10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()-1-10]->ResetTimer();
+                                        }
+                                    }
+                                    if (enemy->GetJ()<10)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility()&&!m_Fire[enemy->GetIndex()-1+10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()-1+10]->ResetTimer();
+                                        }
+                                    }
+                                    break;
+                                }
+                            case Model::Direction::Right:
+                                {
+                                    if (!m_Fire[enemy->GetIndex()+1]->GetVisibility())
+                                    {
+                                        m_Fire[enemy->GetIndex()+1]->SetVisible(true);
+                                        m_Fire[enemy->GetIndex()+1]->ResetTimer();
+                                    }
+
+                                    if (enemy->GetJ()>1)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()+1-10]->GetVisibility()&&!m_Fire[enemy->GetIndex()+1-10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+1-10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+1-10]->ResetTimer();
+                                        }
+                                    }
+                                    if (enemy->GetJ()<10)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()+1+10]->GetVisibility()&&!m_Fire[enemy->GetIndex()+1+10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+1+10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+1+10]->ResetTimer();
+                                        }
+                                    }
+                                    break;
+                                }
+                            case Model::Direction::Up:
+                                {
+                                    if (!m_Fire[enemy->GetIndex()-10]->GetVisibility())
+                                    {
+                                        m_Fire[enemy->GetIndex()-10]->SetVisible(true);
+                                        m_Fire[enemy->GetIndex()-10]->ResetTimer();
+                                    }
+
+                                    if (enemy->GetI()>1)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()-1-10]->GetVisibility()&&!m_Fire[enemy->GetIndex()-1-10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()-1-10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()-1-10]->ResetTimer();
+                                        }
+                                    }
+                                    if (enemy->GetI()<10)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()+1-10]->GetVisibility()&&!m_Fire[enemy->GetIndex()+1-10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+1-10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+1-10]->ResetTimer();
+                                        }
+                                    }
+                                    break;
+                                }
+                            case Model::Direction::Down:
+                                {
+                                    if (!m_Fire[enemy->GetIndex()+10]->GetVisibility())
+                                    {
+                                        m_Fire[enemy->GetIndex()+10]->SetVisible(true);
+                                        m_Fire[enemy->GetIndex()+10]->ResetTimer();
+                                    }
+
+                                    if (enemy->GetI()>1)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility()&&!m_Fire[enemy->GetIndex()-1+10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()-1+10]->ResetTimer();
+                                        }
+                                    }
+                                    if (enemy->GetI()<10)
+                                    {
+                                        if (m_Ice[enemy->GetIndex()+1+10]->GetVisibility()&&!m_Fire[enemy->GetIndex()+1+10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+1+10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+1+10]->ResetTimer();
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+
+                            break;
+                        }
                     }
                 }
 
