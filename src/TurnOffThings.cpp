@@ -7,7 +7,7 @@
 void App::TurnOffLevel()
 {
     {
-        for (const auto& enemy : m_Enemies_1) {
+        for (const auto& enemy : m_Enemies) {
             enemy->SetVisible(false);
             enemy->SetDirection(Model::Direction::None);
         }

@@ -170,32 +170,32 @@ void App::Start()
     }//IceCream
     {
         for (int a = 0; a < 4; ++a) {
-            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/Toaster1.png",Model::Move::Row_Move));
-            m_Enemies_1[a]->SetZIndex(8);
-            m_Enemies_1[a]->SetPosition(a+1, 1);
-            m_Enemies_1[a]->SetVisible(false);
-            m_Root.AddChild(m_Enemies_1[a]);
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/Toaster1.png",Model::Move::Row_Move));
+            m_Enemies[a]->SetZIndex(8);
+            m_Enemies[a]->SetPosition(a+1, 1);
+            m_Enemies[a]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a]);
         }
         for (int a = 0; a < 4; ++a) {
-            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Column_Move));
-            m_Enemies_1[4+a]->SetZIndex(8);
-            m_Enemies_1[4+a]->SetPosition(a+1, 1);
-            m_Enemies_1[4+a]->SetVisible(false);
-            m_Root.AddChild(m_Enemies_1[4+a]);
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Column_Move));
+            m_Enemies[4+a]->SetZIndex(8);
+            m_Enemies[4+a]->SetPosition(a+1, 1);
+            m_Enemies[4+a]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[4+a]);
         }
         for (int a = 0; a < 8; ++a) {
-            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Around_Move));
-            m_Enemies_1[8+a]->SetZIndex(8);
-            m_Enemies_1[8+a]->SetPosition(a+1, 1);
-            m_Enemies_1[8+a]->SetVisible(false);
-            m_Root.AddChild(m_Enemies_1[8+a]);
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Around_Move));
+            m_Enemies[8+a]->SetZIndex(8);
+            m_Enemies[8+a]->SetPosition(a+1, 1);
+            m_Enemies[8+a]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[8+a]);
         }
         for (int a = 0; a < 4; ++a) {
-            m_Enemies_1.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/油鍋.png",Model::Move::Auto_Move));
-            m_Enemies_1[a+16]->SetZIndex(8);
-            m_Enemies_1[a+16]->SetPosition(1, a+1);
-            m_Enemies_1[a+16]->SetVisible(false);
-            m_Root.AddChild(m_Enemies_1[a+16]);
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/油鍋.png",Model::Move::Auto_Move));
+            m_Enemies[a+16]->SetZIndex(8);
+            m_Enemies[a+16]->SetPosition(1, a+1);
+            m_Enemies[a+16]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a+16]);
         }
 
     }//Enemies

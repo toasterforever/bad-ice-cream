@@ -93,7 +93,7 @@ void App::EnemiesUpdate()
 {
     {
 
-        for (const auto& enemy : m_Enemies_1) {
+        for (const auto& enemy : m_Enemies) {
             if (enemy->GetVisibility())
             {
                 enemy->MoveTowards();

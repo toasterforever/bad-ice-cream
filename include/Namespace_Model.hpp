@@ -51,12 +51,6 @@ namespace Model {
         Auto_Move,
         Dont_Move
     };
-    enum class ButtonStyle {
-        W200H100,
-        W80H80,
-        Circle60,
-        NotDefined
-    };
     enum class Direction {
         Up=0,
         Down=1,
@@ -70,7 +64,12 @@ namespace Model {
         Locked,
         None
     };
-
+    enum class ButtonStyle {
+        W200H100,
+        W80H80,
+        Circle60,
+        NotDefined
+    };
     enum class Block
     {
         Ice,

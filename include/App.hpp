@@ -110,7 +110,7 @@ private:
 
     std::shared_ptr<MainCharacter> m_IceCream;
     std::vector<std::shared_ptr<Fruit>> m_Fruit;
-    std::vector<std::shared_ptr<Enemies>> m_Enemies_1;
+    std::vector<std::shared_ptr<Enemies>> m_Enemies;
 
 
     std::vector<std::shared_ptr<Ice>> m_Ice;
