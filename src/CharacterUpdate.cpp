@@ -273,6 +273,11 @@ void App::EnemiesUpdate()
                                 }
                             }
                         }
+                    case Model::Fired::Column_Row:{}
+                    case Model::Fired::None:
+                        {
+                            break;
+                        }
                     }
                 }
 
