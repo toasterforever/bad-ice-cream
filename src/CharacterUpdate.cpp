@@ -145,6 +145,90 @@ void App::EnemiesUpdate()
 
                             break;
                         }
+                    // case Model::Fired::Three:
+                    //     {
+                    //         switch (enemy->GetDirection())
+                    //         {
+                    //         case Model::Direction::Left:
+                    //             {
+                    //                 m_Fire[enemy->GetIndex()-1]->SetVisible(true);
+                    //                 if (enemy->GetJ()>1)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()-1-10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()-1-10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 if (enemy->GetJ()<10)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 break;
+                    //             }
+                    //         case Model::Direction::Right:
+                    //             {
+                    //                 m_Fire[enemy->GetIndex()+1]->SetVisible(true);
+                    //                 if (enemy->GetJ()>1)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()+1-10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()+1-10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 if (enemy->GetJ()<10)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 break;
+                    //             }
+                    //         case Model::Direction::Up:
+                    //             {
+                    //                 m_Fire[enemy->GetIndex()-10]->SetVisible(true);
+                    //                 if (enemy->GetI()>1)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()-1-10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()-1-10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 if (enemy->GetI()<10)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()+1-10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()+1-10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 break;
+                    //             }
+                    //         case Model::Direction::Down:
+                    //             {
+                    //                 m_Fire[enemy->GetIndex()+10]->SetVisible(true);
+                    //                 if (enemy->GetI()>1)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()-1+10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()-1+10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 if (enemy->GetI()<10)
+                    //                 {
+                    //                     if (m_Ice[enemy->GetIndex()+1+10]->GetVisibility())
+                    //                     {
+                    //                         m_Fire[enemy->GetIndex()+1+10]->SetVisible(true);
+                    //                     }
+                    //                 }
+                    //                 break;
+                    //             }
+                    //         }
+                    //
+                    //         break;
+                    //     }
                     }
                 }
 
@@ -157,7 +241,7 @@ void App::EnemiesUpdate()
 
                 if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)
                 {
-                    if (enemy->GetModel()!=Model::Move::Auto_Move)
+                    if (enemy->GetModel()!=Model::Move::Auto_Move&&!enemy->fired())
                     {
                         enemy->SetDirection(enemy->GetRandomDirection());
                     }
