@@ -49,6 +49,7 @@ namespace Model {
         One,
         Three,
         Column_Row,
+        Around,
         None
     };
     enum class Move {

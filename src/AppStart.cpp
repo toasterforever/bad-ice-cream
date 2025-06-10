@@ -184,7 +184,7 @@ void App::Start()
             m_Root.AddChild(m_Enemies[4+a]);
         }
         for (int a = 0; a < 8; ++a) {
-            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/咖啡機.png",Model::Move::Around_Move));
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/微波爐.png",Model::Move::Around_Move));
             m_Enemies[8+a]->SetZIndex(8);
             m_Enemies[8+a]->SetPosition(a+1, 1);
             m_Enemies[8+a]->SetVisible(false);
@@ -220,6 +220,14 @@ void App::Start()
             m_Enemies[a+28]->SetPosition(1, a+1);
             m_Enemies[a+28]->SetVisible(false);
             m_Root.AddChild(m_Enemies[a+28]);
+        }
+        for (int a=0;a<4;a++)
+        {
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/電鍋1.png",Model::Move::Around_Move,Model::Fired::Around));
+            m_Enemies[a+32]->SetZIndex(8);
+            m_Enemies[a+32]->SetPosition(1, a+1);
+            m_Enemies[a+32]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a+32]);
         }
     }//Enemies
     {

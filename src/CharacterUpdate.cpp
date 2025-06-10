@@ -256,6 +256,23 @@ void App::EnemiesUpdate()
 
                             break;
                         }
+                    case Model::Fired::Around:
+                        {
+                            for (int a=-1;a<2;a++)
+                            {
+                                for (int aa=-1;aa<2;aa++)
+                                {
+                                    if ((enemy->GetI()+a>0&&enemy->GetI()+a<11)&&(enemy->GetJ()+aa>0&&enemy->GetJ()+aa<11))
+                                    {
+                                        if (m_Ice[enemy->GetIndex()+a+aa*10]->GetVisibility()&&!m_Fire[enemy->GetIndex()+a+aa*10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+a+aa*10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+a+aa*10]->ResetTimer();
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -519,6 +536,11 @@ void App::BlockUpdate()
         {
             Block->SetVisible(false);
             m_Ice[Block->GetIndex()]->SetVisible(false);
+        }
+        if (!m_Ice[Block->GetIndex()]->GetVisibility())
+        {
+            Block->ResetTimer();
+            Block->SetVisible(false);
         }
 
     }
