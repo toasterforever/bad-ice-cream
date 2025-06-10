@@ -481,4 +481,18 @@ void App::BlockUpdate()
             m_Ice[Block->GetIndex()]->SetVisible(false);
         }
     }
+    for (const auto& Block:m_Fire)
+    {
+        if (!Block->GetVisibility())
+        {
+            continue;
+        }
+        Block->TimeUpdate(Block->GetVisibility());
+        if (!Block->ChangeIce())
+        {
+            Block->SetVisible(false);
+            m_Ice[Block->GetIndex()]->SetVisible(false);
+        }
+
+    }
 }
