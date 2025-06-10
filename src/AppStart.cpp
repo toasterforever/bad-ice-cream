@@ -384,7 +384,7 @@ void App::Start()
     }//Arrow
 
     {
-        for (int a=0;a<10;a++)
+        for (int a=0;a<16;a++)
         {
             m_CampFire.push_back(std::make_shared<CampFire>(GA_RESOURCE_DIR"/Image/Background/campfire/campfire_off.png"));
             m_CampFire[a]->SetZIndex(3);
