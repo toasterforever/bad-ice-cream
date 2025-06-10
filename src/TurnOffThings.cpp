@@ -51,10 +51,17 @@ void App::TurnOffLevel()
         for (const auto& Block:m_IceBlock)
         {
             Block->SetVisible(false);
+            Block->ResetTimer();
         }
         for (const auto& Block:m_FireBlock)
         {
             Block->SetVisible(false);
+            Block->ResetTimer();
+        }
+        for (const auto& Block:m_Fire)
+        {
+            Block->SetVisible(false);
+            Block->ResetTimer();
         }
     }//BackGround that will update
     {

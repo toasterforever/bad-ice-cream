@@ -6,6 +6,8 @@
 #include "Util/Input.hpp"
 #include "Util/Keycode.hpp"
 #include <random>
+
+#include "Util/Logger.hpp"
 static std::random_device rd2;   // 產生隨機種子
 static std::mt19937 gen2(rd2());  // 使用 Mersenne Twister 隨機數引擎
 static std::uniform_int_distribution<int> dist2(0, 99);  // 產生 0~99 的整數
@@ -272,8 +274,131 @@ void App::EnemiesUpdate()
                                     }
                                 }
                             }
+                            break;
                         }
-                    case Model::Fired::Column_Row:{}
+                    case Model::Fired::Column_Row:
+                        {
+                            int a=enemy->GetI();
+                            int b=enemy->GetJ();
+                            int c;
+                            switch (enemy->GetDirection())
+                            {
+                                LOG_DEBUG(Model::DirToStr(enemy->GetDirection()));
+                                case Model::Direction::Up:
+                                    {
+                                        while (true)
+                                        {
+                                            if (b<1)
+                                            {
+                                                break;
+                                            }
+                                            c=(a-1)+(b-1)*10;
+                                            if (b==enemy->GetJ())
+                                            {
+                                                b--;continue;
+                                            }
+                                            if (c<0||c>99){std::cout<<c<<std::endl;}
+
+                                            if(m_Ice[c]->GetVisibility()&&!m_Fire[c]->GetVisibility())
+                                            {
+                                                m_Fire[c]->SetVisible(true);
+                                                m_Fire[c]->ResetTimer();
+                                            }
+                                            else if (!m_Ice[c]->GetVisibility())
+                                            {
+                                                break;
+                                            }
+                                            b--;
+
+                                        }
+                                        break;
+                                    }
+                                case Model::Direction::Down:
+                                    {
+                                        while (true)
+                                        {
+                                            if (b>10)
+                                            {
+                                                break;
+                                            }
+                                            c=(a-1)+(b-1)*10;
+                                            if (b==enemy->GetJ())
+                                            {
+                                                b++;continue;
+                                            }
+                                            if (c<0||c>99){std::cout<<c<<std::endl;}
+                                            if(m_Ice[c]->GetVisibility()&&!m_Fire[c]->GetVisibility())
+                                            {
+                                                m_Fire[c]->SetVisible(true);
+                                                m_Fire[c]->ResetTimer();
+                                            }
+                                            else if (!m_Ice[c]->GetVisibility())
+                                            {
+                                                break;
+                                            }
+                                            b++;
+
+                                        }
+                                        break;
+                                    }
+                                case Model::Direction::Left:
+                                    {
+                                        while (true)
+                                        {
+                                            c=(a-1)+(b-1)*10;
+                                            if (a==enemy->GetI())
+                                            {
+                                                a--;continue;
+                                            }
+                                            if (c<0||c>99){std::cout<<c<<std::endl;}
+                                            if(m_Ice[c]->GetVisibility()&&!m_Fire[c]->GetVisibility())
+                                            {
+                                                m_Fire[c]->SetVisible(true);
+                                                m_Fire[c]->ResetTimer();
+                                            }
+                                            else if (!m_Ice[c]->GetVisibility())
+                                            {
+                                                break;
+                                            }
+                                            a--;
+                                            if (a<1||!m_Ice[c]->GetVisibility())
+                                            {
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                case Model::Direction::Right:
+                                    {
+                                        while (true)
+                                        {
+                                            c=(a-1)+(b-1)*10;
+                                            if (a==enemy->GetI())
+                                            {
+                                                a++;continue;
+                                            }
+                                            if (c<0||c>99){std::cout<<c<<std::endl;}
+                                            if(m_Ice[c]->GetVisibility()&&!m_Fire[c]->GetVisibility())
+                                            {
+                                                m_Fire[c]->SetVisible(true);
+                                                m_Fire[c]->ResetTimer();
+                                            }
+                                            else if (!m_Ice[c]->GetVisibility())
+                                            {
+                                                break;
+                                            }
+                                            a++;
+                                            if (a>10||!m_Ice[c]->GetVisibility())
+                                            {
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                default:
+                                    break;
+                            }
+                        }
                     case Model::Fired::None:
                         {
                             break;
