@@ -16,15 +16,24 @@ public:
 
     void ResetTimer()
     {
-        lastIceTime=std::chrono::steady_clock::now();
-        lastUnIceTime=std::chrono::steady_clock::now();
+        lastTime=std::chrono::steady_clock::now();
+        lastUnTime=std::chrono::steady_clock::now();
+    }
+    void ChangeUpdate(bool Ice)
+    {
+        Update=Ice;
+    }
+    bool GetUpdate()
+    {
+        return Update;
     }
 private:
 
-    std::chrono::steady_clock::time_point lastIceTime;  // 記錄上次創建冰的時間
-    std::chrono::steady_clock::time_point lastUnIceTime;  // 記錄上次按按鈕的時間
+    std::chrono::steady_clock::time_point lastTime;  // 記錄上次創建冰的時間
+    std::chrono::steady_clock::time_point lastUnTime;  // 記錄上次按按鈕的時間
     const std::chrono::milliseconds cooldownTime{3000};
     std::string m_ImagePath;
     Model::Block m_Block;
+    bool Update=false;
 };
 #endif //BLOCK_HPP

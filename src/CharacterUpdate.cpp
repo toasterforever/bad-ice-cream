@@ -96,6 +96,58 @@ void App::EnemiesUpdate()
         for (const auto& enemy : m_Enemies) {
             if (enemy->GetVisibility())
             {
+
+                if (enemy->fired())
+                {
+                    switch (enemy->GetFireModel())
+                    {
+                    case Model::Fired::One:
+                        {
+                            switch (enemy->GetDirection())
+                            {
+                                case Model::Direction::Left:
+                                    {
+                                        if (!m_Fire[enemy->GetIndex()-1]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()-1]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()-1]->ResetTimer();
+                                        }
+                                        break;
+                                    }
+                                case Model::Direction::Right:
+                                    {
+                                        if (!m_Fire[enemy->GetIndex()+1]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+1]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+1]->ResetTimer();
+                                        }
+                                        break;
+                                    }
+                                case Model::Direction::Up:
+                                    {
+                                        if (!m_Fire[enemy->GetIndex()-10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()-10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()-10]->ResetTimer();
+                                        }
+                                        break;
+                                    }
+                                case Model::Direction::Down:
+                                    {
+                                        if (!m_Fire[enemy->GetIndex()+10]->GetVisibility())
+                                        {
+                                            m_Fire[enemy->GetIndex()+10]->SetVisible(true);
+                                            m_Fire[enemy->GetIndex()+10]->ResetTimer();
+                                        }
+                                        break;
+                                    }
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
                 enemy->MoveTowards();
 
                 if (enemy->IfCollides(m_IceCream,enemy->GetPosition()))

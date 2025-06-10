@@ -124,6 +124,7 @@ private:
     std::vector<std::shared_ptr<CampFire>> m_CampFire;
     std::vector<std::shared_ptr<Block>> m_IceBlock;
     std::vector<std::shared_ptr<Block>> m_FireBlock;
+    std::vector<std::shared_ptr<Block>> m_Fire;
 
     int m_CurrentBGMIndex = 0;
     std::vector<std::shared_ptr<BackGround>> m_BackGround;

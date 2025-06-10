@@ -6,7 +6,7 @@
 #include "MainCharacter.hpp"
 #include "spdlog/spdlog.h"
 #include "Util/Logger.hpp"
-Enemies::Enemies(const std::string& ImagePath,Model::Move ModelMove): Character(ImagePath),ModelMove(ModelMove)
+Enemies::Enemies(const std::string& ImagePath,Model::Move ModelMove,Model::Fired Fired): Character(ImagePath),ModelMove(ModelMove),Fired(Fired)
 {
 
 }
@@ -33,6 +33,10 @@ void Enemies::MoveTowards(){
         return;
     }
 
+    if (Firing)
+    {
+        return;
+    }
         i = NextI;
         j = NextJ;
 
@@ -142,4 +146,42 @@ void Enemies::UpdatePosition()
         j = NextJ;
 
     }
+}
+
+bool Enemies::fired()
+{
+    if (Fired==Model::Fired::None||IsMoving())
+    {
+        return false;
+    }
+    if (Firing)
+    {
+        if (std::chrono::steady_clock::now()-lastTime < cooldownTime)
+        {
+            Firing = true;
+            return true;
+        }
+        Firing = false;
+        return false;
+    }
+
+    if (TowardHasThings(GetDirection()))
+    {
+        if (TowardIs(GetDirection())!='I')
+        {
+            return false;
+        }
+        static std::random_device rd;   // 產生隨機種子
+        static std::mt19937 gen(rd());  // 使用 Mersenne Twister 隨機數引擎
+        static std::uniform_int_distribution<int> dist(0, 49);  // 產生 0~100 的整數
+        if (dist(gen) == 0)
+        {
+            ResetTimer();
+            Firing = true;
+            return true;
+        }
+
+    }
+    return false;
+
 }

@@ -44,6 +44,13 @@ inline std::vector<std::string> Map2 = {
 inline glm::vec2 MainCharacterPosition;//讓敵人追蹤的目標
 
 namespace Model {
+    enum class Fired
+    {
+        One,
+        Three,
+        Column_Row,
+        None
+    };
     enum class Move {
         Row_Move,
         Column_Move,
@@ -73,7 +80,8 @@ namespace Model {
     enum class Block
     {
         Ice,
-        Fire
+        Fire,
+        Melt
     };
 
     std::string DirToStr(Model::Direction dir);

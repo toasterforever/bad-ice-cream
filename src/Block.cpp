@@ -12,11 +12,11 @@ void Block::TimeUpdate(bool Ice)
 {
     if (Ice)
     {
-        lastIceTime = std::chrono::steady_clock::now();
+        lastTime = std::chrono::steady_clock::now();
     }
     else
     {
-        lastUnIceTime=std::chrono::steady_clock::now();
+        lastUnTime=std::chrono::steady_clock::now();
     }
 }
 
@@ -25,9 +25,11 @@ bool Block::ChangeIce()
     switch (m_Block)
     {
     case Model::Block::Fire:
-        return lastIceTime-lastUnIceTime > cooldownTime;
+        return lastTime-lastUnTime > cooldownTime;
     case Model::Block::Ice:
-        return lastUnIceTime-lastIceTime > cooldownTime;
+        return lastUnTime-lastTime > cooldownTime;
+    case Model::Block::Melt:
+        return lastTime-lastUnTime < cooldownTime;
     }
 }
 

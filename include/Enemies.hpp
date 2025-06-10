@@ -6,7 +6,7 @@
 #include <random>
 
 #include "Character.hpp"
-
+#include <chrono>
 
 
 
@@ -14,7 +14,7 @@
 class Enemies : public Character
 {
 public:
-    explicit Enemies(const std::string& ImagePath, Model::Move ModelMove);
+    explicit Enemies(const std::string& ImagePath, Model::Move ModelMove,Model::Fired Fired=Model::Fired::None);
 
     void MoveTowards();
     void MoveDirection();
@@ -31,9 +31,39 @@ public:
 
     bool AutoMoveTest(Model::Direction Now, Model::Direction New, glm::vec2 NowPos);
 
-private:
-    Model::Move ModelMove;
+    bool fired();
+    Model::Fired GetFireModel(){return Fired;}
 
+    void ResetTimer()
+    {
+        lastTime=std::chrono::steady_clock::now();
+    }
+
+    char TowardIs(int I,int J)
+    {
+        return Map[I][J];
+    }
+    char TowardIs(Model::Direction NewDirection)
+    {
+        switch (NewDirection)
+        {
+        case Model::Direction::Up:
+            return TowardIs(i, j-1);
+        case Model::Direction::Down:
+            return TowardIs(i, j+1);
+        case Model::Direction::Left:
+            return TowardIs(i-1, j);
+        case Model::Direction::Right:
+            return TowardIs(i+1, j);
+        }
+    }
+private:
+    std::chrono::steady_clock::time_point lastTime;  // 記錄上次創建冰的時間
+    const std::chrono::milliseconds cooldownTime{3000};
+
+    Model::Move ModelMove;
+    Model::Fired Fired;
+    bool Firing=false;
 };
 
 
