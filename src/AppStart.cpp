@@ -197,7 +197,30 @@ void App::Start()
             m_Enemies[a+16]->SetVisible(false);
             m_Root.AddChild(m_Enemies[a+16]);
         }
-
+        for (int a=0;a<4;a++)
+        {
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/熱水壺1.png",Model::Move::Around_Move,Model::Fired::One));
+            m_Enemies[a+20]->SetZIndex(8);
+            m_Enemies[a+20]->SetPosition(1, a+1);
+            m_Enemies[a+20]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a+20]);
+        }
+        for (int a=0;a<4;a++)
+        {
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/燒水壺1.png",Model::Move::Around_Move,Model::Fired::Three));
+            m_Enemies[a+24]->SetZIndex(8);
+            m_Enemies[a+24]->SetPosition(1, a+1);
+            m_Enemies[a+24]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a+24]);
+        }
+        for (int a=0;a<4;a++)
+        {
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/瓦斯爐1.png",Model::Move::Around_Move,Model::Fired::Column_Row));
+            m_Enemies[a+28]->SetZIndex(8);
+            m_Enemies[a+28]->SetPosition(1, a+1);
+            m_Enemies[a+28]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a+28]);
+        }
     }//Enemies
     {
         for (int a = 0; a < 16; ++a) {

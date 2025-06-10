@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <random>
-
+#include <string>
 #include "Character.hpp"
 #include <chrono>
 

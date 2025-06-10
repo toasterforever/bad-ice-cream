@@ -161,6 +161,7 @@ bool Enemies::fired()
             Firing = true;
             return true;
         }
+        ChangeImage(2);
         Firing = false;
         return false;
     }
@@ -177,6 +178,7 @@ bool Enemies::fired()
         if (dist(gen) == 0)
         {
             ResetTimer();
+            ChangeImage(1);
             Firing = true;
             return true;
         }
