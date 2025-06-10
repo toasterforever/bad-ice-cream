@@ -32,13 +32,14 @@ void Enemies::MoveTowards(){
         UpdatePosition();
         return;
     }
+    i = NextI;
+    j = NextJ;
 
     if (Firing)
     {
         return;
     }
-        i = NextI;
-        j = NextJ;
+
 
 
     if (ModelMove==Model::Move::Auto_Move)
