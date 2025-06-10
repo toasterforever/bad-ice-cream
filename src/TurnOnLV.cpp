@@ -41,6 +41,7 @@ inline void App::LVReset()
     for (auto text:m_Texts)
     {
         text->SetText("0");
+        text->SetVisible(false);
     }
 
 }
