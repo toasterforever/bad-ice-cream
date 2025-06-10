@@ -43,20 +43,9 @@ public:
     {
         return Map[I][J];
     }
-    char TowardIs(Model::Direction NewDirection)
-    {
-        switch (NewDirection)
-        {
-        case Model::Direction::Up:
-            return TowardIs(i, j-1);
-        case Model::Direction::Down:
-            return TowardIs(i, j+1);
-        case Model::Direction::Left:
-            return TowardIs(i-1, j);
-        case Model::Direction::Right:
-            return TowardIs(i+1, j);
-        }
-    }
+    char TowardIs(Model::Direction NewDirection);
+
+    void ChangeImage(int a);
 private:
     std::chrono::steady_clock::time_point lastTime;  // 記錄上次創建冰的時間
     const std::chrono::milliseconds cooldownTime{3000};

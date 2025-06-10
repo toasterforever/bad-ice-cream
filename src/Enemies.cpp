@@ -185,3 +185,34 @@ bool Enemies::fired()
     return false;
 
 }
+char Enemies::TowardIs(Model::Direction NewDirection)
+{
+    switch (NewDirection)
+    {
+    case Model::Direction::Up:
+        return TowardIs(i, j-1);
+    case Model::Direction::Down:
+        return TowardIs(i, j+1);
+    case Model::Direction::Left:
+        return TowardIs(i-1, j);
+    case Model::Direction::Right:
+        return TowardIs(i+1, j);
+    }
+}
+void Enemies::ChangeImage(int a)
+{
+
+    std::string Image1="1.png";
+    std::string Image2="2.png";
+    std::string Image3=GetImagePath();
+    size_t pos1 = Image3.rfind(Image1);
+    size_t pos2 = Image3.rfind(Image2);
+    if (a==1&&pos1!=std::string::npos) {
+        Image3.replace(pos1, Image1.length(), Image2);
+    }
+    else if (a==2&&pos2!=std::string::npos) {
+        Image3.replace(pos2, Image2.length(), Image1);
+    }
+    SetImage(Image3);
+}
+
