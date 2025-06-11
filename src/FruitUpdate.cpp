@@ -157,6 +157,31 @@ void App::FruitUpdate2()
 
                 }break;
             }
+        case Phase::LV21:
+            {
+                if (Fruit_Counter_Arr[1]==0&&Fruit_Reset_Arr[0]==false)
+                {
+                    Fruit_Reset_Arr[0]=true;
+                    for (int a=0;a<4;a++)
+                    {
+                        m_Fruit[0*10+a]->SetVisible(true);
+                        m_Fruit[1*10+a]->SetVisible(true);
+                    }
+
+                }break;
+            }
+        case Phase::LV23:
+            {
+                if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
+                    {
+                    Fruit_Reset_Arr[1]=true;
+                    for (int a=0;a<16;a++)
+                    {
+                        m_Fruit[20+a]->SetVisible(true);
+                    }
+
+                }break;
+            }
         default:
             break;
     }
