@@ -1548,22 +1548,35 @@ if (LV_Change==0&&IsGaming())
         }
     case Phase::LV25:
         {
-            m_FruitPicture[0]->SetVisible(true);
-            m_FruitPicture[0]->SetPosition(1);
-            m_FruitPicture[1]->SetVisible(true);
-            m_FruitPicture[1]->SetPosition(2);
-            m_FruitPicture[2]->SetVisible(true);
-            m_FruitPicture[2]->SetPosition(3);
-            m_FruitPicture[3]->SetVisible(true);
-            m_FruitPicture[3]->SetPosition(4);
-            m_FruitPicture[4]->SetVisible(true);
-            m_FruitPicture[4]->SetPosition(5);
-            m_FruitPicture[5]->SetVisible(true);
-            m_FruitPicture[5]->SetPosition(6);
-            m_FruitPicture[6]->SetVisible(true);
-            m_FruitPicture[6]->SetPosition(7);
-            m_IceCream->SetVisible(true);
-            break;
+            {
+                for (int a=0;a<16;a++)
+                {
+                    m_Fruit[a]->SetVisible(true);
+                    m_Fruit[a]->SetInGame(true);
+                    m_Fruit[a]->SetPosition(4+a%4,4+a/4);
+                }
+                for (int a=0;a<4;a++)
+                {
+                    m_Fruit[42+a]->SetVisible(false);
+                    m_Fruit[42+a]->SetInGame(true);
+                    m_Fruit[42+a]->SetPosition(4+((a+1)/2==1?3:0),4+(a%2==0?3:0));
+                }
+            }//Fruit
+            {
+                for (int a=4;a<10;a++)
+                {
+                    for (int aa=0;aa<10;aa++)
+                    {
+                        m_Wall[(a<7? a-4:a)+aa*10]->SetVisible(true);
+                        m_Wall[(a<7? a-4:a)*10+aa]->SetVisible(true);
+                    }
+                }
+            }//Wall
+            {
+                m_Enemies[8]->SetVisible(true);
+                m_Enemies[8]->SetPosition(4,4);
+            }
+            m_IceCream->SetPosition(7,7);
         }
     default:
         break;
