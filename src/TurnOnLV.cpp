@@ -403,8 +403,22 @@ if (LV_Change==0&&IsGaming())
             m_Fruit[20+7]->SetPosition(10,10);
 
 
-            m_Enemies[16]->SetVisible(true);
-            m_Enemies[16]->SetPosition(10,10);
+            m_Enemies[8+0]->SetVisible(true);
+            m_Enemies[8+0]->SetPosition(9,9);
+            m_Enemies[8+1]->SetVisible(true);
+            m_Enemies[8+1]->SetPosition(8,8);
+            m_Enemies[8+2]->SetVisible(true);
+            m_Enemies[8+2]->SetPosition(8,9);
+            m_Enemies[8+3]->SetVisible(true);
+            m_Enemies[8+3]->SetPosition(9,8);
+            m_Enemies[8+4]->SetVisible(true);
+            m_Enemies[8+4]->SetPosition(5,5);
+            m_Enemies[8+5]->SetVisible(true);
+            m_Enemies[8+5]->SetPosition(5,6);
+            m_Enemies[8+6]->SetVisible(true);
+            m_Enemies[8+6]->SetPosition(6,5);
+            m_Enemies[8+7]->SetVisible(true);
+            m_Enemies[8+7]->SetPosition(6,6);
 
 
 
