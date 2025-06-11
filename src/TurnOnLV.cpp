@@ -94,10 +94,6 @@ if (LV_Change==0&&IsGaming())
 
             {
 
-
-                Fruit_Counter_Arr[0]=16;
-
-
                 m_IceCream->SetPosition(1,1);
                 for (int a = 0; a < 4; a++)
                 {
@@ -165,13 +161,6 @@ if (LV_Change==0&&IsGaming())
 
         {
 
-
-
-            Fruit_Counter_Arr[0]=8;
-
-
-
-
             m_Fruit[0]->SetVisible(true);
             m_Fruit[1]->SetVisible(true);
             m_Fruit[2]->SetVisible(true);
@@ -222,11 +211,6 @@ if (LV_Change==0&&IsGaming())
         break;}
     case Phase::LV03:{
         {
-
-
-
-            Fruit_Counter_Arr[0]=4;
-
 
             m_Ice[10*3+3]->SetVisible(true);
             m_Ice[10*3+4]->SetVisible(true);
@@ -286,11 +270,6 @@ if (LV_Change==0&&IsGaming())
     case Phase::LV04:{
         {
 
-            Fruit_Counter_Arr={4,8,0,0,0,0,0,0,0};
-
-
-
-
             m_Enemies[8]->SetVisible(true);
             m_Enemies[9]->SetVisible(true);
             m_Enemies[10]->SetVisible(true);
@@ -343,9 +322,6 @@ if (LV_Change==0&&IsGaming())
             m_Fruit[20+5]->SetPosition(6,5);
             m_Fruit[20+6]->SetPosition(6,6);
             m_Fruit[20+7]->SetPosition(6,7);
-
-            Fruit_Counter=4+8;
-
         }
 
 
@@ -356,11 +332,6 @@ if (LV_Change==0&&IsGaming())
 
 
 
-            m_FruitPicture[0]->SetVisible(true);
-            m_FruitPicture[0]->SetPosition(1);
-            m_FruitPicture[1]->SetVisible(true);
-            m_FruitPicture[1]->SetPosition(2);
-            Fruit_Counter_Arr={4,8,0,0,0,0,0,0,0};
 
             m_Fruit[0]->SetVisible(true);
             m_Fruit[1]->SetVisible(true);
@@ -424,10 +395,6 @@ if (LV_Change==0&&IsGaming())
 
             m_IceCream->SetPosition(1,1);
 
-
-
-            Fruit_Counter=4+8;
-
         }
 
 
@@ -440,8 +407,6 @@ if (LV_Change==0&&IsGaming())
 
 
             {
-
-                Fruit_Counter_Arr={0,0,4,4,4,0,0,0,0};
 
                 {
                     m_Fruit[40+0]->SetVisible(true);
@@ -496,10 +461,6 @@ if (LV_Change==0&&IsGaming())
 
             m_IceCream->SetPosition(1,1);
 
-
-
-            Fruit_Counter=4+4+4;
-
             }
 
         break;
@@ -507,7 +468,6 @@ if (LV_Change==0&&IsGaming())
     case Phase::LV07:
     {
         {
-            Fruit_Counter_Arr={0,8,0,0,0,0,0,0,0};
 
             m_Fruit[20+0]->SetVisible(true);
             m_Fruit[20+1]->SetVisible(true);
@@ -1574,8 +1534,6 @@ if (LV_Change==0&&IsGaming())
             m_FruitPicture[6]->SetVisible(true);
             m_FruitPicture[6]->SetPosition(7);
             m_IceCream->SetVisible(true);
-            Fruit_Counter=50;
-            Fruit_Counter_Arr[0]=Fruit_Counter;
             break;
         }
     default:
