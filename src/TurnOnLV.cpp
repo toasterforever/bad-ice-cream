@@ -322,88 +322,31 @@ if (!LV_Change&&IsGaming())
     case Phase::LV08:
         {
             {
-                m_Fruit[20+0]->SetVisible(true);
-                m_Fruit[20+1]->SetVisible(true);
-                m_Fruit[20+2]->SetVisible(true);
-                m_Fruit[20+3]->SetVisible(true);
-                m_Fruit[20+0]->SetInGame(true);
-                m_Fruit[20+1]->SetInGame(true);
-                m_Fruit[20+2]->SetInGame(true);
-                m_Fruit[20+3]->SetInGame(true);
-                m_Fruit[20+0]->SetPosition(2,4);
-                m_Fruit[20+1]->SetPosition(2,5);
-                m_Fruit[20+2]->SetPosition(2,8);
-                m_Fruit[20+3]->SetPosition(2,9);
-
-                m_Fruit[20+4]->SetVisible(true);
-                m_Fruit[20+5]->SetVisible(true);
-                m_Fruit[20+6]->SetVisible(true);
-                m_Fruit[20+7]->SetVisible(true);
-                m_Fruit[20+4]->SetInGame(true);
-                m_Fruit[20+5]->SetInGame(true);
-                m_Fruit[20+6]->SetInGame(true);
-                m_Fruit[20+7]->SetInGame(true);
-                m_Fruit[20+4]->SetPosition(4,2);
-                m_Fruit[20+5]->SetPosition(4,3);
-                m_Fruit[20+6]->SetPosition(4,6);
-                m_Fruit[20+7]->SetPosition(4,7);
-
-                m_Fruit[20+8]->SetVisible(true);
-                m_Fruit[20+9]->SetVisible(true);
-                m_Fruit[20+10]->SetVisible(true);
-                m_Fruit[20+11]->SetVisible(true);
-                m_Fruit[20+8]->SetInGame(true);
-                m_Fruit[20+9]->SetInGame(true);
-                m_Fruit[20+10]->SetInGame(true);
-                m_Fruit[20+11]->SetInGame(true);
-                m_Fruit[20+8]->SetPosition(7,4);
-                m_Fruit[20+9]->SetPosition(7,5);
-                m_Fruit[20+10]->SetPosition(7,8);
-                m_Fruit[20+11]->SetPosition(7,9);
-
-                m_Fruit[20+12]->SetVisible(true);
-                m_Fruit[20+13]->SetVisible(true);
-                m_Fruit[20+14]->SetVisible(true);
-                m_Fruit[20+15]->SetVisible(true);
-                m_Fruit[20+12]->SetInGame(true);
-                m_Fruit[20+13]->SetInGame(true);
-                m_Fruit[20+14]->SetInGame(true);
-                m_Fruit[20+15]->SetInGame(true);
-                m_Fruit[20+12]->SetPosition(9,2);
-                m_Fruit[20+13]->SetPosition(9,3);
-                m_Fruit[20+14]->SetPosition(9,6);
-                m_Fruit[20+15]->SetPosition(9,7);
+                for (int a=0;a<16;a++)
+                {
+                    m_Fruit[20+a]->SetVisible(true);
+                    m_Fruit[20+a]->SetInGame(true);
+                }
+                for (int a=0;a<8;a++)
+                {
+                    m_Fruit[20+a]->SetPosition(2+a/4*5,4+a%4+(a%4>1?2:0));
+                    m_Fruit[20+8+a]->SetPosition(4+a/4*5,2+a%4+(a%4>1?2:0));
+                }
 
             }//Fruit
             {
-                m_Enemies[8]->SetVisible(true);
-                m_Enemies[9]->SetVisible(true);
-                m_Enemies[10]->SetVisible(true);
-                m_Enemies[11]->SetVisible(true);
-                m_Enemies[8]->SetPosition(2,8);
-                m_Enemies[9]->SetPosition(2,9);
-                m_Enemies[10]->SetPosition(7,8);
-                m_Enemies[11]->SetPosition(7,9);
+                for (int a=0;a<4;a++)
+                {
+                    m_Enemies[8+a]->SetVisible(true);
+                    m_Enemies[8+a]->SetPosition(2+a%2*5,8+a/2);
+                }
             }//Enemies
             {
-                m_AirWall[10*(2-1)+(2-1)]->SetVisible(true);
-                m_AirWall[10*(3-1)+(2-1)]->SetVisible(true);
-                m_AirWall[10*(6-1)+(2-1)]->SetVisible(true);
-                m_AirWall[10*(7-1)+(2-1)]->SetVisible(true);
-                m_AirWall[10*(4-1)+(4-1)]->SetVisible(true);
-                m_AirWall[10*(5-1)+(4-1)]->SetVisible(true);
-                m_AirWall[10*(8-1)+(4-1)]->SetVisible(true);
-                m_AirWall[10*(9-1)+(4-1)]->SetVisible(true);
-                m_AirWall[10*(2-1)+(7-1)]->SetVisible(true);
-                m_AirWall[10*(3-1)+(7-1)]->SetVisible(true);
-                m_AirWall[10*(6-1)+(7-1)]->SetVisible(true);
-                m_AirWall[10*(7-1)+(7-1)]->SetVisible(true);
-                m_AirWall[10*(4-1)+(9-1)]->SetVisible(true);
-                m_AirWall[10*(5-1)+(9-1)]->SetVisible(true);
-                m_AirWall[10*(8-1)+(9-1)]->SetVisible(true);
-                m_AirWall[10*(9-1)+(9-1)]->SetVisible(true);
-
-
+                for (int a=0;a<8;a++)
+                {
+                    m_AirWall[4+a/4*5-1+(4+a%4+(a%4>1?2:0)-1)*10]->SetVisible(true);
+                    m_AirWall[(2+a%4+(a%4>1?2:0)-1)*10+2+a/4*5-1]->SetVisible(true);
+                }
             }//AirWall
             m_IceCream->SetPosition(1,1);
             break;
