@@ -88,7 +88,7 @@ if (LV_Change==0&&IsGaming())
 {
     LV_Change=1;
     LVReset();
-    switch (m_Phase)//Fruit=20+20+4+4+4 //enemy 4+4 +8 +4+4+4+4+4 +4
+    switch (m_Phase)//Fruit=20+20+4+4+4 //enemy 4+4 +8 +4+4+4+4+4 +4 //cross 1 3 around row
     {
     case Phase::LV01:{
 
@@ -1206,14 +1206,14 @@ if (LV_Change==0&&IsGaming())
                 m_Ice[5-1+(5-1)*10]->SetVisible(false);
             }
             {
-                m_Enemies[0+20]->SetVisible(true);
-                m_Enemies[1+20]->SetVisible(true);
-                m_Enemies[2+20]->SetVisible(true);
-                m_Enemies[3+20]->SetVisible(true);
-                m_Enemies[0+20]->SetPosition(1,1);
-                m_Enemies[1+20]->SetPosition(1,10);
-                m_Enemies[2+20]->SetPosition(10,10);
-                m_Enemies[3+20]->SetPosition(10,1);
+                m_Enemies[0+16+4]->SetVisible(true);
+                m_Enemies[1+16+4]->SetVisible(true);
+                m_Enemies[2+16+4]->SetVisible(true);
+                m_Enemies[3+16+4]->SetVisible(true);
+                m_Enemies[0+16+4]->SetPosition(1,1);
+                m_Enemies[1+16+4]->SetPosition(1,10);
+                m_Enemies[2+16+4]->SetPosition(10,10);
+                m_Enemies[3+16+4]->SetPosition(10,1);
             }
             {
                 for (int a=0;a<10;a++)
@@ -1250,14 +1250,14 @@ if (LV_Change==0&&IsGaming())
                 m_Ice[5-1+(5-1)*10]->SetVisible(false);
             }
             {
-                m_Enemies[0+4+20]->SetVisible(true);
-                m_Enemies[1+4+20]->SetVisible(true);
-                m_Enemies[2+4+20]->SetVisible(true);
-                m_Enemies[3+4+20]->SetVisible(true);
-                m_Enemies[0+4+20]->SetPosition(5,2);
-                m_Enemies[1+4+20]->SetPosition(6,8);
-                m_Enemies[2+4+20]->SetPosition(2,6);
-                m_Enemies[3+4+20]->SetPosition(8,5);
+                m_Enemies[0+16+ 4+4]->SetVisible(true);
+                m_Enemies[1+16+ 4+4]->SetVisible(true);
+                m_Enemies[2+16+ 4+4]->SetVisible(true);
+                m_Enemies[3+16+ 4+4]->SetVisible(true);
+                m_Enemies[0+16+ 4+4]->SetPosition(5,2);
+                m_Enemies[1+16+ 4+4]->SetPosition(6,8);
+                m_Enemies[2+16+ 4+4]->SetPosition(2,6);
+                m_Enemies[3+16+ 4+4]->SetPosition(8,5);
             }
             {
                 for (int a=0;a<10;a++)
@@ -1294,14 +1294,14 @@ if (LV_Change==0&&IsGaming())
                 m_Ice[5-1+(5-1)*10]->SetVisible(false);
             }
             {
-                m_Enemies[0+4+4+20]->SetVisible(true);
-                m_Enemies[1+4+4+20]->SetVisible(true);
-                m_Enemies[2+4+4+20]->SetVisible(true);
-                m_Enemies[3+4+4+20]->SetVisible(true);
-                m_Enemies[0+4+4+20]->SetPosition(9,2);
-                m_Enemies[1+4+4+20]->SetPosition(9,9);
-                m_Enemies[2+4+4+20]->SetPosition(2,9);
-                m_Enemies[3+4+4+20]->SetPosition(2,2);
+                m_Enemies[0+16+ 4+4+4]->SetVisible(true);
+                m_Enemies[1+16+ 4+4+4]->SetVisible(true);
+                m_Enemies[2+16+ 4+4+4]->SetVisible(true);
+                m_Enemies[3+16+ 4+4+4]->SetVisible(true);
+                m_Enemies[0+16+ 4+4+4]->SetPosition(9,2);
+                m_Enemies[1+16+ 4+4+4]->SetPosition(9,9);
+                m_Enemies[2+16+ 4+4+4]->SetPosition(2,9);
+                m_Enemies[3+16+ 4+4+4]->SetPosition(2,2);
             }
             {
                 for (int a=0;a<9;a++)
@@ -1338,14 +1338,14 @@ if (LV_Change==0&&IsGaming())
                 m_Ice[5-1+(5-1)*10]->SetVisible(false);
             }
             {
-                m_Enemies[0+4+4+4+20]->SetVisible(true);
-                m_Enemies[1+4+4+4+20]->SetVisible(true);
-                m_Enemies[2+4+4+4+20]->SetVisible(true);
-                m_Enemies[3+4+4+4+20]->SetVisible(true);
-                m_Enemies[0+4+4+4+20]->SetPosition(8,2);
-                m_Enemies[1+4+4+4+20]->SetPosition(9,8);
-                m_Enemies[2+4+4+4+20]->SetPosition(3,9);
-                m_Enemies[3+4+4+4+20]->SetPosition(2,3);
+                m_Enemies[0+16+ 4+4+4+4]->SetVisible(true);
+                m_Enemies[1+16+ 4+4+4+4]->SetVisible(true);
+                m_Enemies[2+16+ 4+4+4+4]->SetVisible(true);
+                m_Enemies[3+16+ 4+4+4+4]->SetVisible(true);
+                m_Enemies[0+16+ 4+4+4+4]->SetPosition(8,2);
+                m_Enemies[1+16+ 4+4+4+4]->SetPosition(9,8);
+                m_Enemies[2+16+ 4+4+4+4]->SetPosition(3,9);
+                m_Enemies[3+16+ 4+4+4+4]->SetPosition(2,3);
             }
             {
                 for (int a=0;a<10;a++)
