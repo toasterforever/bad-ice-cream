@@ -154,6 +154,7 @@ void App::TurnOnInterface()
                         TurnOffButton();
                         m_Phase=Phase::Manu;
                         m_LastPhase=Phase::Win;
+                        m_Texts[9]->SetVisible(false);
                     }
                     if (m_Button[8]->isClicked(mousePosition))
                     {
@@ -164,16 +165,25 @@ void App::TurnOnInterface()
 
                         m_Phase=m_LastPhase;
                         m_LastPhase=Phase::Win;
+                        m_Texts[9]->SetVisible(false);
                     }
                     if (m_Button[9]->isClicked(mousePosition))
                     {
-
-                        lastMouseTime = now;
-                        m_BackGround[4]->SetVisible(false);
-                        TurnOffButton();
-                        m_Phase=static_cast<Phase>(static_cast<int>(m_LastPhase) + 1);
-                        m_LastPhase=Phase::Win;
+                        if (static_cast<int>(m_LastPhase)-static_cast<int>(Phase::LV01)+1!=25)
+                        {
+                            lastMouseTime = now;
+                            m_BackGround[4]->SetVisible(false);
+                            TurnOffButton();
+                            m_Phase=static_cast<Phase>(static_cast<int>(m_LastPhase) + 1);
+                            m_LastPhase=Phase::Win;
+                        }
+                        else
+                        {
+                            m_Texts[9]->SetVisible(true);
+                            m_Texts[9]->SetText("There is no another level");
+                        }
                     }
+
                 }
                 break;
             }
