@@ -50,17 +50,14 @@ void App::TurnOffLevel()
         for (const auto& Block:m_IceBlock)
         {
             Block->SetVisible(false);
-            Block->ResetTimer();
         }
         for (const auto& Block:m_FireBlock)
         {
             Block->SetVisible(false);
-            Block->ResetTimer();
         }
         for (const auto& Block:m_Fire)
         {
             Block->SetVisible(false);
-            Block->ResetTimer();
         }
     }//BackGround that will update
     {
@@ -81,38 +78,6 @@ void App::TurnOffLevel()
             Arrow->SetVisible(false);
         }
     }//Arrow
-    {
-        Map={
-            "############",//0
-            "#..........#",//1
-            "#..........#",//2
-            "#..........#",//3
-            "#..........#",//4
-            "#..........#",//5
-            "#..........#",//6
-            "#..........#",//8
-            "#..........#",//8
-            "#..........#",//9
-            "#..........#",//10
-            "############"//11
-            // "012345678901"
-        };
-        Map2={
-            "############",//0
-            "#..........#",//1
-            "#..........#",//2
-            "#..........#",//3
-            "#..........#",//4
-            "#..........#",//5
-            "#..........#",//6
-            "#..........#",//8
-            "#..........#",//8
-            "#..........#",//9
-            "#..........#",//10
-            "############"//11
-            // "012345678901"
-        };
-    }//Map
 }
 
 void App::TurnOffButton()

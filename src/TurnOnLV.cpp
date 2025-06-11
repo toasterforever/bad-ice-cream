@@ -6,21 +6,57 @@
 //Fruit=16+16+4+4+4
 inline void App::LVReset()
 {
-    Map={
-        "############",//0
-        "#..........#",//1
-        "#..........#",//2
-        "#..........#",//3
-        "#..........#",//4
-        "#..........#",//5
-        "#..........#",//6
-        "#..........#",//8
-        "#..........#",//8
-        "#..........#",//9
-        "#..........#",//10
-        "############"//11
-        // "012345678901"
-    };
+    {
+        Map={
+            "############",//0
+            "#..........#",//1
+            "#..........#",//2
+            "#..........#",//3
+            "#..........#",//4
+            "#..........#",//5
+            "#..........#",//6
+            "#..........#",//8
+            "#..........#",//8
+            "#..........#",//9
+            "#..........#",//10
+            "############"//11
+            // "012345678901"
+        };
+        Map2={
+            "############",//0
+            "#..........#",//1
+            "#..........#",//2
+            "#..........#",//3
+            "#..........#",//4
+            "#..........#",//5
+            "#..........#",//6
+            "#..........#",//8
+            "#..........#",//8
+            "#..........#",//9
+            "#..........#",//10
+            "############"//11
+            // "012345678901"
+        };
+    }//Map
+    for (auto& enemy:m_Enemies )
+    {
+        enemy->ResetTimer();
+        enemy->ChangeImage(2);
+    }
+    {
+        for (const auto& Block:m_IceBlock)
+        {
+            Block->ResetTimer();
+        }
+        for (const auto& Block:m_FireBlock)
+        {
+            Block->ResetTimer();
+        }
+        for (const auto& Block:m_Fire)
+        {
+            Block->ResetTimer();
+        }
+    }//Block
     m_Button[4]->SetVisible(true);
     m_Button[5]->SetVisible(true);
     m_Button[6]->SetVisible(true);
@@ -921,7 +957,6 @@ if (LV_Change==0&&IsGaming())
                 for (int a=0;a<100;a++)
                 {
                     m_IceBlock[a]->SetVisible(true);
-                    m_IceBlock[a]->ResetTimer();
                 }
             }
             m_IceCream->SetPosition(1,1);
@@ -933,7 +968,6 @@ if (LV_Change==0&&IsGaming())
             for (int a=0;a<100;a++)
             {
                 m_FireBlock[a]->SetVisible(true);
-                m_FireBlock[a]->ResetTimer();
             }
             {
                 m_Fruit[20+20+4+4+0]->SetVisible(true);
@@ -969,9 +1003,7 @@ if (LV_Change==0&&IsGaming())
                 for (int a=0;a<50;a++)
                 {
                     m_IceBlock[2*a+1]->SetVisible(true);
-                    m_IceBlock[2*a+1]->ResetTimer();
                     m_FireBlock[2*a]->SetVisible(true);
-                    m_FireBlock[2*a]->ResetTimer();
                 }
             }
             {

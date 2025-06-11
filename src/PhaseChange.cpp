@@ -258,6 +258,7 @@ void App::InterfaceChangeFromLV()
                 TurnOffButton();
                 lastMouseTime = now;
                 LV_Change=0;
+                TurnOffLevel();
             }
             if (Util::Input::IsKeyPressed(Util::Keycode::MOUSE_LB)&&now - lastMouseTime >= cooldownTime&&m_Button[5]->isClicked(mousePosition))
             {
