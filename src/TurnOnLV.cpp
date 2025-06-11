@@ -1235,7 +1235,142 @@ if (LV_Change==0&&IsGaming())
             }
             m_IceCream->SetPosition(5,5);
             break;
-        }
+        }//one
+    case Phase::LV18:
+        {
+            {
+                for (int a=0;a<100;a++)
+                {
+                    m_Ice[a]->SetVisible(true);
+                }
+                m_Ice[5-1+(2-1)*10]->SetVisible(false);
+                m_Ice[6-1+(8-1)*10]->SetVisible(false);
+                m_Ice[2-1+(6-1)*10]->SetVisible(false);
+                m_Ice[8-1+(5-1)*10]->SetVisible(false);
+                m_Ice[5-1+(5-1)*10]->SetVisible(false);
+            }
+            {
+                m_Enemies[0+4+20]->SetVisible(true);
+                m_Enemies[1+4+20]->SetVisible(true);
+                m_Enemies[2+4+20]->SetVisible(true);
+                m_Enemies[3+4+20]->SetVisible(true);
+                m_Enemies[0+4+20]->SetPosition(5,2);
+                m_Enemies[1+4+20]->SetPosition(6,8);
+                m_Enemies[2+4+20]->SetPosition(2,6);
+                m_Enemies[3+4+20]->SetPosition(8,5);
+            }
+            {
+                for (int a=0;a<10;a++)
+                {
+                    m_Fruit[0*10+a]->SetVisible(true);
+                    m_Fruit[1*10+a]->SetVisible(true);
+                    m_Fruit[2*10+a]->SetVisible(true);
+                    m_Fruit[3*10+a]->SetVisible(true);
+                    m_Fruit[0*10+a]->SetInGame(true);
+                    m_Fruit[1*10+a]->SetInGame(true);
+                    m_Fruit[2*10+a]->SetInGame(true);
+                    m_Fruit[3*10+a]->SetInGame(true);
+                    m_Fruit[0*10+a]->SetPosition(a+1,1);
+                    m_Fruit[1*10+a]->SetPosition(a+1,3);
+                    m_Fruit[2*10+a]->SetPosition(a+1,8);
+                    m_Fruit[3*10+a]->SetPosition(a+1,10);
+                }
+
+            }
+            m_IceCream->SetPosition(5,5);
+            break;
+        }//three
+    case Phase::LV19:
+        {
+            {
+                for (int a=0;a<100;a++)
+                {
+                    m_Ice[a]->SetVisible(true);
+                }
+                m_Ice[9-1+(2-1)*10]->SetVisible(false);
+                m_Ice[9-1+(9-1)*10]->SetVisible(false);
+                m_Ice[2-1+(9-1)*10]->SetVisible(false);
+                m_Ice[2-1+(2-1)*10]->SetVisible(false);
+                m_Ice[5-1+(5-1)*10]->SetVisible(false);
+            }
+            {
+                m_Enemies[0+4+4+20]->SetVisible(true);
+                m_Enemies[1+4+4+20]->SetVisible(true);
+                m_Enemies[2+4+4+20]->SetVisible(true);
+                m_Enemies[3+4+4+20]->SetVisible(true);
+                m_Enemies[0+4+4+20]->SetPosition(9,2);
+                m_Enemies[1+4+4+20]->SetPosition(9,9);
+                m_Enemies[2+4+4+20]->SetPosition(2,9);
+                m_Enemies[3+4+4+20]->SetPosition(2,2);
+            }
+            {
+                for (int a=0;a<9;a++)
+                {
+                    m_Fruit[0*10+a]->SetVisible(true);
+                    m_Fruit[1*10+a]->SetVisible(true);
+                    m_Fruit[2*10+a]->SetVisible(true);
+                    m_Fruit[3*10+a]->SetVisible(true);
+                    m_Fruit[0*10+a]->SetInGame(true);
+                    m_Fruit[1*10+a]->SetInGame(true);
+                    m_Fruit[2*10+a]->SetInGame(true);
+                    m_Fruit[3*10+a]->SetInGame(true);
+                    m_Fruit[0*10+a]->SetPosition(1+a%3,1+a/3);
+                    m_Fruit[1*10+a]->SetPosition(1+a%3,8+a/3);
+                    m_Fruit[2*10+a]->SetPosition(8+a%3,1+a/3);
+                    m_Fruit[3*10+a]->SetPosition(8+a%3,8+a/3);
+                }
+
+            }
+            m_IceCream->SetPosition(5,5);
+            break;
+        }//around
+    case Phase::LV20:
+        {
+            {
+                for (int a=0;a<100;a++)
+                {
+                    m_Ice[a]->SetVisible(true);
+                }
+                m_Ice[8-1+(2-1)*10]->SetVisible(false);
+                m_Ice[9-1+(8-1)*10]->SetVisible(false);
+                m_Ice[3-1+(9-1)*10]->SetVisible(false);
+                m_Ice[2-1+(3-1)*10]->SetVisible(false);
+                m_Ice[5-1+(5-1)*10]->SetVisible(false);
+            }
+            {
+                m_Enemies[0+4+4+4+20]->SetVisible(true);
+                m_Enemies[1+4+4+4+20]->SetVisible(true);
+                m_Enemies[2+4+4+4+20]->SetVisible(true);
+                m_Enemies[3+4+4+4+20]->SetVisible(true);
+                m_Enemies[0+4+4+4+20]->SetPosition(8,2);
+                m_Enemies[1+4+4+4+20]->SetPosition(9,8);
+                m_Enemies[2+4+4+4+20]->SetPosition(3,9);
+                m_Enemies[3+4+4+4+20]->SetPosition(2,3);
+            }
+            {
+                for (int a=0;a<10;a++)
+                {
+                    m_Fruit[0*10+a]->SetVisible(true);
+                    m_Fruit[1*10+a]->SetVisible(true);
+                    m_Fruit[2*10+a]->SetVisible(true);
+                    m_Fruit[3*10+a]->SetVisible(true);
+                    m_Fruit[0*10+a]->SetInGame(true);
+                    m_Fruit[1*10+a]->SetInGame(true);
+                    m_Fruit[2*10+a]->SetInGame(true);
+                    m_Fruit[3*10+a]->SetInGame(true);
+                    m_Fruit[0*10+a]->SetPosition(3,a+1);
+                    m_Fruit[1*10+a]->SetPosition(8,a+1);
+                    m_Fruit[2*10+a]->SetPosition(a+1,3);
+                    m_Fruit[3*10+a]->SetPosition(a+1,8);
+                }
+                m_Fruit[0*10+3-1]->SetInGame(false);m_Fruit[2*10+3-1]->SetInGame(false);//3,3
+                m_Fruit[0*10+8-1]->SetInGame(false);m_Fruit[3*10+3-1]->SetInGame(false);//3,8
+                m_Fruit[1*10+3-1]->SetInGame(false);m_Fruit[2*10+8-1]->SetInGame(false);//8,3
+                m_Fruit[1*10+8-1]->SetInGame(false);m_Fruit[3*10+8-1]->SetInGame(false);//8,8
+            }
+            m_IceCream->SetPosition(5,5);
+            break;
+        }//column and row
     case Phase::LV24:
         {
             {
