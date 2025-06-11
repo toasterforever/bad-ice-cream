@@ -484,7 +484,7 @@ void App::EnemiesUpdate()
 
                 if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)
                 {
-                    if (enemy->GetModel()!=Model::Move::Auto_Move&&!enemy->fired())
+                    if (!enemy->fired())//&&enemy->GetModel()!=Model::Move::Auto_Move
                     {
                         enemy->SetDirection(enemy->GetRandomDirection());
                     }

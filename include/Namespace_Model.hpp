@@ -72,7 +72,7 @@ namespace Model {
         Row_Move,
         Column_Move,
         Around_Move,
-        Auto_Move,
+        // Auto_Move,
         Dont_Move
     };
     enum class Direction {

@@ -24,9 +24,9 @@ public:
 
     void UpdatePosition() override;
 
-    Model::Direction AutoMove(glm::vec2 MainPosition);
-
-    bool AutoMoveTest(Model::Direction Now, Model::Direction New, glm::vec2 NowPos);
+    // Model::Direction AutoMove(glm::vec2 MainPosition);
+    //
+    // bool AutoMoveTest(Model::Direction Now, Model::Direction New, glm::vec2 NowPos);
 
     bool fired();
     Model::Fired GetFireModel(){return Fired;}

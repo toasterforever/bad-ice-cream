@@ -40,13 +40,13 @@ void Enemies::MoveTowards(){
         return;
     }
 
-    if (ModelMove==Model::Move::Auto_Move)
-    {
-
-        SetDirection(AutoMove(MainCharacterPosition));
-        MoveDirection();
-        return;
-    }
+    // if (ModelMove==Model::Move::Auto_Move)
+    // {
+    //
+    //     SetDirection(AutoMove(MainCharacterPosition));
+    //     MoveDirection();
+    //     return;
+    // }
 
     Model::Direction direction = GetDirection();
     if (TowardHasThings(direction))
@@ -88,7 +88,7 @@ Model::Direction Enemies::GetRandomDirection()
             return Model::Direction::Down;
         }
     }
-    if (ModelMove==Model::Move::Around_Move||ModelMove==Model::Move::Auto_Move)
+    if (ModelMove==Model::Move::Around_Move)//||ModelMove==Model::Move::Auto_Move)
     {
         switch (dist(gen)) {
             case 0: return Model::Direction::Up;
