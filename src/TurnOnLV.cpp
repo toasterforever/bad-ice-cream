@@ -52,7 +52,7 @@ if (LV_Change==0&&IsGaming())
 {
     LV_Change=1;
     LVReset();
-    switch (m_Phase)//Fruit=16+16+4+4+4
+    switch (m_Phase)//Fruit=20+20+4+4+4 //enemy 4+4 +8 +4+4+4+4+4 +4
     {
     case Phase::LV01:{
 

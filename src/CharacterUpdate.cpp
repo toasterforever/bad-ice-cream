@@ -397,6 +397,7 @@ void App::EnemiesUpdate()
                                 default:
                                     break;
                             }
+                            break;
                         }
                     case Model::Fired::Cross:
                         {

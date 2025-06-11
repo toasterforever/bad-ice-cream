@@ -86,7 +86,14 @@ public:
     bool IsMoving() const;
 
     bool InGame(){return inGame;}
-    void SetInGame(bool a){inGame=a;}
+    void SetInGame(bool a)
+    {
+        inGame=a;
+        if (a==false)
+        {
+            SetVisible(a);
+        }
+    }
 private:
 
     std::string m_ImagePath;
