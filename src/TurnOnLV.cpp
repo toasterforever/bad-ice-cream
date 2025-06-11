@@ -101,7 +101,6 @@ void App::TurnOnLV()
 {
 if (LV_Change==0&&IsGaming())
 {
-    LV_Change=1;
     LVReset();
     switch (m_Phase)//Fruit=20+20+4+4+4 //enemy 4+4 +8 +4+4+4+4+4 +4 //cross 1 3 around row
     {
@@ -1360,6 +1359,7 @@ if (LV_Change==0&&IsGaming())
             m_IceCream->SetPosition(5,5);
             break;
         }//column and row
+
     case Phase::LV21:
         {
             {
@@ -1556,5 +1556,4 @@ if (LV_Change==0&&IsGaming())
     }
     MapStart();
 }
-
 }
