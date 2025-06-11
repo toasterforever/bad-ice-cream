@@ -14,7 +14,7 @@ void App::FruitCounter()
             counter++;
         }
 
-        if (a==16-1)
+        if (a==20-1)
         {
             Fruit_Counter_Arr[0]=counter;
             m_Texts[0]->SetText(std::to_string(counter));
@@ -31,7 +31,7 @@ void App::FruitCounter()
             sum+=counter;
             counter=0;
         }
-        else if (a==16+16-1)
+        else if (a==20+20-1)
         {
             Fruit_Counter_Arr[1]=counter;
             m_Texts[1]->SetText(std::to_string(counter));
@@ -48,7 +48,7 @@ void App::FruitCounter()
             sum+=counter;
             counter=0;
         }
-        else if (a==16+16+4-1)
+        else if (a==20+20+4-1)
         {
             Fruit_Counter_Arr[2]=counter;
             m_Texts[2]->SetText(std::to_string(counter));
@@ -65,7 +65,7 @@ void App::FruitCounter()
             sum+=counter;
             counter=0;
         }
-        else if (a==16+16+4+4-1)
+        else if (a==20+20+4+4-1)
         {
             Fruit_Counter_Arr[3]=counter;
             m_Texts[3]->SetText(std::to_string(counter));
@@ -82,7 +82,7 @@ void App::FruitCounter()
             sum+=counter;
             counter=0;
         }
-        else if (a==16+16+4+4+4-1)
+        else if (a==20+20+4+4+4-1)
         {
             Fruit_Counter_Arr[4]=counter;
             m_Texts[4]->SetText(std::to_string(counter));
@@ -122,14 +122,14 @@ void App::FruitUpdate2()
                 if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
                 {
                     Fruit_Reset_Arr[1]=true;
-                    m_Fruit[16]->SetVisible(true);
-                    m_Fruit[17]->SetVisible(true);
-                    m_Fruit[18]->SetVisible(true);
-                    m_Fruit[19]->SetVisible(true);
-                    m_Fruit[20]->SetVisible(true);
-                    m_Fruit[21]->SetVisible(true);
-                    m_Fruit[22]->SetVisible(true);
-                    m_Fruit[23]->SetVisible(true);
+                    m_Fruit[20+0]->SetVisible(true);
+                    m_Fruit[20+1]->SetVisible(true);
+                    m_Fruit[20+2]->SetVisible(true);
+                    m_Fruit[20+3]->SetVisible(true);
+                    m_Fruit[20+4]->SetVisible(true);
+                    m_Fruit[20+5]->SetVisible(true);
+                    m_Fruit[20+6]->SetVisible(true);
+                    m_Fruit[20+7]->SetVisible(true);
                 }break;
             }
         case Phase::LV05:
@@ -137,14 +137,14 @@ void App::FruitUpdate2()
                 if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
                 {
                     Fruit_Reset_Arr[1]=true;
-                    m_Fruit[16]->SetVisible(true);
-                    m_Fruit[17]->SetVisible(true);
-                    m_Fruit[18]->SetVisible(true);
-                    m_Fruit[19]->SetVisible(true);
-                    m_Fruit[20]->SetVisible(true);
-                    m_Fruit[21]->SetVisible(true);
-                    m_Fruit[22]->SetVisible(true);
-                    m_Fruit[23]->SetVisible(true);
+                    m_Fruit[20+0]->SetVisible(true);
+                    m_Fruit[20+1]->SetVisible(true);
+                    m_Fruit[20+2]->SetVisible(true);
+                    m_Fruit[20+3]->SetVisible(true);
+                    m_Fruit[20+4]->SetVisible(true);
+                    m_Fruit[20+5]->SetVisible(true);
+                    m_Fruit[20+6]->SetVisible(true);
+                    m_Fruit[20+7]->SetVisible(true);
                 }break;
             }
         case Phase::LV09:
@@ -152,8 +152,8 @@ void App::FruitUpdate2()
                 if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[4]==false)
                 {
                     Fruit_Reset_Arr[4]=true;
-                    m_Fruit[41]->SetVisible(true);
-                    m_Fruit[40]->SetVisible(true);
+                    m_Fruit[20+20+4+4+0]->SetVisible(true);
+                    m_Fruit[20+20+4+4+1]->SetVisible(true);
 
                 }break;
             }
