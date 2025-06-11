@@ -500,28 +500,19 @@ if (!LV_Change&&IsGaming())
     case Phase::LV13:
         {
             {
-                m_Fruit[20+20+4+4+0]->SetVisible(true);
-                m_Fruit[20+20+4+4+1]->SetVisible(true);
-                m_Fruit[20+20+4+4+2]->SetVisible(true);
-                m_Fruit[20+20+4+4+3]->SetVisible(true);
-                m_Fruit[20+20+4+4+0]->SetInGame(true);
-                m_Fruit[20+20+4+4+1]->SetInGame(true);
-                m_Fruit[20+20+4+4+2]->SetInGame(true);
-                m_Fruit[20+20+4+4+3]->SetInGame(true);
-                m_Fruit[20+20+4+4+0]->SetPosition(5,5);
-                m_Fruit[20+20+4+4+1]->SetPosition(5,6);
-                m_Fruit[20+20+4+4+2]->SetPosition(6,5);
-                m_Fruit[20+20+4+4+3]->SetPosition(6,6);
+                for (int a=0;a<4;a++)
+                {
+                    m_Fruit[20+20+4+4+a]->SetVisible(true);
+                    m_Fruit[20+20+4+4+a]->SetInGame(true);
+                    m_Fruit[20+20+4+4+a]->SetPosition(5+a%2,5+a/2);
+                }
             }
             {
-                m_Enemies[8]->SetVisible(true);
-                m_Enemies[9]->SetVisible(true);
-                m_Enemies[10]->SetVisible(true);
-                m_Enemies[11]->SetVisible(true);
-                m_Enemies[8]->SetPosition(10,10);
-                m_Enemies[9]->SetPosition(9,9);
-                m_Enemies[10]->SetPosition(8,8);
-                m_Enemies[11]->SetPosition(7,7);
+                for (int a=0;a<4;a++)
+                {
+                    m_Enemies[8+a]->SetVisible(true);
+                    m_Enemies[8+a]->SetPosition(7+a,7+a);
+                }
             }
             {
                 for (int a=0;a<100;a++)
@@ -540,28 +531,19 @@ if (!LV_Change&&IsGaming())
                 m_FireBlock[a]->SetVisible(true);
             }
             {
-                m_Fruit[20+20+4+4+0]->SetVisible(true);
-                m_Fruit[20+20+4+4+1]->SetVisible(true);
-                m_Fruit[20+20+4+4+2]->SetVisible(true);
-                m_Fruit[20+20+4+4+3]->SetVisible(true);
-                m_Fruit[20+20+4+4+0]->SetInGame(true);
-                m_Fruit[20+20+4+4+1]->SetInGame(true);
-                m_Fruit[20+20+4+4+2]->SetInGame(true);
-                m_Fruit[20+20+4+4+3]->SetInGame(true);
-                m_Fruit[20+20+4+4+0]->SetPosition(5,5);
-                m_Fruit[20+20+4+4+1]->SetPosition(5,6);
-                m_Fruit[20+20+4+4+2]->SetPosition(6,5);
-                m_Fruit[20+20+4+4+3]->SetPosition(6,6);
+                for (int a=0;a<4;a++)
+                {
+                    m_Fruit[20+20+4+4+a]->SetVisible(true);
+                    m_Fruit[20+20+4+4+a]->SetInGame(true);
+                    m_Fruit[20+20+4+4+a]->SetPosition(5+a%2,5+a/2);
+                }
             }
             {
-                m_Enemies[8]->SetVisible(true);
-                m_Enemies[9]->SetVisible(true);
-                m_Enemies[10]->SetVisible(true);
-                m_Enemies[11]->SetVisible(true);
-                m_Enemies[8]->SetPosition(10,10);
-                m_Enemies[9]->SetPosition(9,9);
-                m_Enemies[10]->SetPosition(8,8);
-                m_Enemies[11]->SetPosition(7,7);
+                for (int a=0;a<4;a++)
+                {
+                    m_Enemies[8+a]->SetVisible(true);
+                    m_Enemies[8+a]->SetPosition(7+a,7+a);
+                }
             }
             m_IceCream->SetPosition(1,1);
             Map[m_IceCream->GetI()][m_IceCream->GetJ()]='!';
@@ -577,28 +559,19 @@ if (!LV_Change&&IsGaming())
                 }
             }
             {
-                m_Fruit[20+20+4+4+0]->SetVisible(true);
-                m_Fruit[20+20+4+4+1]->SetVisible(true);
-                m_Fruit[20+20+4+4+2]->SetVisible(true);
-                m_Fruit[20+20+4+4+3]->SetVisible(true);
-                m_Fruit[20+20+4+4+0]->SetInGame(true);
-                m_Fruit[20+20+4+4+1]->SetInGame(true);
-                m_Fruit[20+20+4+4+2]->SetInGame(true);
-                m_Fruit[20+20+4+4+3]->SetInGame(true);
-                m_Fruit[20+20+4+4+0]->SetPosition(5,5);
-                m_Fruit[20+20+4+4+1]->SetPosition(5,6);
-                m_Fruit[20+20+4+4+2]->SetPosition(6,5);
-                m_Fruit[20+20+4+4+3]->SetPosition(6,6);
+                for (int a=0;a<4;a++)
+                {
+                    m_Fruit[20+20+4+4+a]->SetVisible(true);
+                    m_Fruit[20+20+4+4+a]->SetInGame(true);
+                    m_Fruit[20+20+4+4+a]->SetPosition(5+a%2,5+a/2);
+                }
             }
             {
-                m_Enemies[8]->SetVisible(true);
-                m_Enemies[9]->SetVisible(true);
-                m_Enemies[10]->SetVisible(true);
-                m_Enemies[11]->SetVisible(true);
-                m_Enemies[8]->SetPosition(10,10);
-                m_Enemies[9]->SetPosition(9,9);
-                m_Enemies[10]->SetPosition(8,8);
-                m_Enemies[11]->SetPosition(7,7);
+                for (int a=0;a<4;a++)
+                {
+                    m_Enemies[8+a]->SetVisible(true);
+                    m_Enemies[8+a]->SetPosition(7+a,7+a);
+                }
             }
             m_IceCream->SetPosition(1,1);
             Map[m_IceCream->GetI()][m_IceCream->GetJ()]='!';
@@ -611,153 +584,42 @@ if (!LV_Change&&IsGaming())
             {
                 for (int a=2;a<10;a++)
                 {
-                    m_Wall[2-1+(a-1)*10]->SetVisible(true);
-                    m_Wall[4-1+(a-1)*10]->SetVisible(true);
-                    m_Wall[6-1+(a-1)*10]->SetVisible(true);
-                    m_Wall[8-1+(a-1)*10]->SetVisible(true);
-                    m_Wall[10-1+(a-1)*10]->SetVisible(true);
+                    for (int aa=1;aa<6;aa++)
+                    {
+                        m_Wall[aa*2-1+(a-1)*10]->SetVisible(true);
+                    }
+                    for (int aa=0;aa<4;aa++)
+                    {
+                        m_FireBlock[aa*2+3-1+(a-1)*10]->SetVisible(true);
+                    }
                 }
 
-            }
-            {
-                for (int a=2;a<10;a++)
+                for (int a=0;a<8;a++)
                 {
-                    m_FireBlock[3-1+(a-1)*10]->SetVisible(true);
-                    m_FireBlock[5-1+(a-1)*10]->SetVisible(true);
-                    m_FireBlock[7-1+(a-1)*10]->SetVisible(true);
-                    m_FireBlock[9-1+(a-1)*10]->SetVisible(true);
+                    m_CampFire[a]->SetVisible(true);
+                    m_CampFire[a]->SetPosition(3+a%4*2,1+(a/4)*9);
                 }
             }
             {
-                m_CampFire[0]->SetVisible(true);
-                m_CampFire[1]->SetVisible(true);
-                m_CampFire[2]->SetVisible(true);
-                m_CampFire[3]->SetVisible(true);
-                m_CampFire[4]->SetVisible(true);
-                m_CampFire[5]->SetVisible(true);
-                m_CampFire[6]->SetVisible(true);
-                m_CampFire[7]->SetVisible(true);
-
-                m_CampFire[0]->SetPosition(9,10);
-                m_CampFire[1]->SetPosition(7,10);
-                m_CampFire[2]->SetPosition(5,10);
-                m_CampFire[3]->SetPosition(3,10);
-                m_CampFire[4]->SetPosition(3,1);
-                m_CampFire[5]->SetPosition(5,1);
-                m_CampFire[6]->SetPosition(7,1);
-                m_CampFire[7]->SetPosition(9,1);
+                for (int a=0;a<16;a++)
+                {
+                    m_Fruit[a]->SetVisible(true);
+                    m_Fruit[a]->SetInGame(true);
+                    m_Fruit[a]->SetPosition(3+(a/8)*2,2+a%8);
+                }
+                for (int a=0;a<16;a++)
+                {
+                    m_Fruit[20+a]->SetVisible(true);
+                    m_Fruit[20+a]->SetInGame(true);
+                    m_Fruit[20+a]->SetPosition(7+(a/8)*2,2+a%8);
+                }
             }
             {
-                m_Fruit[0]->SetVisible(true);
-                m_Fruit[1]->SetVisible(true);
-                m_Fruit[2]->SetVisible(true);
-                m_Fruit[3]->SetVisible(true);
-                m_Fruit[4]->SetVisible(true);
-                m_Fruit[5]->SetVisible(true);
-                m_Fruit[6]->SetVisible(true);
-                m_Fruit[7]->SetVisible(true);
-                m_Fruit[0]->SetInGame(true);
-                m_Fruit[1]->SetInGame(true);
-                m_Fruit[2]->SetInGame(true);
-                m_Fruit[3]->SetInGame(true);
-                m_Fruit[4]->SetInGame(true);
-                m_Fruit[5]->SetInGame(true);
-                m_Fruit[6]->SetInGame(true);
-                m_Fruit[7]->SetInGame(true);
-                m_Fruit[0]->SetPosition(3,2);
-                m_Fruit[1]->SetPosition(3,3);
-                m_Fruit[2]->SetPosition(3,4);
-                m_Fruit[3]->SetPosition(3,5);
-                m_Fruit[4]->SetPosition(3,6);
-                m_Fruit[5]->SetPosition(3,7);
-                m_Fruit[6]->SetPosition(3,8);
-                m_Fruit[7]->SetPosition(3,9);
-
-                m_Fruit[8+0]->SetVisible(true);
-                m_Fruit[8+1]->SetVisible(true);
-                m_Fruit[8+2]->SetVisible(true);
-                m_Fruit[8+3]->SetVisible(true);
-                m_Fruit[8+4]->SetVisible(true);
-                m_Fruit[8+5]->SetVisible(true);
-                m_Fruit[8+6]->SetVisible(true);
-                m_Fruit[8+7]->SetVisible(true);
-                m_Fruit[8+0]->SetInGame(true);
-                m_Fruit[8+1]->SetInGame(true);
-                m_Fruit[8+2]->SetInGame(true);
-                m_Fruit[8+3]->SetInGame(true);
-                m_Fruit[8+4]->SetInGame(true);
-                m_Fruit[8+5]->SetInGame(true);
-                m_Fruit[8+6]->SetInGame(true);
-                m_Fruit[8+7]->SetInGame(true);
-                m_Fruit[8+0]->SetPosition(5,2);
-                m_Fruit[8+1]->SetPosition(5,3);
-                m_Fruit[8+2]->SetPosition(5,4);
-                m_Fruit[8+3]->SetPosition(5,5);
-                m_Fruit[8+4]->SetPosition(5,6);
-                m_Fruit[8+5]->SetPosition(5,7);
-                m_Fruit[8+6]->SetPosition(5,8);
-                m_Fruit[8+7]->SetPosition(5,9);
-
-                m_Fruit[20+0]->SetVisible(true);
-                m_Fruit[20+1]->SetVisible(true);
-                m_Fruit[20+2]->SetVisible(true);
-                m_Fruit[20+3]->SetVisible(true);
-                m_Fruit[20+4]->SetVisible(true);
-                m_Fruit[20+5]->SetVisible(true);
-                m_Fruit[20+6]->SetVisible(true);
-                m_Fruit[20+7]->SetVisible(true);
-                m_Fruit[20+0]->SetInGame(true);
-                m_Fruit[20+1]->SetInGame(true);
-                m_Fruit[20+2]->SetInGame(true);
-                m_Fruit[20+3]->SetInGame(true);
-                m_Fruit[20+4]->SetInGame(true);
-                m_Fruit[20+5]->SetInGame(true);
-                m_Fruit[20+6]->SetInGame(true);
-                m_Fruit[20+7]->SetInGame(true);
-                m_Fruit[20+0]->SetPosition(7,2);
-                m_Fruit[20+1]->SetPosition(7,3);
-                m_Fruit[20+2]->SetPosition(7,4);
-                m_Fruit[20+3]->SetPosition(7,5);
-                m_Fruit[20+4]->SetPosition(7,6);
-                m_Fruit[20+5]->SetPosition(7,7);
-                m_Fruit[20+6]->SetPosition(7,8);
-                m_Fruit[20+7]->SetPosition(7,9);
-
-                m_Fruit[20+8+0]->SetVisible(true);
-                m_Fruit[20+8+1]->SetVisible(true);
-                m_Fruit[20+8+2]->SetVisible(true);
-                m_Fruit[20+8+3]->SetVisible(true);
-                m_Fruit[20+8+4]->SetVisible(true);
-                m_Fruit[20+8+5]->SetVisible(true);
-                m_Fruit[20+8+6]->SetVisible(true);
-                m_Fruit[20+8+7]->SetVisible(true);
-                m_Fruit[20+8+0]->SetInGame(true);
-                m_Fruit[20+8+1]->SetInGame(true);
-                m_Fruit[20+8+2]->SetInGame(true);
-                m_Fruit[20+8+3]->SetInGame(true);
-                m_Fruit[20+8+4]->SetInGame(true);
-                m_Fruit[20+8+5]->SetInGame(true);
-                m_Fruit[20+8+6]->SetInGame(true);
-                m_Fruit[20+8+7]->SetInGame(true);
-                m_Fruit[20+8+0]->SetPosition(9,2);
-                m_Fruit[20+8+1]->SetPosition(9,3);
-                m_Fruit[20+8+2]->SetPosition(9,4);
-                m_Fruit[20+8+3]->SetPosition(9,5);
-                m_Fruit[20+8+4]->SetPosition(9,6);
-                m_Fruit[20+8+5]->SetPosition(9,7);
-                m_Fruit[20+8+6]->SetPosition(9,8);
-                m_Fruit[20+8+7]->SetPosition(9,9);
-            }
-            {
-                m_Enemies[8+0]->SetVisible(true);
-                m_Enemies[8+1]->SetVisible(true);
-                m_Enemies[8+2]->SetVisible(true);
-                m_Enemies[8+3]->SetVisible(true);
-
-                m_Enemies[8+0]->SetPosition(9,5);
-                m_Enemies[8+1]->SetPosition(7,6);
-                m_Enemies[8+2]->SetPosition(5,6);
-                m_Enemies[8+3]->SetPosition(3,6);
+                for (int a=0;a<4;a++)
+                {
+                    m_Enemies[8+a]->SetVisible(true);
+                    m_Enemies[8+a]->SetPosition(3+a*2,6);
+                }
             }
             m_IceCream->SetPosition(1,1);
             break;
