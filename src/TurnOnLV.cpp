@@ -75,7 +75,7 @@ inline void App::LVReset()
     m_Button[4]->SetVisible(true);
     m_Button[5]->SetVisible(true);
     m_Button[6]->SetVisible(true);
-    LV_Change = 1;
+    LV_Change = true;
     for (int a = 0; a < 100; a++)
     {
         m_Floor[a]->SetVisible(true);
@@ -99,7 +99,7 @@ inline void App::LVReset()
 
 void App::TurnOnLV()
 {
-if (LV_Change==0&&IsGaming())
+if (!LV_Change&&IsGaming())
 {
     LVReset();
     switch (m_Phase)//Fruit=20+20+4+4+4 //enemy 4+4 +8 +4+4+4+4+4 +4 //cross 1 3 around row

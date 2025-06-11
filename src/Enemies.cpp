@@ -40,8 +40,6 @@ void Enemies::MoveTowards(){
         return;
     }
 
-
-
     if (ModelMove==Model::Move::Auto_Move)
     {
 
@@ -57,7 +55,6 @@ void Enemies::MoveTowards(){
         {
             SetDirection(GetRandomDirection());return;
         }
-
     }
     MoveDirection();
 }
@@ -145,7 +142,6 @@ void Enemies::UpdatePosition()
         // 抵達目標位置後，更新 i, j
         i = NextI;
         j = NextJ;
-
     }
 }
 

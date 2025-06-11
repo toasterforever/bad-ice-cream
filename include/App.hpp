@@ -23,7 +23,6 @@ public:
     enum class State {
         START,
         UPDATE,
-        //PAUSE,
         END,
     };
 
@@ -114,19 +113,21 @@ private:
     std::vector<std::shared_ptr<Fruit>> m_Fruit;
     std::vector<std::shared_ptr<Enemies>> m_Enemies;
 
-
-    std::vector<std::shared_ptr<Ice>> m_Ice;
     std::vector<std::shared_ptr<Floor>> m_Floor;
-    std::vector<std::shared_ptr<Floor>> m_Arrow_Up;
-    std::vector<std::shared_ptr<Floor>> m_Arrow_Left;
-    std::vector<std::shared_ptr<Floor>> m_Arrow_Right;
-    std::vector<std::shared_ptr<Floor>> m_Arrow_Down;
     std::vector<std::shared_ptr<Wall>> m_Wall;
     std::vector<std::shared_ptr<Wall>> m_AirWall;
+
+    std::vector<std::shared_ptr<Ice>> m_Ice;
+
     std::vector<std::shared_ptr<CampFire>> m_CampFire;
     std::vector<std::shared_ptr<Block>> m_IceBlock;
     std::vector<std::shared_ptr<Block>> m_FireBlock;
     std::vector<std::shared_ptr<Block>> m_Fire;
+
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Up;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Left;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Right;
+    std::vector<std::shared_ptr<Floor>> m_Arrow_Down;
 
     int m_CurrentBGMIndex = 0;
     std::vector<std::shared_ptr<BackGround>> m_BackGround;
@@ -145,7 +146,7 @@ private:
     std::chrono::steady_clock::time_point lastMouseTime;  // 記錄上次按按鈕的時間
     const std::chrono::milliseconds cooldownTime{300};
 
-    int LV_Change = 0;
+    bool LV_Change = false;
     int Fruit_Counter = 0;
     std::array<int, 9> Fruit_Counter_Arr;
     std::array<bool, 9> Fruit_Reset_Arr;

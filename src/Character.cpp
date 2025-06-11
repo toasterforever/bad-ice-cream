@@ -19,7 +19,6 @@ void Character::MoveLeft(){
     if (!TowardHasThings(i-1,j))
     {
         NextI=i-1;NextJ=j;Map[NextI][NextJ] = 'E';Map[i][j] = '.';
-        // this->SetPosition(i-1,j);
     }
     else
     {
@@ -33,7 +32,6 @@ void Character::MoveRight(){
     if (!TowardHasThings(i+1,j))
     {
         NextI=i+1;NextJ=j;Map[NextI][NextJ] = 'E';Map[i][j] = '.';
-        // this->SetPosition(i+1,j);
     }
     else
     {
@@ -46,7 +44,6 @@ void Character::MoveUp(){
     if (!TowardHasThings(i,j-1))
     {
         NextJ=j-1;NextI=i;Map[NextI][NextJ] = 'E';Map[i][j] = '.';
-        // this->SetPosition(i,j-1);
     }
     else
     {
@@ -59,7 +56,6 @@ void Character::MoveDown()
     this->SetDirection(Model::Direction::Down);
     if (!TowardHasThings(i,j+1))
     {
-    // this->SetPosition(i,j+1);
     NextJ=j+1;NextI=i;Map[NextI][NextJ] = 'E';Map[i][j] = '.';
     }
     else
@@ -84,7 +80,7 @@ void Character::UpdatePosition()
         // 抵達目標位置後，更新 i, j
         i = NextI;
         j = NextJ;
-        MainCharacterPosition={i,j};//全域變數，方便Enemies調用
+        MainCharacterPosition={i,j};
     }
 }
 

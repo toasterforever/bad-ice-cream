@@ -38,11 +38,6 @@ public:
 
     void SetVisibility(const bool newVisibility);
 
-    void ResetPosition()
-    {
-        m_Transform.translation = glm::vec2(0,0);
-    }
-
     bool CheckLocked()
     {
         return Locked;

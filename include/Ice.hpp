@@ -12,7 +12,7 @@ public:
     explicit Ice(const std::string& ImagePath);
 
     bool isCreate() const;
-    bool isBroke() const;
+
     static bool HasThings(int NewI, int NewJ);
 private:
     std::string m_ImagePath;

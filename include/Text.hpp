@@ -23,19 +23,9 @@ class Text :public Util::GameObject
 
         }
 
-        void SetPosition(glm::vec2& position)
-        {
-
-            m_Transform.translation=position;
-        }
-
         void SetPosition(int I)
         {
             m_Transform.translation = glm::vec2(-320+cellSize*I,-350);
-        }
-        glm::vec2 GetPosition() const
-        {
-            return m_Transform.translation;
         }
 
         void SetText(const std::string &text) {

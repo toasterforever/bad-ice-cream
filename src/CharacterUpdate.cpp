@@ -69,7 +69,6 @@ void App::MapUpdate()
                     }
                 }
             }
-
         }
     }//Ice
 }
@@ -77,7 +76,6 @@ void App::MapUpdate()
 void App::EnemiesUpdate()
 {
     {
-
         for (const auto& enemy : m_Enemies) {
             if (enemy->GetVisibility())
             {
@@ -493,7 +491,6 @@ void App::EnemiesUpdate()
 
                 }
             }
-
         }
     }//Enemies
 }
@@ -508,28 +505,6 @@ void App::FruitUpdate()
             {
                 fruit->SetVisible(false);
                 fruit->SetInGame(false);
-                if (i<16)
-                {
-                    Fruit_Counter_Arr[0]--;
-                }
-                else if (i<32)
-                {
-                    Fruit_Counter_Arr[1]--;
-                }
-                else if (i<36)
-                {
-                    Fruit_Counter_Arr[2]--;
-                }
-                else if (i<40)
-                {
-                    Fruit_Counter_Arr[3]--;
-                }
-                else if (i<44)
-                {
-                    Fruit_Counter_Arr[4]--;
-                }
-                Fruit_Counter--;
-
 
             }
             if (fruit->GetModel()!=Model::Move::Dont_Move&&fruit->GetVisibility())

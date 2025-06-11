@@ -40,7 +40,6 @@ void MainCharacter::UpdateMovement(std::vector<Util::Keycode> keyOrder){
         break;
     default:
         return;
-
     }
 }
 
@@ -51,7 +50,6 @@ bool MainCharacter::TowardHasThings(int const NewI, int const NewJ)
         return true;
     }
     return false;
-
 }
 
 bool MainCharacter::IsitIce(int NewI, int NewJ)
@@ -59,5 +57,6 @@ bool MainCharacter::IsitIce(int NewI, int NewJ)
     if (Map[NewI][NewJ] == 'I')
     {
         return true;
-    }return false;
+    }
+    return false;
 }

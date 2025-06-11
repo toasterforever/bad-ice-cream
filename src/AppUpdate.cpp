@@ -23,8 +23,6 @@ void App::Update() {
             SwitchBGM(0);break;
     }//BGM
 
-
-
     /*
      *  Do not touch the code below as they serve the purpose for validating the tasks,
      *  rendering the frame, and exiting the game.
@@ -33,8 +31,6 @@ void App::Update() {
     if (Util::Input::IsKeyPressed(Util::Keycode::ESCAPE) || Util::Input::IfExit()) {
         m_CurrentState = State::END;
     }
-
-
 
     m_Root.Update();
 }

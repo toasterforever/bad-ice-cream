@@ -13,10 +13,6 @@ bool Ice::isCreate() const
 {
     return GetVisibility();
 }
-bool Ice::isBroke() const
-{
-    return !GetVisibility();
-}
 
 bool Ice::HasThings(int const NewI, int const NewJ)
 {

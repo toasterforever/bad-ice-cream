@@ -5,11 +5,8 @@
 #include <string>
 #include <random>
 #include <string>
-#include "Character.hpp"
 #include <chrono>
-
-
-
+#include "Character.hpp"
 
 class Enemies : public Character
 {
