@@ -99,7 +99,7 @@ void App::EnemiesUpdate()
             if (enemy->GetVisibility())
             {
 
-                if (enemy->fired())
+                if (enemy->fired()&&!enemy->IsMoving())
                 {
                     switch (enemy->GetFireModel())
                     {

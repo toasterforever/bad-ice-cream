@@ -22,7 +22,6 @@ void App::TurnOffLevel()
     {
         for (const auto& Ice : m_Ice) {
             Ice->SetVisible(false);
-
         }
         for (const auto& Floor : m_Floor) {
             Floor->SetVisible(false);

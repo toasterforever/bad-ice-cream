@@ -191,7 +191,7 @@ void App::Start()
             m_Root.AddChild(m_Enemies[8+a]);
         }
         for (int a = 0; a < 4; ++a) {
-            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/油鍋.png",Model::Move::Auto_Move));
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/飯鍋1.png",Model::Move::Around_Move,Model::Fired::Cross));
             m_Enemies[a+16]->SetZIndex(8);
             m_Enemies[a+16]->SetPosition(1, a+1);
             m_Enemies[a+16]->SetVisible(false);
@@ -215,7 +215,7 @@ void App::Start()
         }
         for (int a=0;a<4;a++)
         {
-            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/瓦斯爐1.png",Model::Move::Around_Move,Model::Fired::Column_Row));
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/瓦斯爐1.png",Model::Move::Around_Move,Model::Fired::Around));
             m_Enemies[a+28]->SetZIndex(8);
             m_Enemies[a+28]->SetPosition(1, a+1);
             m_Enemies[a+28]->SetVisible(false);
@@ -223,11 +223,19 @@ void App::Start()
         }
         for (int a=0;a<4;a++)
         {
-            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/電鍋1.png",Model::Move::Around_Move,Model::Fired::Around));
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/電鍋1.png",Model::Move::Around_Move,Model::Fired::Column_Row));
             m_Enemies[a+32]->SetZIndex(8);
             m_Enemies[a+32]->SetPosition(1, a+1);
             m_Enemies[a+32]->SetVisible(false);
             m_Root.AddChild(m_Enemies[a+32]);
+        }
+        for (int a=0;a<4;a++)
+        {
+            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/電鍋1.png",Model::Move::Around_Move,Model::Fired::Cross));
+            m_Enemies[a+36]->SetZIndex(8);
+            m_Enemies[a+36]->SetPosition(1, a+1);
+            m_Enemies[a+36]->SetVisible(false);
+            m_Root.AddChild(m_Enemies[a+36]);
         }
     }//Enemies
     {
