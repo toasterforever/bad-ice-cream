@@ -48,7 +48,7 @@ public:
     void ChangeImage(int a);
 private:
     std::chrono::steady_clock::time_point lastTime;  // 記錄上次創建冰的時間
-    const std::chrono::milliseconds cooldownTime{3000};
+    const std::chrono::milliseconds cooldownTime{2000};
 
     Model::Move ModelMove;
     Model::Fired Fired;

@@ -175,7 +175,7 @@ bool Enemies::fired()
         }
         static std::random_device rd;   // 產生隨機種子
         static std::mt19937 gen(rd());  // 使用 Mersenne Twister 隨機數引擎
-        static std::uniform_int_distribution<int> dist(0, 49);  // 產生 0~100 的整數
+        static std::uniform_int_distribution<int> dist(0, 39);  // 產生 0~100 的整數
         if (dist(gen) == 0)
         {
             ResetTimer();

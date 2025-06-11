@@ -31,7 +31,7 @@ private:
 
     std::chrono::steady_clock::time_point lastTime;  // 記錄上次創建冰的時間
     std::chrono::steady_clock::time_point lastUnTime;  // 記錄上次按按鈕的時間
-    const std::chrono::milliseconds cooldownTime{3000};
+    const std::chrono::milliseconds cooldownTime{2000};
     std::string m_ImagePath;
     Model::Block m_Block;
     bool Update=false;
