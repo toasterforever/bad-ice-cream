@@ -14,12 +14,12 @@ void Fruit::MoveLeft(){
 
     if (!TowardHasThings(i-1,j))
     {
-        NextI=i-1;NextJ=j;
+        NextI=i-1;NextJ=j;Map3[NextI][NextJ] = 'F';Map3[i][j] = '.';
         // this->SetPosition(i-1,j);
     }
     else
     {
-        NextI=i;NextJ=j;
+        NextI=i;NextJ=j;Map3[NextI][NextJ] = 'F';
     }
 
 }
@@ -28,12 +28,12 @@ void Fruit::MoveRight(){
 
     if (!TowardHasThings(i+1,j))
     {
-        NextI=i+1;NextJ=j;
+        NextI=i+1;NextJ=j;Map3[NextI][NextJ] = 'F';Map3[i][j] = '.';
         // this->SetPosition(i+1,j);
     }
     else
     {
-        NextI=i;NextJ=j;
+        NextI=i;NextJ=j;Map3[NextI][NextJ] = 'F';
     }
 
 }
@@ -41,12 +41,12 @@ void Fruit::MoveUp(){
     this->SetDirection(Model::Direction::Up);
     if (!TowardHasThings(i,j-1))
     {
-        NextJ=j-1;NextI=i;
+        NextJ=j-1;NextI=i;Map3[NextI][NextJ] = 'F';Map3[i][j] = '.';
         // this->SetPosition(i,j-1);
     }
     else
     {
-        NextI=i;NextJ=j;
+        NextI=i;NextJ=j;Map3[NextI][NextJ] = 'F';
     }
 
 }
@@ -56,10 +56,21 @@ void Fruit::MoveDown()
     if (!TowardHasThings(i,j+1))
     {
         // this->SetPosition(i,j+1);
-        NextJ=j+1;NextI=i;
+        NextJ=j+1;NextI=i;Map3[NextI][NextJ] = 'F';Map3[i][j] = '.';
     }
     else
     {
-        NextI=i;NextJ=j;
+        NextI=i;NextJ=j;Map3[NextI][NextJ] = 'F';
     }
+}
+bool Fruit::TowardHasThings(int NewI, int NewJ)
+{
+
+    if (Map[NewI][NewJ] == '#'||Map[NewI][NewJ] == 'I'||Map3[NewI][NewJ] == 'F')
+    {
+        return true;
+    }
+    return false;
+
+
 }

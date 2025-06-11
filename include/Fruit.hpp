@@ -15,7 +15,7 @@ class Fruit : public Enemies
         void MoveRight()override ;
         void MoveUp()override ;
         void MoveDown()override ;
-
+        bool TowardHasThings(int NewI, int NewJ)override ;
 };
 
 #endif //FRUIT_HPP
