@@ -229,14 +229,6 @@ void App::Start()
             m_Enemies[a+32]->SetVisible(false);
             m_Root.AddChild(m_Enemies[a+32]);
         }
-        for (int a=0;a<4;a++)
-        {
-            m_Enemies.push_back(std::make_shared<Enemies>(GA_RESOURCE_DIR"/Image/Character/電鍋1.png",Model::Move::Around_Move,Model::Fired::Cross));
-            m_Enemies[a+36]->SetZIndex(8);
-            m_Enemies[a+36]->SetPosition(1, a+1);
-            m_Enemies[a+36]->SetVisible(false);
-            m_Root.AddChild(m_Enemies[a+36]);
-        }
     }//Enemies
     {
         for (int a = 0; a < 20; ++a) {
