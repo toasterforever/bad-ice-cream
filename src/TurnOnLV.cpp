@@ -1508,27 +1508,41 @@ if (LV_Change==0&&IsGaming())
     case Phase::LV24:
         {
             {
-                m_Fruit[0]->SetVisible(true);
-                m_Fruit[0]->SetInGame(true);
-                m_Fruit[0]->SetPosition(10,10);
-            }
+                for (int a=0;a<16;a++)
+                {
+                    m_Fruit[a]->SetVisible(true);
+                    m_Fruit[a]->SetInGame(true);
+                    m_Fruit[a]->SetPosition(6+a%4,6+a/4);
+                }
+                for (int a=0;a<4;a++)
+                {
+                    m_Fruit[48+a]->SetVisible(false);
+                    m_Fruit[48+a]->SetInGame(true);
+                    m_Fruit[48+a]->SetPosition(1+a%2*4,1+a/2*4);
+                }
+
+            }//Fruit
             {
-                m_CampFire[0]->SetVisible(true);
-                m_CampFire[0]->SetPosition(1,10);
-            }
+                for (int a=0;a<25;a++)
+                {
+                    m_FireBlock[a%5*10+a/5]->SetVisible(true);
+                    m_FireBlock[a%5*10+a/5+55]->SetVisible(true);
+                    m_IceBlock[a%5*10+a/5+50]->SetVisible(true);
+                    m_IceBlock[a%5*10+a/5+5]->SetVisible(true);
+
+                }
+
+            }//Block
             {
-                m_Enemies[24]->SetVisible(true);
-                m_Enemies[24]->SetPosition(10,10);
-            }
-            {
-                m_Ice[10-1+(9-1)*10]->SetVisible(true);
-                m_Ice[9-1+(10-1)*10]->SetVisible(true);
-                m_Ice[9-1+(9-1)*10]->SetVisible(true);
-            }
-            {
-                m_IceBlock[2]->SetVisible(true);
-                m_FireBlock[3]->SetVisible(true);
-            }
+                m_Enemies[8]->SetVisible(true);
+                m_Enemies[9]->SetVisible(true);
+                m_Enemies[10]->SetVisible(true);
+                m_Enemies[11]->SetVisible(true);
+                m_Enemies[8]->SetPosition(10,10);
+                m_Enemies[9]->SetPosition(6,6);
+                m_Enemies[10]->SetPosition(6,10);
+                m_Enemies[11]->SetPosition(10,6);
+            }//enemy
             m_IceCream->SetPosition(1,1);
             break;
         }
