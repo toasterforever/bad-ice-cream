@@ -9,7 +9,7 @@
 
 #include "BackGround.hpp"
 #include "Util/GameObject.hpp"
-#include "Character.hpp"
+#include "Namespace_Model.hpp"
 
 
 class Floor : public BackGround {

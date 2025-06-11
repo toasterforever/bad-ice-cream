@@ -9,7 +9,7 @@
 #include "Util/Input.hpp"
 
 
-
+inline int cellSize=60;
 inline std::vector<std::string> Map = {
     "############",//0
     "#..........#",//1

@@ -15,7 +15,7 @@
 #include "BGM.hpp"
 #include "CampFire.hpp"
 #include "Block.hpp"
-
+#include "Namespace_Model.hpp"
 #include <chrono>
 
 class App {

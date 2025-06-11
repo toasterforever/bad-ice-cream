@@ -8,7 +8,6 @@
 #include "Namespace_Model.hpp"
 #include <iostream>
 
-inline int cellSize=60;
 class Character : public Util::GameObject {
 public:
 

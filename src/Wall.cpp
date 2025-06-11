@@ -4,6 +4,6 @@
 #include "Wall.hpp"
 
 Wall::Wall(const std::string& ImagePath)
-    : Character(ImagePath){
+    : BackGround(ImagePath){
 
 }
