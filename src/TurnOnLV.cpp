@@ -1009,7 +1009,6 @@ if (LV_Change==0&&IsGaming())
             {
                 for (int a=2;a<10;a++)
                 {
-                    m_Wall[1-1+(a-1)*10]->SetVisible(true);
                     m_Wall[2-1+(a-1)*10]->SetVisible(true);
                     m_Wall[4-1+(a-1)*10]->SetVisible(true);
                     m_Wall[6-1+(a-1)*10]->SetVisible(true);
@@ -1159,6 +1158,50 @@ if (LV_Change==0&&IsGaming())
                 m_Enemies[8+3]->SetPosition(3,6);
             }
             m_IceCream->SetPosition(1,1);
+            break;
+        }
+    case Phase::LV17:
+        {
+            {
+                for (int a=0;a<100;a++)
+                {
+                    m_Ice[a]->SetVisible(true);
+                }
+                m_Ice[0]->SetVisible(false);
+                m_Ice[9]->SetVisible(false);
+                m_Ice[90]->SetVisible(false);
+                m_Ice[99]->SetVisible(false);
+                m_Ice[5-1+(5-1)*10]->SetVisible(false);
+            }
+            {
+                m_Enemies[0+20]->SetVisible(true);
+                m_Enemies[1+20]->SetVisible(true);
+                m_Enemies[2+20]->SetVisible(true);
+                m_Enemies[3+20]->SetVisible(true);
+                m_Enemies[0+20]->SetPosition(1,1);
+                m_Enemies[1+20]->SetPosition(1,10);
+                m_Enemies[2+20]->SetPosition(10,10);
+                m_Enemies[3+20]->SetPosition(10,1);
+            }
+            {
+                for (int a=0;a<10;a++)
+                {
+                    m_Fruit[0*10+a]->SetVisible(true);
+                    m_Fruit[1*10+a]->SetVisible(true);
+                    m_Fruit[2*10+a]->SetVisible(true);
+                    m_Fruit[3*10+a]->SetVisible(true);
+                    m_Fruit[0*10+a]->SetInGame(true);
+                    m_Fruit[1*10+a]->SetInGame(true);
+                    m_Fruit[2*10+a]->SetInGame(true);
+                    m_Fruit[3*10+a]->SetInGame(true);
+                    m_Fruit[0*10+a]->SetPosition(1,a+1);
+                    m_Fruit[1*10+a]->SetPosition(3,a+1);
+                    m_Fruit[2*10+a]->SetPosition(8,a+1);
+                    m_Fruit[3*10+a]->SetPosition(10,a+1);
+                }
+
+            }
+            m_IceCream->SetPosition(5,5);
             break;
         }
     case Phase::LV24:
