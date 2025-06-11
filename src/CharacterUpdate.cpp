@@ -72,23 +72,6 @@ void App::MapUpdate()
 
         }
     }//Ice
-    {
-        for (const auto& wall : m_Wall)
-        {
-            if (wall->GetVisibility())
-            {
-                Map[wall->GetI()][wall->GetJ()]='#';
-            }
-        }
-        for (const auto& wall : m_AirWall)
-        {
-            if (wall->GetVisibility())
-            {
-                Map2[wall->GetI()][wall->GetJ()]='A';
-            }
-        }
-
-    }//Wall
 }
 
 void App::EnemiesUpdate()
@@ -761,5 +744,40 @@ void App::BlockUpdate()
             Block->SetVisible(false);
         }
 
+    }
+}
+
+void App::MapStart()
+{
+    {
+        for (const auto& wall : m_Wall)
+        {
+            if (wall->GetVisibility())
+            {
+                Map[wall->GetI()][wall->GetJ()]='#';
+            }
+        }
+        for (const auto& wall : m_AirWall)
+        {
+            if (wall->GetVisibility())
+            {
+                Map2[wall->GetI()][wall->GetJ()]='A';
+            }
+        }
+
+    }//Wall
+    for (auto& enemy:m_Enemies)
+    {
+        if (enemy->GetVisibility())
+        {
+            Map[enemy->GetI()][enemy->GetJ()]='E';
+        }
+    }
+    for (auto& fruit:m_Fruit)
+    {
+        if (fruit->GetVisibility())
+        {
+            Map3[fruit->GetI()][fruit->GetJ()]='F';
+        }
     }
 }

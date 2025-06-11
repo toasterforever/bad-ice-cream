@@ -48,6 +48,8 @@ public:
     void InterfaceChangeFromLV();
     void LVReset();
 
+    void MapStart();
+
     void CharacterUpdate();
     void IceCreamUpdate();
     void MapUpdate();

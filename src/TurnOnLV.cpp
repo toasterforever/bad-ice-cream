@@ -1554,6 +1554,7 @@ if (LV_Change==0&&IsGaming())
     default:
         break;
     }
-    }
+    MapStart();
+}
 
 }
