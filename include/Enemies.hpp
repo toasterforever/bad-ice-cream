@@ -24,6 +24,7 @@ public:
 
     void UpdatePosition() override;
 
+    //廢案
     // Model::Direction AutoMove(glm::vec2 MainPosition);
     //
     // bool AutoMoveTest(Model::Direction Now, Model::Direction New, glm::vec2 NowPos);
