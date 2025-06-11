@@ -162,6 +162,18 @@ void App::FruitUpdate2()
 
                 }break;
             }
+        case Phase::LV22:
+            {
+                if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
+                {
+                    Fruit_Reset_Arr[1]=true;
+                    for (int a=0;a<16;a++)
+                    {
+                        m_Fruit[20+a]->SetVisible(true);
+                    }
+
+                }break;
+            }
         case Phase::LV23:
             {
                 if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
@@ -189,6 +201,21 @@ void App::FruitUpdate2()
             {
                 if (Fruit_Counter_Arr[0]==0&&Fruit_Reset_Arr[1]==false)
                 {
+                    Map3 = {
+                        "############",//0
+                        "#..........#",//1
+                        "#..........#",//2
+                        "#..........#",//3
+                        "#..........#",//4
+                        "#..........#",//5
+                        "#..........#",//6
+                        "#..........#",//8
+                        "#..........#",//8
+                        "#..........#",//9
+                        "#..........#",//10
+                        "############"//11
+                        // "012345678901"
+                    };
                     Fruit_Reset_Arr[1]=true;
                     for (int a=0;a<4;a++)
                     {

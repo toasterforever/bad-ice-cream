@@ -505,6 +505,7 @@ void App::FruitUpdate()
             {
                 fruit->SetVisible(false);
                 fruit->SetInGame(false);
+                Map3[fruit->GetI()-1][fruit->GetJ()-1]='.';
 
             }
             if (fruit->GetModel()!=Model::Move::Dont_Move&&fruit->GetVisibility())
@@ -643,9 +644,6 @@ void App::IceUpdate()
                         NewX=NewX+1;break;
                     default:break;
                 }
-                std::cout<<Map[1]<<std::endl<<Map[2]<<std::endl<<Map[3]<<std::endl<<Map[4]<<std::endl<<Map[5]<<std::endl;
-                std::cout<<Map[6]<<std::endl<<Map[7]<<std::endl<<Map[8]<<std::endl<<Map[9]<<std::endl<<Map[10]<<std::endl;
-                std::cout<<std::endl<<std::endl;
             }
 
         }

@@ -157,11 +157,11 @@ if (!LV_Change&&IsGaming())
                 {
                     m_Enemies[a]->SetVisible(true);
                 }
-                m_Enemies[3]->SetPosition(1,7);
-                m_Enemies[4]->SetPosition(10,4);
+                m_Enemies[2]->SetPosition(1,7);
+                m_Enemies[3]->SetPosition(10,4);
 
-                m_Enemies[5]->SetPosition(7,1);
-                m_Enemies[6]->SetPosition(4,10);
+                m_Enemies[4]->SetPosition(7,1);
+                m_Enemies[5]->SetPosition(4,10);
             }//Enemy
             m_IceCream->SetPosition(5,5);
         }
@@ -250,11 +250,9 @@ if (!LV_Change&&IsGaming())
                 for (int a=0;a<4;a++)
                 {
                     m_Enemies[8+a]->SetVisible(true);
-                    m_Fruit[8+a]->SetInGame(true);
-                    m_Fruit[8+a]->SetPosition(5+a%2,5+a/2);
+                    m_Enemies[8+a]->SetPosition(5+a%2,5+a/2);
                     m_Enemies[8+4+a]->SetVisible(true);
-                    m_Fruit[8+4+a]->SetInGame(true);
-                    m_Fruit[8+4+a]->SetPosition(8+a%2,8+a/2);
+                    m_Enemies[8+4+a]->SetPosition(8+a%2,8+a/2);
                 }
             }
             m_IceCream->SetPosition(1,1);
@@ -469,12 +467,11 @@ if (!LV_Change&&IsGaming())
                 }
             }//Fruit
             {
-                m_Enemies[8]->SetVisible(true);
-                m_Enemies[9]->SetVisible(true);
-                m_Enemies[10]->SetVisible(true);
-                m_Enemies[8]->SetPosition(10,6);
-                m_Enemies[9]->SetPosition(8,5);
-                m_Enemies[10]->SetPosition(6,5);
+                for (int a=0;a<3;a++)
+                {
+                    m_Enemies[8+a]->SetVisible(true);
+                    m_Enemies[8+a]->SetPosition(6+a*2,5);
+                }
             }
             {
                 for (int a=0;a<4;a++)
