@@ -86,6 +86,7 @@ void App::TurnOffButton()
     {
         Button->SetVisible(false);
     }
+    m_Texts[9]->SetVisible(false);
 }
 
 void App::TurnOffLevelButton()
