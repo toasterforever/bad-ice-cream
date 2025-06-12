@@ -113,7 +113,7 @@ void App::FruitCounter()
     }
 }
 
-void App::FruitUpdate2()
+void App::FruitUpdate2() //有多餘兩種水果時，讓第二階段水果顯示的函式
 {
     switch (m_Phase)
     {

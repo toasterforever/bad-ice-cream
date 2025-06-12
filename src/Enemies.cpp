@@ -35,12 +35,12 @@ void Enemies::MoveTowards(){
     i = NextI;
     j = NextJ;
 
-    if (Firing)
+    if (Firing)                                         //生火中
     {
         return;
     }
 
-    // if (ModelMove==Model::Move::Auto_Move)
+    // if (ModelMove==Model::Move::Auto_Move)           ////廢案
     // {
     //
     //     SetDirection(AutoMove(MainCharacterPosition));
@@ -198,7 +198,7 @@ char Enemies::TowardIs(Model::Direction NewDirection)
         return TowardIs(i+1, j);
     }
 }
-void Enemies::ChangeImage(int a)
+void Enemies::ChangeImage(int a)//圖片變更功能，生火的變化圖
 {
 
     std::string Image1="1.png";

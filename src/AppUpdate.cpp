@@ -7,10 +7,10 @@ void App::Update() {
     m_LVLockedPicture[0]->Unlock();
 
     TurnOnInterface();//InterFace轉換判定跟初始化
-    TurnOnLV();
+    TurnOnLV();//初始化關卡
 
     FruitCounter();
-    FruitUpdate2();
+    FruitUpdate2();//有多餘兩種水果時，讓第二階段水果顯示的函式
 
     CharacterUpdate();//角色判定
     InterfaceChangeFromLV();//LV換PHASE判定

@@ -69,7 +69,7 @@ bool Character::IsMoving() const {
     return glm::distance(m_Transform.translation, targetPosition) > .1f;
 }
 
-void Character::UpdatePosition()
+void Character::UpdatePosition() //滑動 而非 等速移動 ，沒甚麼意義，但我喜歡
 {
     glm::vec2 targetPosition = glm::vec2(-330 + cellSize * NextI, 330 - cellSize * NextJ);
 
@@ -103,7 +103,7 @@ bool Character::TowardHasThings(Model::Direction NewDirection)
 
 bool Character::TowardHasThings(int NewI, int NewJ)
 {
-    if (Map[NewI][NewJ] == '@'||Map[NewI][NewJ] == '#'||Map[NewI][NewJ] == '!')
+    if (Map[NewI][NewJ] == '@'||Map[NewI][NewJ] == '#'||Map[NewI][NewJ] == '!')//我對 '@'沒印象，似乎是個不必要程式，但為了避免刪掉後出錯，我決定不動它
     {
         return true;
     }

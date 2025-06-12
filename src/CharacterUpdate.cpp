@@ -50,7 +50,7 @@ void App::IceCreamUpdate()
 
 }
 
-void App::MapUpdate()
+void App::MapUpdate() //冰塊物件的偵測
 {
     {
         for (int i=1;i<11;i++)
@@ -82,7 +82,7 @@ void App::EnemiesUpdate()
 
                 if (enemy->fired()&&!enemy->IsMoving())
                 {
-                    switch (enemy->GetFireModel())
+                    switch (enemy->GetFireModel())  //根據Model不同，決定放火方式
                     {
                     case Model::Fired::One:
                         {
@@ -482,7 +482,7 @@ void App::EnemiesUpdate()
                     m_IceCream->SetVisible(false);
                 }
 
-                if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)
+                if (dist2(gen2) == 0||enemy->GetDirection()==Model::Direction::None)  //1%機率隨機轉彎
                 {
                     if (!enemy->fired())//&&enemy->GetModel()!=Model::Move::Auto_Move
                     {
@@ -501,14 +501,14 @@ void App::FruitUpdate()
         for (size_t i = 0; i < m_Fruit.size(); ++i)
         {
             auto& fruit = m_Fruit[i];// 安全地使用 index，遍歷不會錯
-            if (fruit->IfCollides(m_IceCream,fruit->GetPosition())&&fruit->GetVisibility()==true)
+            if (fruit->IfCollides(m_IceCream,fruit->GetPosition())&&fruit->GetVisibility()==true)//冰淇淋吃冰塊
             {
                 fruit->SetVisible(false);
                 fruit->SetInGame(false);
                 Map3[fruit->GetI()-1][fruit->GetJ()-1]='.';
 
             }
-            if (fruit->GetModel()!=Model::Move::Dont_Move&&fruit->GetVisibility())
+            if (fruit->GetModel()!=Model::Move::Dont_Move&&fruit->GetVisibility())//冰淇淋移動判定
             {
                 if (!m_Ice[fruit->GetIndex()]->isCreate())
                 {
@@ -524,7 +524,7 @@ void App::FruitUpdate()
     }//Fruit
 }
 
-void App::KeyUpdate()
+void App::KeyUpdate()//鍵盤輸入
 {
     if (Util::Input::IsKeyPressed(Util::Keycode::A)) {keyOrder.push_back(Util::Keycode::A);}
     else KeyRelease(Util::Keycode::A);
@@ -549,7 +549,9 @@ void App::KeyUpdate()
 void App::IceUpdate()
 {
     const auto now = std::chrono::steady_clock::now();
-    if (keyOrder.front()==Util::Keycode::SPACE&&m_IceCream->GetDirection()!=Model::Direction::None&&now - lastIceTime >= cooldownTime)
+    if (keyOrder.front()==Util::Keycode::SPACE&&                //按壓空白鍵
+        m_IceCream->GetDirection()!=Model::Direction::None&&    //主角有面向方向
+        now - lastIceTime >= cooldownTime)                      //冷卻時間
         {
             int NewX=m_IceCream->GetNextI(), NewY=m_IceCream->GetNextJ();
             Model::Direction direction=m_IceCream->GetDirection();
@@ -658,13 +660,13 @@ void App::CampFireUpdate()
             continue;
         }
         CampFire->TimeUpdate(m_Ice[CampFire->GetIndex()]->GetVisibility());
-        CampFire->ImageUpdate();
+        CampFire->ImageUpdate();//圖片更換  2000單位時間準備復燃 3000單位時間復燃
         if (
             abs(m_IceCream->GetPosition().x-CampFire->GetPosition().x)<40&&
             abs(m_IceCream->GetPosition().y-CampFire->GetPosition().y)<40
             )
         {
-            if (CampFire->GetFired())
+            if (CampFire->GetFired())//如果著火，且主角碰到他，就死亡
             {
                 m_IceCream->SetVisible(false);
             }
@@ -681,7 +683,7 @@ void App::BlockUpdate()
             continue;
         }
         Block->TimeUpdate(m_Ice[Block->GetIndex()]->GetVisibility());
-        if (Block->ChangeIce()&&Map[Block->GetI()][Block->GetJ()]=='.')
+        if (Block->ChangeIce()&&Map[Block->GetI()][Block->GetJ()]=='.')//冷卻時間到，且沒有其他物件，就製作冰塊
         {
             m_Ice[Block->GetIndex()]->SetVisible(true);
         }
@@ -694,7 +696,7 @@ void App::BlockUpdate()
             continue;
         }
         Block->TimeUpdate(m_Ice[Block->GetIndex()]->GetVisibility());
-        if (Block->ChangeIce())
+        if (Block->ChangeIce())//冷卻時間到，且冰塊存在，融化冰塊
         {
             m_Ice[Block->GetIndex()]->SetVisible(false);
         }
@@ -706,12 +708,12 @@ void App::BlockUpdate()
             continue;
         }
         Block->TimeUpdate(Block->GetVisibility());
-        if (!Block->ChangeIce())
+        if (!Block->ChangeIce())                                //如果時間到，跟冰塊一起消失
         {
             Block->SetVisible(false);
             m_Ice[Block->GetIndex()]->SetVisible(false);
         }
-        if (!m_Ice[Block->GetIndex()]->GetVisibility())
+        if (!m_Ice[Block->GetIndex()]->GetVisibility())         //冰塊消失就不用融化了，一起消失   適用於主角在融化到一半的時候破壞冰塊
         {
             Block->ResetTimer();
             Block->SetVisible(false);
