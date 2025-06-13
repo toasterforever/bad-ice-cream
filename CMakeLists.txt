@@ -58,6 +58,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEADER_FILES}
         include/Block.hpp
         src/Block.cpp
         src/TurnOffThings.cpp
+        Resources/Nothing_Important.cpp
 )
 
 if(MSVC)
