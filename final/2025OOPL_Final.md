@@ -27,9 +27,31 @@
 ### 程式架構
 以下是Class 架構，主要分成BackGround、Character和其他，另外也使用了Namespace Model 宣告enum class變數
 
-![img_5.png](img_5.png)
-
-![img_6.png](img_6.png)
+- Class 架構
+  - Util::BGM
+    - BGM
+  - Util::GameObject
+    - Picture
+    - Text
+    - Character
+      - Enemies
+        - Fruit
+      - Ice
+      - MainCharacter
+    - BackGround
+      - Wall
+      - Button
+      - Floor
+          - Block
+          - CampFire
+- NameSpace 與 enum class
+  - Model
+    - Fired
+    - Move
+    - Direction
+    - PictureSource
+    - ButtonStyle
+    - Block
 ### 程式技術
 1. 透過NameSpace結合enum class，統一資料格式與類型
    - 透過命名空間儲存多組具意義的列舉類別，有效避免命名衝突與型別錯誤
@@ -92,7 +114,10 @@
 | 7  | 使用三元運算子找死            | V  |
 
 ### 心得
-操控OOP程式的過程十分的有趣，從0開始建構復刻遊戲，看著他逐漸成形十分具有成就感
+操控OOP程式的過程十分的有趣，從0開始建構復刻遊戲，看著他逐漸成形十分具有成就感。<br><BR>
+從最一開始的抓定位、設計移動方式，到移動判定，到最後的冷卻時間。每一項都是以前沒有摸過的邏輯操作。尤其是關於移動方式的變數，在與敵人使用技能時的判定衝突導致程式結果不如預期時，讓我更加清楚知道變數維護的重要性。<BR><BR>
+雖然都是基礎的邏輯操作、沒有想像中困難，但在這之前從未想過可以這樣拼接出一個遊戲。我覺得非常有挑戰性與成就感。這次的遊戲專案確實的讓我對於OOP的操作方式有更高的理解。也讓我更加清楚知道變數維護的重要性。
+
 ### 貢獻比例
 | 功能  | 負責人 | 占比   |
 |-----|-----|------|
